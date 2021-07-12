@@ -771,12 +771,206 @@
             </div>
         </section>
         <section class="learn-page__layout--study-block">
-            <h3>2.13 Типы данных</h3>
-            <div>Code etc</div>
+            <h3>2.13 Циклы while и for</h3>
+            <div class="text">
+                <b>Цикл «while»</b>
+                <p>
+                    Синтаксис: while (condition) {...} <br>
+                    Код из тела цикла выполняется, пока условие condition истинно. <br>
+                    Второй вариант использования: "пока условие true" (while (i) {i--;} // остановится на 0).
+                </p>
+            </div>
+            <div class="text">
+                <b>Цикл «do…while»</b>
+                <p>
+                    Синтаксис: do {...} while (condition) {...} <br>
+                    Цикл сначала выполнит тело, а затем проверит условие condition, и пока его значение равно true, он будет выполняться снова и снова.
+                </p>
+            </div>
+            <div class="text">
+                <b>Цикл «for»</b>
+                <p>
+                    Синтаксис: for (начало; условие; шаг) {...} <br>
+                    Начало выполняется один раз, а затем каждая итерация заключается в проверке условия, после которой выполняется тело и шаг. <br><br>
+                    1) Можно объявить переменую внутри цикла: for (let i = 10; i > 0; i--) {...} <br>
+                    2) Можно пропустить любую из частей for: for (;i>3;) {...} (аналогично while (i > 3)).
+                </p>
+            </div>
+            <div class="text">
+                <b>Прерывание цикла: «break»</b>
+                <p>
+                    Обычно цикл завершается при вычислении условия в false. Но можно выйти при помощи break;<br>
+                    while (true) {value = +prompt("value", ""); if (!value) {break;}}
+                </p>
+            </div>
+            <div class="text">
+                <b>Переход к следующей итерации: continue</b>
+                <p>
+                    Директива continue – «облегчённая версия» break. При её выполнении цикл не прерывается, 
+                    а переходит к следующей итерации (если условие все ещё равно true). <br><br>
+                    Другими словами означает: пропустить оставшееся и пойти дальше. <br><br>
+                    Нельзя использовать continue вместе с тернарным оператором (будет ошибка).
+                </p>
+            </div>
+            <div class="text">
+                <b>Метки для break/continue</b>
+                <p>
+                    Например, есть for в котором ещё второй for. 
+                    Нам нужно выйти из второго for на область видимости файла в котором написан первый for, для этого используют метки. <br><br>
+                    Синтаксис: labelName: for (...) {...} с последующим break labelName. <br>
+                    Перенесёт нас на уровень где был объявлен цикл с меткой, и перенесет нас в его конец. <br>
+                    Но метка не позволит прыгнуть куда угодно (метка должна находиться выше цикла, а break внутри цикла).
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Последнее значение цикла</b>
+                <p>
+                    <code>
+                        3 потом 2 потом 1.
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Какие значения выведет цикл while?</b>
+                <p>
+                    <code>
+                        1. 1 2 3 4 <br>
+                        2. 1 2 3 4 5 // alert находится вне i++, счётчик внутри while будет выглядеть как 0 1 2 3 4, а alert как 1 2 3 4 5
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Какие значения выведет цикл for?</b>
+                <p>
+                    <code>
+                        1. 0 1 2 3 4 <br>
+                        2. 0 1 2 3 4 5 // присвоит i = 0, проверит условие, если true, выполнит, потом сделает i++.
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Выведите чётные числа</b>
+                <p>
+                    <code>
+                        for (let i = 2; i &lt;= 10; i++) {
+                            if (i % 2 === 0) {
+                                alert(i);
+                            }
+                        }
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Замените for на while</b>
+                <p>
+                    <code>
+                        let i = 0; <br>
+                        while (i &lt; 3) {
+                            alert( `number ${i}!` );
+                            i++;
+                        }
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Повторять цикл, пока ввод неверен</b>
+                <p>
+                    <code>
+                        let number;
+                        do {
+                            number = prompt("Введите число больше 100: ", 0);
+                        } while (number && number > 100);
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Вывести простые числа</b>
+                <p>
+                    <code>
+                        let number = +prompt("Введите число", 10);
+                        labelNum: for (let i = 2; i &lt;= n; i++) { // все числа от 2 до введенного в number
+                            for (let j = 2; j &lt; i; j++) { // делится ли число введенное в number на 
+                                if (i % j == 0) {
+                                    continue labelNum;
+                                }
+                            }
+                            alert(i); // простое число
+                        }
+                        // i === 2, j === 2 следовательно i % j === 0, в конец метки, выводит alert итд
+                    </code>
+                </p>
+            </div>
         </section>
         <section class="learn-page__layout--study-block">
-            <h3>2.14 Типы данных</h3>
-            <div>Code etc</div>
+            <h3>2.14 Конструкция "switch"</h3>
+            <div class="text">
+                <b>Синтаксис</b>
+                <p>
+                    Конструкция switch имеет один или более блок case и необязательный блок default. <br><br>
+                    switch(x) {case 'val1': ... break; case 'val2': ... break; default: ... break;} <br><br>
+                    switch выполняется от соответствующей директивы case и далее, до ближайшего break (или до конца switch).
+                    Если ни один case не совпал – выполняется (если есть) вариант default. <br><br>
+                    Если break нет, то выполнение пойдёт ниже по следующим case, при этом остальные проверки игнорируются.
+                </p>
+            </div>
+            <div class="help">
+                <b>Любое выражение может быть аргументом для switch/case</b>
+                <p>
+                    И switch и case допускают любое выражение в качестве аргумента. <br><br>
+                    switch (+a) {case b + 1: ... break;}
+                </p>
+            </div>
+            <div class="text">
+                <b>Группировка «case»</b>
+                <p>
+                    Несколько вариантов case, использующих один код, можно группировать. <br><br>
+                    switch(x) {case 'val1': case 'val2': ... break; default: ... break;} <br><br>
+                    Возможность группировать case – это побочный эффект того, как switch/case работает без break.
+                </p>
+            </div>
+            <div class="text">
+                <b>Тип имеет значение</b>
+                <p>
+                    Проверка на равенство всегда строгая. Значения должны быть одного типа, чтобы выполнялось равенство. <br><br>
+                    То есть если три case это строка, а четвертый это число, его код не выполнится.
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Напишите "if", аналогичный "switch"</b>
+                <p>
+                    <code>
+                        if (browser === 'Edge') {
+                            alert( "You've got the Edge!" );
+                        } else if (browser == 'Chrome' || browser == 'Firefox' || browser == 'Safari' || browser == 'Opera') {
+                            alert( 'Okay we support these browsers too' );
+                        } else {
+                            alert( 'We hope that this page looks ok!' );
+                        }
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Переписать условия "if" на "switch"</b>
+                <p>
+                    <code>
+                        const number = +prompt('Введите число между 0 и 3', '');
+                        switch(number) {
+                            case 0:
+                                alert('Вы ввели число 0');
+                                break;
+                            case 1: {
+                                alert('Вы ввели число 1');
+                                break;
+                            }
+                            case 2:
+                            case 3: {
+                                alert('Вы ввели число 2, а может и 3');
+                                break;
+                            }
+                        }
+                    </code>
+                </p>
+            </div>
         </section>
         <section class="learn-page__layout--study-block">
             <h3>2.15 Типы данных</h3>
