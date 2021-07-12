@@ -26,3 +26,24 @@ html, body {
   margin-bottom: 25px;
   padding: 25px;
 }
+
+.learn-page__layout--study-block .text {
+  background-color: rgb(128, 189, 148);
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.learn-page__layout--study-block .help {
+  background-color: rgb(128, 159, 189);
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.learn-page__layout--study-block .script {
+  background-color: rgb(190, 129, 129);
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
