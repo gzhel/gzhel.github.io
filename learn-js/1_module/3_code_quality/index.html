@@ -5,14 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="../../styles.css">
     <title>Основы JavaScript</title>
 </head>
 <body>
     <div class="learn-page__layout">
         <h1><a href="../../1_module/">Back to module 1</a></h1>
         <section class="learn-page__layout--study-block">
+            <h3>Обозначения:</h3>
+            <div class="text checked">Зеленый блок = прогресс изучения; Зеленая рамка = повторил, классно.</div>
+            <div class="help helpful">Синий блок = полезная подсказка; Синяя рамка = очень важно, очень классно.</div>
+            <div class="script useless">Красный блок = задача; Красная рамка = на мой взгляд не стоит внимания.</div>
+        </section>
+        <section class="learn-page__layout--study-block">
             <h3>3.1 Отладка в браузере Chrome (Chrome DevTools)</h3>
-            <div class="text">
+            <div class="text checked">
                 <b>Панель «Исходный код» («Sources»)</b>
                 <img src="./img/1.png" alt="" width="100%">
                 <p>
@@ -22,14 +29,14 @@
                     3) Зона Information and control (Сведения и контроль) отведена для отладки.
                 </p>
             </div>
-            <div class="text">
+            <div class="text helpful">
                 <b>Консоль</b>
                 <img src="./img/2.png" alt="" width="100%">
                 <p>
                     В ней можно вводить команды и выполнять их клавишей Enter.
                 </p>
             </div>
-            <div class="text">
+            <div class="text useless">
                 <b>Точки останова (breakpoints)</b>
                 <img src="./img/3.png" alt="" width="100%">
                 <p>
@@ -38,7 +45,7 @@
                     Пока исполнение поставлено «на паузу», мы можем просмотреть текущие значения переменных, выполнить команды в консоли, одним словом, мы выполняем отладку кода.
                 </p>
             </div>
-            <div class="text">
+            <div class="text useless">
                 <b>Остановимся и оглядимся</b>
                 <img src="./img/4.png" alt="" width="100%">
                 <p>
@@ -48,7 +55,7 @@
                     3) Scope показывает текущие переменные.
                 </p>
             </div>
-            <div class="text">
+            <div class="text useless">
                 <b>Пошаговое выполнение скрипта</b>
                 <img src="./img/5.png" alt="" width="100%">
                 <p>
@@ -56,9 +63,8 @@
                 </p>
                 <img src="./img/6.png" alt="" width="100%">
             </div>
-            <div class="text">
+            <div class="text helpful">
                 <b>Логирование</b>
-                <img src="./img/3.png" alt="" width="100%">
                 <p>
                     Если нужно что-то вывести в консоль из кода, применяется функция console.log.
                 </p>
@@ -66,45 +72,45 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>3.2 Советы по стилю кода</h3>
-            <div class="text">
+            <div class="text checked">
                 <b>Синтаксис</b>
                 <p>
                     Шпаргалка с правилами синтаксиса (подробнее смотрите ниже по тексту):
                 </p>
                 <img src="./img/7.png" alt="" width="100%">
             </div>
-            <div class="text">
+            <div class="text helpful">
                 <b>Фигурные скобки</b>
                 <p>
                     В однострочных инструкциях - не нужны. В многострочных - обязательны.
                 </p>
             </div>
-            <div class="text">
+            <div class="text useless">
                 <b>Длина строки</b>
                 <p>
                     Лучше всего разбивать их на более короткие. Обычно это 80 или 120 символов.
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>Отступы</b>
                 <p>
                     1) Горизонтальные отступы: два или четыре (Tab) пробела. <br><br>
                     2) Вертикальные отступы: пустые строки для разбивки кода на «логические блоки».
                 </p>
             </div>
-            <div class="text">
+            <div class="text helpful">
                 <b>Точка с запятой</b>
                 <p>
                     Точки с запятой должны присутствовать после каждого выражения, даже если их, казалось бы, можно пропустить.
                 </p>
             </div>
-            <div class="text">
+            <div class="text helpful">
                 <b>Уровни вложенности</b>
                 <p>
                     Уровней вложенности должно быть немного (для этого часто используют if с return).
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>Размещение функций</b>
                 <p>
                     1) Объявить функции перед кодом, который их вызовет. <br><br>
@@ -112,7 +118,7 @@
                     3) Смешанный стиль: функция объявляется там, где она используется впервые.
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>Автоматизированные средства проверки (линтеры)</b>
                 <p>
                     Автоматизированные средства проверки, так называемые «линтеры» – это инструменты, 
@@ -122,7 +128,7 @@
                     ESLint – пожалуй, самый современный линтер.
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Плохой стиль</b>
                 <p>
                     <span>Буду писать название строки и коммент.</span> <br><br>
@@ -149,7 +155,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>3.3 Комментарии</h3>
-            <div class="text">
+            <div class="text checked">
                 <b>Плохие комментарии</b>
                 <p>
                     Новички склонны использовать комментарии, чтобы объяснять, «что делает код».  <br><br>
@@ -157,7 +163,7 @@
                     Код должен быть таким, чтобы его можно было понять без комментариев.
                 </p>
             </div>
-            <div class="text">
+            <div class="text helpful">
                 <b>Хорошие комментарии</b>
                 <p>
                     Важно то, что написано. Но то, что не написано, может быть даже более важным, 
@@ -167,7 +173,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>3.4 Ниндзя-код</h3>
-            <div class="text">
+            <div class="text clown">
                 <b>Выводы</b>
                 <p>
                     var $; <br>

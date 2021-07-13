@@ -30,7 +30,7 @@ code {
 
 .learn-page__layout--study-block {
   font-family: 'Courier New', Courier, monospace;
-  background-color: rgb(240, 198, 151);
+  background-color: rgb(184, 173, 160);
   width: 50%;
   border-radius: 10px;
   margin-bottom: 25px;
@@ -38,7 +38,7 @@ code {
 }
 
 .learn-page__layout--study-block .text {
-  background-color: rgb(128, 189, 148);
+  background-color: rgb(147, 201, 165);
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 10px;

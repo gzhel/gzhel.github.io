@@ -5,21 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="../../styles.css">
     <title>Основы JavaScript</title>
 </head>
 <body>
     <div class="learn-page__layout">
         <h1><a href="../../1_module/">Back to module 1</a></h1>
         <section class="learn-page__layout--study-block">
+            <h3>Обозначения:</h3>
+            <div class="text checked">Зеленый блок = прогресс изучения; Зеленая рамка = повторил, классно.</div>
+            <div class="help helpful">Синий блок = полезная подсказка; Синяя рамка = очень важно, очень классно.</div>
+            <div class="script useless">Красный блок = задача; Красная рамка = на мой взгляд не стоит внимания.</div>
+        </section>
+        <section class="learn-page__layout--study-block">
             <h3>2.2 Структура кода</h3>
-            <div class="text">
+            <div class="text checked">
                 <b>Нужно всегда ставить ";" в конце выражения.</b>
                 <p>
                     JS обычно понимает закончено выражение или нет, например если в конце строки стоит "+", 
                     то выражение не закончено и JS читает следующую строку как продолжение предыдущей.
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>Комментарии</b>
                 <p>
                     Однострочные: // Comment <br>
@@ -27,7 +34,7 @@
                     И ещё есть комментарии-напоминания, TODO: // TODO: Comment
                 </p>
             </div>
-            <div class="help">
+            <div class="help useless">
                 <b>Горячие клавиши в IDE</b>
                 <p>
                     Ctrl + / для однострочного комментария. <br>
@@ -37,14 +44,14 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>2.3 Строгий режим - "use strict"</h3>
-            <div class="text">
+            <div class="text checked">
                 <b>Строка "use strict"; добавляет поддержку старого кода</b>
                 <p>
                     Должна находиться в начале скрипта в котором может быть старый код.
                     Обычно его используют на весь файл, но можно поставить внутри конкретной функции.
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Например задание восьмеричных переменных.</b>
                 <script>
                     (function getVariable() {
@@ -80,7 +87,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>2.4 Переменные</h3>
-            <div class="text">
+            <div class="text checked">
                 <b>let</b>
                 <p>
                     Переменная объявляется через let, мы можем либо задать её сразу (let a = "a";), либо позже (let a; a = "a";). <br><br>
@@ -89,14 +96,14 @@
                     Переменную let с именем можно задать всего один раз (let a = "A"; let a = "B"; => Ошибка). <br><br>
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>var</b>
                 <p>
                     Есть устаревший вид переменной let (var), которая имеет некоторые отлчия. <br><br>
                     Переменную var с именем можно задать несколько раз (затерев старое значение) (var a = "A"; let a = "B"; => a === "B").
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Пример блочной области видимости let</b>
                 <script>
                     if (true) {
@@ -116,7 +123,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script useless">
                 <b>Поведение счётчика цикла при var и let</b>
                 <p>P.S. тут заинтересовался разницей var и let подробнее и зашёл на <a href="https://skillbox.ru/media/code/chem_razlichayutsya_var_let_i_const_v_javascript/">сайт</a></p>
                 <p>"Переменная var, созданная вне функции, действует как глобальная переменная — она доступна из любой части скрипта. Что же касается let, то такие переменные доступны только внутри того блока {}, в котором они созданы."</p>
@@ -143,7 +150,7 @@
                     </code>
                 </p>
             </div>
-            <div class="help">
+            <div class="help helpful">
                 <b>Имена переменных</b>
                 <p>
                     1) Имя переменной должно содержать только буквы, цифры или символы $ и _. <br><br>
@@ -155,7 +162,7 @@
                     7) Всегда стоит задавать переменные через let (нельзя делай так wordA = "A"; делай так let wordA = "A";)
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>const</b>
                 <p>
                     Константы нельзя изменить. Имеют блочную область видимости, как и let. <br><br>
@@ -163,20 +170,14 @@
                     И ещё читал давно, чтобы полностью запретить изменение массива, используют метод freeze().
                 </p>
             </div>
-            <div class="text">
-                <b>const</b>
-                <p>
-                    Константы нельзя изменить. Имеют блочную область видимости, как и let.
-                </p>
-            </div>
-            <div class="help">
+            <div class="help checked">
                 <b>Константы в верхнем регистре</b>
                 <p>
                     1) Используют как псевдонимы для «жёстко закодированных» значений: именования цвета итд (const COLOR_RED = "#F00"). <br><br>
                     2) Константы в camelCase используют во всех остальных случаях.
                 </p>
             </div>
-            <div class="help">
+            <div class="help helpful">
                 <b>Придумывайте правильные имена</b>
                 <p>
                     1) Название переменной должно иметь ясный и понятный смысл, говорить о том, какие данные в ней хранятся.<br><br>
@@ -188,7 +189,7 @@
                     связанные с ним переменные currentUser или newUser, а не, к примеру, currentVisitor или newManInTown.
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Работа с переменными</b>
                 <script>
                     let admin;
@@ -208,7 +209,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Придумайте правильные имена</b>
                 <script>
                     let planetName;
@@ -221,7 +222,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script helpful">
                 <b>Задачи. Какие буквы (заглавные или строчные) использовать для имён констант?</b>
                 <p>
                     <code>
@@ -233,7 +234,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>2.5 Типы данных</h3>
-            <div class="text">
+            <div class="text checked">
                 <b>Основы</b>
                 <p>
                     1) Есть восемь основных типов данных в JavaScript: number, BigInt, string, bool, null, undefined, object, symbol.<br><br>
@@ -241,7 +242,7 @@
                     3) JS это динамически типизированный язык (переменные не привязаны к типу данных).
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>number</b>
                 <p>
                     Целые числа и числа с плавающей точкой.<br><br>
@@ -249,58 +250,58 @@
                     Математические операции в JS "безопасны", если поделим "A" на 0, то код не взорвётся, получим NaN.
                 </p>
             </div>
-            <div class="text">
+            <div class="text useless">
                 <b>BigInt</b>
                 <p>
                     Тот же number, но только для бОльших чисел (произвольной длины).
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>string</b>
                 <p>
                     Должна быть заключена в кавычки ('', "", `${userName}`).<br><br>
                     Обратные кавычки (``), внутри {} принимают переменную или выражение и возвращают результат как часть строки.
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>bool</b>
                 <p>
                     Может принимать только два значения: true (истина) и false (ложь).
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>null</b>
                 <p>
                     Это просто отдельный тип, специальное значение, которое представляет собой «ничего», «пусто» или «значение неизвестно».
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>undefined</b>
                 <p>
                     Это просто отдельный тип, специальное значение, означает, что «значение не было присвоено». <br><br>
-                    Если переменная объявлена, но ей не присвоено никакого значения, то её значением будет undefined.
+                    Если переменная <b>объявлена</b>, но ей не присвоено никакого значения, то её значением будет undefined.
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>object</b>
                 <p>
                     Все остальные типы называются «примитивными», потому что их значениями могут быть только простые значения 
                     (будь то строка, или число, или что-то ещё). В объектах же хранят коллекции данных или более сложные структуры.
                 </p>
             </div>
-            <div class="text">
+            <div class="text useless">
                 <b>symbol</b>
                 <p>
                     Используется для создания уникальных идентификаторов в объектах. <b> P.S. вот тут не совсем понял, но говорят дальше подробнее будет.</b>
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>Оператор typeof</b>
                 <p>
                     Нужен если хотим сделать проверку на тип, возвращает строку с типом аргумента.
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Шаблонные строки</b>
                 <p>
                     <code>
@@ -313,14 +314,14 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>2.7 Преобразование типов</h3>
-            <div class="text">
+            <div class="text helpful">
                 <b>Строковое преобразование (к string)</b>
                 <p>
                     1) Через alert(value). <br><br>
                     2) Через String(value).
                 </p>
             </div>
-            <div class="text">
+            <div class="text helpful">
                 <b>Численное преобразование (к number)</b>
                 <p>
                     1) Через математические операторы (*, /, -). <br><br>
@@ -328,7 +329,7 @@
                     3) Через унарный знак "+".
                 </p>
             </div>
-            <div class="text">
+            <div class="text helpful">
                 <b>Логическое  преобразование (к bool)</b>
                 <p>
                     1) Через логические операции (a > b вернёт true/false, и так далее). <br><br>
@@ -336,7 +337,7 @@
                     3) Через двойной восклицательный знак (!!something).
                 </p>
             </div>
-            <div class="help">
+            <div class="help helpful">
                 <b>Дополнительно</b>
                 <p>
                     0, null, undefined, NaN, "" возвращает false, остальное возвращает true (даже строка с пробелом " " вернёт true).
@@ -345,7 +346,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>2.8 Базовые операторы, математика</h3>
-            <div class="text">
+            <div class="text checked">
                 <b>Термины: «унарный», «бинарный», «операнд»</b>
                 <p>
                     1) Операнд - то над чем совершается операция ( <b>5</b> * <b>2</b> )<br><br>
@@ -353,7 +354,7 @@
                     3) Бинарный применяется к двум операндам (например y - x).
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>Математика</b>
                 <p>
                     1) Сложение (+)<br><br>
@@ -364,14 +365,14 @@
                     6) Возведение в степень (**, например 2**3 будет 8)
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>Сложение строк при помощи бинарного +</b>
                 <p>
                     В JS можно сложить строки через знак + (например let s = "Hello" + "World!"; // Hello World!).
                     Причём даже если операндов много и хоть один из них строка, то результатом будет строка.
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>Приоритет операторов</b>
                 <p>
                     1) Большая часть тут понятна из школьной программы (* и / выше + и -, приоритет скобкам итд). <br><br>
@@ -379,21 +380,21 @@
                     3) У присваивания (=) низкий приоритет из-за таких (let x = 2*3;) моментов.
                 </p>
             </div>
-            <div class="text">
+            <div class="text useless">
                 <b>Присваивание</b>
                 <p>
                     1) Т.к. присваивание это оператор, его можно использовать прямо в вычислении: let a = 1, b = 2; let c = 3 - (a = b + 1); // a === 3; b === 0. <br><br>
                     2) Можно использовать присваивание по цепочке (let a, b, c; a = b = c = 4;), но <b>лучше так не делать</b>. 
                 </p>
             </div>
-            <div class="text">
+            <div class="text useless">
                 <b>Сокращённая арифметика с присваиванием</b>
                 <p>
                     Бывает нужно записать в переменную результат операции с ней же и ещё чем-то (let n = 5; n = n + 5;). <br><br>
                     Для таких случаев используют сокращения (*=, +=, например let n = 5; n += 5;).
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>Инкремент/декремент</b>
                 <p>
                     1) Инкремент увеличивает переменную на 1 (value++), декремент уменьшает на 1 (value--). <br><br>
@@ -405,13 +406,13 @@
                     Если нужно увеличить и при этом получить значение переменной до увеличения – нужна постфиксная форма</b> 
                 </p>
             </div>
-            <div class="text">
+            <div class="text useless">
                 <b>Оператор "запятая"</b>
                 <p>
                     Позволяет вычислить несколько выражений, разделяя их запятой, но вернёт только результат последнего (например, let a = (1+2, 3+4); // a === 7).
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Постфиксная и префиксная формы</b>
                 <p>
                     <code>
@@ -422,7 +423,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Результат присваивания</b>
                 <p>
                     <code>
@@ -431,7 +432,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Преобразование типов</b>
                 <p>
                     <code>
@@ -453,7 +454,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Исправьте сложение</b>
                 <p>
                     <code>
@@ -466,34 +467,34 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>2.9 Операторы сравнения</h3>
-            <div class="text">
+            <div class="text helpful">
                 <b>Результат сравнения имеет логический тип</b>
                 <p>
                     1) Все операторы сравнения возвращают значение логического типа (true/false). <br>
                     2) Результат сравнения можно присвоить переменной, как и любое значение (let a = 3 > 2; // true).
                 </p>
             </div>
-            <div class="text">
+            <div class="text useless">
                 <b>Сравнение строк</b>
                 <p>
                     1) Строки сравниваются посимвольно, по алфавитному порядку ('Коты' > 'Кода' //true). <br>
                     2) Имеет значение регистр символов. Заглавная буква "A" меньше строчной "a", т.к. строчные буквы имеют больший код в таблице символов.
                 </p>
             </div>
-            <div class="text">
+            <div class="text useless">
                 <b>Сравнение разных типов</b>
                 <p>
                     При сравнении значений разных типов JavaScript приводит каждое из них к числу ("2" > 1 // true).
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>Строгое сравнение</b>
                 <p>
                     1) Стоит использовать его (===), вместо обычного сравнения (==), т.к. он проверяет равенство без приведения типов ("1" === 1 // false). <br>
                     2) Аналогично и с оператором строгого неравенства (!==).
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>Сравнение с null и undefined</b>
                 <p>
                     Достаточно придерживаться двух правил: <br>
@@ -501,7 +502,7 @@
                     2) Не используйте сравнения >= > &lt; &lt;= с переменными, которые могут принимать значения null/undefined, разве что вы полностью уверены в том, что делаете.
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Операторы сравнения</b>
                 <p>
                     <code>
@@ -518,25 +519,25 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>2.10 Условное ветвление: if, '?'</h3>
-            <div class="text">
+            <div class="text checked">
                 <b>Инструкция «if»</b>
                 <p>
                     Вычисляет условие в скобках и, если результат true, то выполняет блок кода, например if (userName === "Alex") {...}.
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>Блок «else»</b>
                 <p>
                     if может содержать необязательный блок «else». Он выполняется, когда условие ложно.
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>Несколько условий: «else if»</b>
                 <p>
                     Иногда, нужно проверить несколько вариантов условия. Для этого используется блок else if.
                 </p>
             </div>
-            <div class="text">
+            <div class="text helpful">
                 <b>Тернарный оператор "?"</b>
                 <p>
                     1) Более короткая запись if {} else {}. Синтаксис: let result = условие ? значение1 : значение2; <br>
@@ -544,7 +545,7 @@
                     3) Иногда тернарный оператор используют вместо if, но <b>так делать не стоит.</b>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. if (строка с нулём)</b>
                 <p>
                     <code>
@@ -552,7 +553,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Название JavaScript</b>
                 <p>
                     <code>
@@ -565,7 +566,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Покажите знак числа</b>
                 <p>
                     <code>
@@ -582,7 +583,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Перепишите 'if' в '?'</b>
                 <p>
                     <code>
@@ -590,7 +591,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Перепишите 'if..else' в '?'</b>
                 <p>
                     <code>
@@ -603,13 +604,13 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>2.11 Логические операторы</h3>
-            <div class="text">
+            <div class="text checked">
                 <b>|| (ИЛИ)</b>
                 <p>
                     Синтаксис: result = a || b; false только когда оба условия false.
                 </p>
             </div>
-            <div class="help">
+            <div class="help helpful">
                 <b>ИЛИ «||» находит первое истинное значение</b>
                 <p>
                     При выполнении ИЛИ || с несколькими значениями: result = value1 || value2 || value3; <br>
@@ -618,13 +619,13 @@
                     2) Сокращённое вычисление: let x; (2 > 3) || (x = 1); // первый аргумент false, переключится на второй и задаст x значение 1. 
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>&& (И)</b>
                 <p>
                     Синтаксис: result = a && b; true только когда оба условия true.
                 </p>
             </div>
-            <div class="help">
+            <div class="help helpful">
                 <b>И «&&» находит первое ложное значение</b>
                 <p>
                     При нескольких подряд операторах И: result = value1 && value2 && value3; <br>
@@ -633,7 +634,7 @@
                     2) Действие в правой части && выполнится только в том случае, если до него дойдут вычисления.
                 </p>
             </div>
-            <div class="text">
+            <div class="text helpful">
                 <b>! (НЕ)</b>
                 <p>
                     Синтаксис: result = !value; <br>
@@ -641,7 +642,7 @@
                     2) Двойное НЕ используют для преобразования к логическому типу: !!"something" // true
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Что выведет alert (ИЛИ)?</b>
                 <p>
                     <code>
@@ -649,7 +650,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Что выведет alert (ИЛИ)?</b>
                 <p>
                     <code>
@@ -658,7 +659,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Что выведет alert (И)?</b>
                 <p>
                     <code>
@@ -666,7 +667,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Что выведет alert (И)?</b>
                 <p>
                     <code>
@@ -674,7 +675,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Что выведет этот код?</b>
                 <p>
                     <code>
@@ -683,7 +684,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Проверка значения из диапазона</b>
                 <p>
                     <code>
@@ -691,7 +692,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Проверка значения вне диапазона</b>
                 <p>
                     <code>
@@ -700,7 +701,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Вопрос о "if"</b>
                 <p>
                     <code>
@@ -710,7 +711,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Проверка логина</b>
                 <p>
                     <b>Можно скопировать код в форматтер или зайти в код на github.</b> <br>
@@ -736,7 +737,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>2.12 Оператор объединения с null '??'</h3>
-            <div class="text">
+            <div class="text checked">
                 <b>Основы</b>
                 <p>
                     Результат выражения a ?? b будет следующим: a, если значение a определено, b, если значение a не определено. <br>
@@ -744,7 +745,7 @@
                     Пример: result = a ?? b равноценен result = (a !== null && a !== undefined) ? a : b;
                 </p>
             </div>
-            <div class="text">
+            <div class="text helpful">
                 <b>Сравнение с ||</b>
                 <p>
                     Важное различие между ними заключается в том, что: <br>
@@ -755,7 +756,7 @@
                     2) height ?? 100 проверяет, что переменная height содержит null/undefined. // 0
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>Приоритет</b>
                 <p>
                     Оператор ?? имеет довольно низкий приоритет: 5. Таким образом, 
@@ -763,7 +764,7 @@
                     <b>Из этого следует, что если нужно выбрать значение при помощи оператора ?? вместе с другими операторами в выражении, следует добавить круглые скобки.</b>
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>Использование ?? вместе с && или ||</b>
                 <p>
                     Запрещено использовать вместе с || или && без явно указанных круглых скобок.
@@ -772,7 +773,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>2.13 Циклы while и for</h3>
-            <div class="text">
+            <div class="text useless">
                 <b>Цикл «while»</b>
                 <p>
                     Синтаксис: while (condition) {...} <br>
@@ -780,14 +781,14 @@
                     Второй вариант использования: "пока условие true" (while (i) {i--;} // остановится на 0).
                 </p>
             </div>
-            <div class="text">
+            <div class="text useless">
                 <b>Цикл «do…while»</b>
                 <p>
                     Синтаксис: do {...} while (condition) {...} <br>
                     Цикл сначала выполнит тело, а затем проверит условие condition, и пока его значение равно true, он будет выполняться снова и снова.
                 </p>
             </div>
-            <div class="text">
+            <div class="text helpful">
                 <b>Цикл «for»</b>
                 <p>
                     Синтаксис: for (начало; условие; шаг) {...} <br>
@@ -796,14 +797,14 @@
                     2) Можно пропустить любую из частей for: for (;i>3;) {...} (аналогично while (i > 3)).
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>Прерывание цикла: «break»</b>
                 <p>
                     Обычно цикл завершается при вычислении условия в false. Но можно выйти при помощи break;<br>
                     while (true) {value = +prompt("value", ""); if (!value) {break;}}
                 </p>
             </div>
-            <div class="text">
+            <div class="text useless">
                 <b>Переход к следующей итерации: continue</b>
                 <p>
                     Директива continue – «облегчённая версия» break. При её выполнении цикл не прерывается, 
@@ -812,7 +813,7 @@
                     Нельзя использовать continue вместе с тернарным оператором (будет ошибка).
                 </p>
             </div>
-            <div class="text">
+            <div class="text useless">
                 <b>Метки для break/continue</b>
                 <p>
                     Например, есть for в котором ещё второй for. 
@@ -822,7 +823,7 @@
                     Но метка не позволит прыгнуть куда угодно (метка должна находиться выше цикла, а break внутри цикла).
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Последнее значение цикла</b>
                 <p>
                     <code>
@@ -830,7 +831,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Какие значения выведет цикл while?</b>
                 <p>
                     <code>
@@ -839,7 +840,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Какие значения выведет цикл for?</b>
                 <p>
                     <code>
@@ -848,7 +849,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Выведите чётные числа</b>
                 <p>
                     <code>
@@ -860,7 +861,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Замените for на while</b>
                 <p>
                     <code>
@@ -872,7 +873,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Повторять цикл, пока ввод неверен</b>
                 <p>
                     <code>
@@ -883,7 +884,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Вывести простые числа</b>
                 <p>
                     <code>
@@ -903,7 +904,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>2.14 Конструкция "switch"</h3>
-            <div class="text">
+            <div class="text helpful">
                 <b>Синтаксис</b>
                 <p>
                     Конструкция switch имеет один или более блок case и необязательный блок default. <br><br>
@@ -913,14 +914,14 @@
                     Если break нет, то выполнение пойдёт ниже по следующим case, при этом остальные проверки игнорируются.
                 </p>
             </div>
-            <div class="help">
+            <div class="help useless">
                 <b>Любое выражение может быть аргументом для switch/case</b>
                 <p>
                     И switch и case допускают любое выражение в качестве аргумента. <br><br>
                     switch (+a) {case b + 1: ... break;}
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>Группировка «case»</b>
                 <p>
                     Несколько вариантов case, использующих один код, можно группировать. <br><br>
@@ -928,14 +929,14 @@
                     Возможность группировать case – это побочный эффект того, как switch/case работает без break.
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>Тип имеет значение</b>
                 <p>
                     Проверка на равенство всегда строгая. Значения должны быть одного типа, чтобы выполнялось равенство. <br><br>
                     То есть если три case это строка, а четвертый это число, его код не выполнится.
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Напишите "if", аналогичный "switch"</b>
                 <p>
                     <code>
@@ -949,7 +950,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Переписать условия "if" на "switch"</b>
                 <p>
                     <code>
@@ -974,28 +975,28 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>2.15 Функции</h3>
-            <div class="text">
+            <div class="text checked">
                 <b>Объявление функции</b>
                 <p>
                     Синтаксис объявления: function showMessage() {...}. Синтаксис вызова: showMessage();<br><br>
                     Ключевое слово function => имя функции => параметры в круглых скобках и код функции.
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>Локальные переменные</b>
                 <p>
                     Переменные, объявленные внутри функции, видны только внутри этой функции (это фича блочной ОВ let/const).
                 </p>
             </div>
-            <div class="text">
+            <div class="text helpful">
                 <b>Внешние переменные</b>
                 <p>
-                    У функции есть доступ к внешним переменным (объявленные выше тела функции, тоже фича области видимости). <br><br>
+                    У функции есть доступ к внешним переменным (<b>объявленные</b> выше тела функции, тоже фича области видимости). <br><br>
                     1) Функция обладает полным доступом к внешним переменным и может изменять их значение. <br>
                     2) Внешняя переменная используется, только если <b> внутри функции нет такой локальной</b>.
                 </p>
             </div>
-            <div class="help">
+            <div class="help checked">
                 <b>Глобальные переменные</b>
                 <p>
                     Переменные, объявленные снаружи всех функций называются глобальными. <br><br>
@@ -1003,14 +1004,14 @@
                     Желательно сводить использование глобальных переменных к минимуму.
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>Параметры</b>
                 <p>
                     Мы можем передать внутрь функции любую информацию, используя параметры (также называемые аргументами функции). <br><br>
                     Например function showMessage(from, text). Тут from и text - это параметры.
                 </p>
             </div>
-            <div class="text">
+            <div class="text helpful">
                 <b>Параметры по умолчанию</b>
                 <p>
                     Если параметр не указан, то его значением становится undefined.<br><br>
@@ -1018,7 +1019,7 @@
                     В качестве параметра по умолчанию можно использовать функцию, которая вернёт значение.
                 </p>
             </div>
-            <div class="help">
+            <div class="help helpful">
                 <b>Возврат значения</b>
                 <p>
                     Функция может вернуть результат, который будет передан в вызвавший её код.<br><br>
@@ -1029,7 +1030,7 @@
                     4) Результат функции с пустым return или без него – undefined.
                 </p>
             </div>
-            <div class="help">
+            <div class="help helpful">
                 <b>Выбор имени функции</b>
                 <p>
                     Функция – это действие. Поэтому имя функции обычно является глаголом. Оно должно быть простым, точным и описывать действие функции.<br><br>
@@ -1040,13 +1041,13 @@
                     (в этом случае мы можем создать третью функцию, которая будет их вызывать). Пример: getAge – будет плохим выбором, если функция будет выводить alert с возрастом (должна только возвращать его).
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>Функции == Комментарии</b>
                 <p>
                     Функции должны быть короткими и делать только что-то одно. Если это что-то большое, имеет смысл разбить функцию на несколько меньших. <br><br>
                     Допустимо создавать функции, даже если мы не планируем повторно использовать их. Такие функции структурируют код и делают его более понятным.
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Обязателен ли "else"?</b>
                 <p>
                     <code>
@@ -1054,7 +1055,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Перепишите функцию, используя оператор '?' или '||'</b>
                 <p>
                     <code>
@@ -1063,7 +1064,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Функция min(a, b)</b>
                 <p>
                     <code>
@@ -1071,7 +1072,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Функция pow(x,n)</b>
                 <p>
                     <code>
@@ -1082,14 +1083,14 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>2.16 Function Expression</h3>
-            <div class="text">
+            <div class="text checked">
                 <b>Основы</b>
                 <p>
                     Function Declaration: function sayHi() { alert( "Привет" ); }<br><br>
                     Function Expression: let sayHi = function() { alert( "Привет" ); };
                 </p>
             </div>
-            <div class="help">
+            <div class="help helpful">
                 <b>Функции-«колбэки»</b>
                 <p>
                     Пример: есть функция function ask(question, yes, no) {if (confirm(question)) {yes()} else {no();}}. ask - текст, yes - функция, no - функция.<br><br>
@@ -1100,7 +1101,7 @@
                     Можно записать это короче, через <b>анонимные функции</b>: ask("Да?", function() {"Да"}, function() {"Нет"}).
                 </p>
             </div>
-            <div class="help">
+            <div class="help checked">
                 <b>Функция – это значение, представляющее «действие»</b>
                 <p>
                     Обычные значения, такие как строки или числа представляют собой данные.<br><br>
@@ -1108,7 +1109,7 @@
                     Мы можем передавать их из переменной в переменную и запускать, когда захотим.
                 </p>
             </div>
-            <div class="text">
+            <div class="text helpful">
                 <b>Function Expression в сравнении с Function Declaration</b>
                 <p>
                     Function Declaration: function sayHi() { alert( "Привет" ); }<br><br>
@@ -1119,7 +1120,7 @@
                     Function Expression создаётся, когда выполнение доходит до него, и затем уже может использоваться.
                 </p>
             </div>
-            <div class="help">
+            <div class="help checked">
                 <b>Когда использовать Function Declaration, а когда Function Expression?</b>
                 <p>
                     В большинстве случаев, когда нам нужно создать функцию, предпочтительно использовать Function Declaration, 
@@ -1129,7 +1130,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>2.17 Функции-стрелки, основы</h3>
-            <div class="text">
+            <div class="text helpful">
                 <b>Основы</b>
                 <p>
                     Синтаксис: let func = (arg1, arg2, ...argN) => expression<br><br>
@@ -1137,13 +1138,13 @@
                     let welcome = (age &lt; 18) ? () => alert('Привет') : () => alert("Здравствуйте!");
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>Многострочные стрелочные функции</b>
                 <p>
                     Можно писать в несколько строк, но нужен будет return и скобки {}
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Перепишите с использованием функции-стрелки</b>
                 <p>
                     <code>
@@ -1155,26 +1156,26 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>2.18 Особенности JavaScript</h3>
-            <div class="help">
+            <div class="help checked">
                 <b>Структура кода</b>
                 <p>
                     Инструкции разделяются точкой с запятой.
                 </p>
             </div>
-            <div class="help">
+            <div class="help checked">
                 <b>Строгий режим</b>
                 <p>
                     Чтобы по максимуму использовать возможности современного JavaScript, все скрипты рекомендуется начинать с добавления директивы "use strict".
                 </p>
             </div>
-            <div class="help">
+            <div class="help checked">
                 <b>Переменные</b>
                 <p>
                     1) Можно объявить при помощи: let, const (константа, т.е. изменению не подлежит), var (устаревший способ). <br><br>
                     2) Имя переменной может включать: Буквы и цифры, однако цифра не может быть первым символом. Символы $ и _ используются наряду с буквами. Иероглифы.<br><br>
                 </p>
             </div>
-            <div class="help">
+            <div class="help checked">
                 <b>Операторы</b>
                 <p>
                     1) Арифметические: Простые * + - /, а также деление по модулю % и возведение в степень **. <br><br>
@@ -1184,7 +1185,7 @@
                     5) Сравнение: Проверка на равенство == значений разных типов конвертирует их в число (за исключением null и undefined).
                 </p>
             </div>
-            <div class="help">
+            <div class="help checked">
                 <b>Циклы</b>
                 <p>
                     1) Мы изучили три вида циклов: while(condition){...}, do {...} while (condition);, for(let i = 0; i &lt; 10; i++) {...}<br><br>
@@ -1192,13 +1193,13 @@
                     3) Директивы break/continue позволяют выйти из цикла/текущей итерации. Используйте метки для выхода из вложенных циклов.
                 </p>
             </div>
-            <div class="help">
+            <div class="help checked">
                 <b>Конструкция «switch»</b>
                 <p>
                     Конструкция «switch» может заменить несколько проверок if. При сравнении она использует оператор строгого равенства ===.
                 </p>
             </div>
-            <div class="help">
+            <div class="help checked">
                 <b>Функции</b>
                 <p>
                     1) Function Declaration, Function Expression, Стрелочные функции.<br><br>
