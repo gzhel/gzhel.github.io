@@ -7,6 +7,7 @@ html, body {
   height: 100%;
   padding: 0;
   margin: 0;
+  background-color: rgb(235 236 238);;
 }
 
 .learn-page__layout {
@@ -16,6 +17,8 @@ html, body {
   align-items: center;
   flex-direction: column;
   margin: 25px 0;
+  background: url('https://yt3.ggpht.com/a/AGF-l7-OY3Y94086xfi3-a522vkEbcwryGiLOjxe3A=s900-c-k-c0xffffffff-no-rj-mo');
+  background-size: 300px;
 }
 
 .learn-page__layout--study-block {
