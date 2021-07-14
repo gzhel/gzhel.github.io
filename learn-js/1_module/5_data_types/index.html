@@ -429,6 +429,664 @@
                 </p>
             </div>
         </section>
+        <section class="learn-page__layout--study-block">
+            <h3>5.5 Методы массивов</h3>
+            <div class="help">
+                <b>Добавление/удаление элементов</b>
+                <p>
+                    1) arr.splice(pos, deleteCount, ...items) – начиная с индекса pos, удаляет deleteCount элементов и вставляет items. <br><br>
+                    2) arr.slice(start, end) – создаёт новый массив, копируя в него элементы с позиции start до end (не включая end). <br><br>
+                    3) arr.concat(arg1, arg2...) – возвращает новый массив: копирует все члены текущего массива и добавляет к нему items. 
+                    Если какой-то из items является массивом, тогда берутся его элементы.
+                </p>
+            </div>
+            <div class="text">
+                <b>Перебор: forEach</b>
+                <p>
+                    arr.forEach(func) – вызывает func для каждого элемента. Ничего не возвращает. <br><br>
+                    Например: ["Bilbo", "Gandalf", "Nazgul"].forEach(alert); // Вызов alert для каждого элемента
+                </p>
+            </div>
+            <div class="help">
+                <b>Поиск в массиве</b>
+                <p>
+                    1) arr.includes(item, from) – ищет item, начиная с индекса from, и возвращает true, если поиск успешен. <br><br>
+                    2) arr.find(func)/arr.filter(func) – фильтрует элементы через функцию и отдаёт первое/все значения, 
+                    при прохождении которых через функцию возвращается true. <br><br>
+                    3) arr.findIndex похож на find, но возвращает индекс вместо значения. <br><br>
+                </p>
+            </div>
+            <div class="help">
+                <b>Преобразование массива</b>
+                <p>
+                    1) arr.map(func) – создаёт новый массив из результатов вызова func для каждого элемента. <br><br>
+                    2) arr.sort(func) – сортирует массив «на месте», а потом возвращает его. <br><br>
+                    3) arr.reverse() – «на месте» меняет порядок следования элементов на противоположный и возвращает изменённый массив. <br><br>
+                    4) arr.split/join – преобразует строку в массив и обратно. <br><br>
+                    5) reduce(func, initial) – вычисляет одно значение на основе всего массива, вызывая func для каждого элемента и передавая промежуточный результат между вызовами.
+                </p>
+            </div>
+            <div class="text">
+                <b>Дополнительно</b>
+                <p>
+                    Array.isArray(arr) проверяет, является ли arr массивом. <br><br>
+                    Обратите внимание, что методы sort, reverse и splice изменяют исходный массив. <br><br>
+                    arr.some(fn)/arr.every(fn): Функция fn вызывается для каждого элемента массива аналогично map. 
+                    Если какие-либо/все результаты вызовов являются true, то метод возвращает true, иначе false.
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Переведите текст вида border-left-width в borderLeftWidth</b>
+                <p>
+                    <code>
+                        function camelize(str) {
+                            return str.split("-").map((word, index) => index === 0 ? word : word[0].toUpperCase() + word.slice(1)).join("");
+                        }
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Фильтрация по диапазону</b>
+                <p>
+                    <code>
+                        function filterRange(arr, a, b) {
+                            return arr.filter(item => (item >= a && item &lt;= b));
+                        }
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Фильтрация по диапазону "на месте"</b>
+                <p>
+                    <code>
+                        function filterRangeInPlace(arr, a, b) {
+                            for (let i = 0; i &lt; arr.length; i++) {
+                                let value = arr[i];
+                                if (value &lt a || value > b) {
+                                    arr.splice(i, 1);
+                                    i--;
+                                }
+                            }
+                        }
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Сортировать в порядке по убыванию</b>
+                <p>
+                    <code>
+                        arr.sort().reverse();
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Скопировать и отсортировать массив</b>
+                <p>
+                    <code>
+                        function copySorted(arr) {
+                            return arr.slice().sort();
+                        }
+                        let sorted = copySorted([1, 3, 2]);
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Создать расширяемый калькулятор</b>
+                <p>
+                    <code>
+                        function Calculator(arr) {
+                            this.operation = {
+                                "+": (a, b) => a + b,
+                                "-": (a, b) => a - b,
+                            } 
+
+                            this.calculate = function(str) {
+                                let split = str.split(" ");
+                                let a = +split[0];
+                                let op = split[1];
+                                let b = +split[2];
+
+                                if (!this.operation[op] || isNaN(a) || isNaN(b)) {
+                                    return NaN;
+                                }
+
+                                return this.operation[op](a, b);
+                            }
+
+                            this.addMethod(name, func) {
+                                this.operation[name] = func;
+                            }
+                        }
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Трансформировать в массив имён</b>
+                <p>
+                    <code>
+                        let names = users.map(user => user.name);
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Трансформировать в объекты</b>
+                <p>
+                    <code>
+                        let usersMapped = users.map(user => ({
+                            fullName: `{user.name} {user.surname}`,
+                            id: user.id,
+                        })); // использовали круглые скобки чтобы вернуть объект
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Отсортировать пользователей по возрасту</b>
+                <p>
+                    <code>
+                        function sortByAge(users) {
+                            arr.sort((a, b) => a.age > b.age ? 1 : -1);
+                            // тут не совсем разобрался почему 1 и -1
+                        }
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Перемешайте массив</b>
+                <p>
+                    <code>
+                        function shuffle(array) {
+                            array.sort(() => Math.random() - 0.5);
+                        }
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Получить средний возраст</b>
+                <p>
+                    <code>
+                        function getAverageAge(users) {
+                            users.reduce((prev, user) => prev + user.age, 0) / users.length;
+                        }
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Оставить уникальные элементы массива</b>
+                <p>
+                    <code>
+                        _.uniq(arr);
+                        <br>а вообще <br>
+                        function unique(arr) {
+                            let res = [];
+                            for (let str of arr) {
+                                if (!result.includes(str)) {
+                                    result.push(str);
+                                }
+                            }
+                            return result;
+                        }
+                    </code>
+                </p>
+            </div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <h3>5.6 Перебираемые объекты</h3>
+            <div class="text">
+                <b>Symbol.iterator</b>
+                <p>
+                    Перебираемые (или итерируемые) объекты – это концепция, которая позволяет использовать любой объект в цикле for..of. <br><br>
+                    Технически итерируемые объекты должны иметь метод Symbol.iterator. <br><br>
+                    Результат вызова obj[Symbol.iterator] называется итератором. Он управляет процессом итерации. <br><br>
+                    Итератор должен иметь метод next(), который возвращает объект {done: Boolean, value: any}, 
+                    где done:true сигнализирует об окончании процесса итерации, в противном случае value – следующее значение.
+                </p>
+            </div>
+            <div class="text">
+                <b>Строка – перебираемый объект</b>
+                <p>
+                    Среди встроенных перебираемых объектов наиболее широко используются массивы и строки. <br><br>
+                    Для строки for..of перебирает символы.
+                </p>
+            </div>
+            <div class="text">
+                <b>Array.from</b>
+                <p>
+                    Array.from принимает итерируемый объект или псевдомассив и делает из него «настоящий» Array. 
+                    После этого мы уже можем использовать методы массивов. <br><br>
+                    Пример: let arrayLike = {0: "Hello", 1: "World", length: 2}; let arr = Array.from(arrayLike); alert(arr.pop()); // World (метод работает)
+                </p>
+            </div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <h3>5.7 Map и Set</h3>
+            <div class="text">
+                <b>Map</b>
+                <p>
+                    Map – это коллекция ключ/значение, как и Object. Но основное отличие в том, что Map позволяет использовать ключи любого типа. <br><br>
+                    Map может использовать объекты в качестве ключей. <br><br>
+                </p>
+                <img src="./img/2.png" alt="" width="100%">
+            </div>
+            <div class="text">
+                <b>Перебор Map</b>
+                <p>
+                    Для перебора коллекции Map есть 3 метода: <br><br>
+                    1) map.keys() – возвращает итерируемый объект по ключам. <br><br>
+                    2) map.values() – возвращает итерируемый объект по значениям. <br><br>
+                    3) map.entries() – возвращает итерируемый объект по парам вида [ключ, значение], этот вариант используется по умолчанию в for..of.
+                </p>
+            </div>
+            <div class="text">
+                <b>Object.entries: Map из Object</b>
+                <p>
+                    При создании Map мы можем указать массив (или другой итерируемый объект) с парами ключ-значение для инициализации: <br><br>
+                    Пример: let map = new Map([['1',  'str1'],[1,    'num1'],[true, 'bool1']]); <br><br>
+                    Если у нас уже есть обычный объект, и мы хотели бы создать Map из него, то поможет встроенный метод Object.entries(obj), 
+                    который получает объект и возвращает массив пар ключ-значение для него. <br><br>
+                    Синтаксис: let obj = {name: "John", age: 30}; let map = new Map(Object.entries(obj));
+                </p>
+            </div>
+            <div class="text">
+                <b>Object.fromEntries: Object из Map</b>
+                <p>
+                    Есть метод Object.fromEntries, который делает противоположное: получив массив пар вида [ключ, значение], он создаёт из них объект. <br><br>
+                    Пример: let prices = Object.fromEntries([['banana', 1],['orange', 2],['meat', 4]]); <br><br>
+                    Если у нас уже есть обычный объект, и мы хотели бы создать Map из него, то поможет встроенный метод Object.entries(obj), 
+                    который получает объект и возвращает массив пар ключ-значение для него. <br><br>
+                    Синтаксис: let obj = {name: "John", age: 30}; let map = new Map(Object.entries(obj));
+                </p>
+            </div>
+            <div class="text">
+                <b>Set</b>
+                <p>
+                    Set – это особый вид коллекции: «множество» значений (без ключей), где каждое значение может появляться только один раз.
+                </p>
+                <img src="./img/3.png" alt="" width="100%">
+            </div>
+            <div class="text">
+                <b>Перебор объекта Set</b>
+                <p>
+                    Мы можем перебрать содержимое объекта set как с помощью метода for..of, так и используя forEach.
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Фильтрация уникальных элементов массива</b>
+                <p>
+                    <code>
+                        function unique(arr) {
+                            return Array.from(new Set(arr));
+                        } // Set задал уникальность, а Array.from сделал из этого массив
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Отфильтруйте анаграммы</b>
+                <p>
+                    <code>
+                        function aclean(arr) {
+                            let obj = {};
+                            for (let i = 0; i &lt; arr.length; i++) {
+                                let sorted = arr[i].toLowerCase().split("").sort().join("");
+                                obj[sorted] = arr[i];
+                            }
+                            return Object.values(obj);
+                        }
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Перебираемые ключи</b>
+                <p>
+                    <code>
+                        let keys = Array.from(map.keys());
+                    </code>
+                </p>
+            </div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <h3>5.8 WeakMap и WeakSet</h3>
+            <div class="text">
+                <b>WeakMap</b>
+                <p>
+                    WeakMap – это Map-подобная коллекция, позволяющая использовать в качестве ключей только объекты, 
+                    и автоматически удаляющая их вместе с соответствующими значениями, как только они становятся недостижимыми иными путями.
+                </p>
+            </div>
+            <div class="text">
+                <b>WeakSet</b>
+                <p>
+                    WeakSet – это Set-подобная коллекция, которая хранит только объекты и удаляет их, как только они становятся недостижимыми иными путями. <br></br>
+                    WeakMap и WeakSet используются как вспомогательные структуры данных в дополнение к «основному» месту хранения объекта. 
+                    Если объект удаляется из основного хранилища и нигде не используется, кроме как в качестве ключа в WeakMap или в WeakSet, 
+                    то он будет удалён автоматически.
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Хранение отметок "не прочитано"</b>
+                <p>
+                    <code>
+                        WeakSet
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Хранение времени прочтения</b>
+                <p>
+                    <code>
+                        WeakMap: <br>
+                        let readTime = new WeakMap();
+                        readTime.set(messages[0], time);
+                    </code>
+                </p>
+            </div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <h3>5.9 Object.keys, values, entries</h3>
+            <div class="text">
+                <b>Object.keys, values, entries</b>
+                <p>
+                    Методы map.keys(), map.values(), map.entries() поддерживаются для структур: Map, Set, Array. <br><br>
+                    Для простых объектов доступны следующие методы: <br><br>
+                    1) Object.keys(obj) – возвращает массив ключей. <br><br>
+                    2) Object.values(obj) – возвращает массив значений. <br><br>
+                    3) Object.entries(obj) – возвращает массив пар [ключ, значение].
+                </p>
+            </div>
+            <div class="text">
+                <b>Трансформации объекта</b>
+                <p>
+                    У объектов нет множества методов, которые есть в массивах, например map, filter и других. <br><br>
+                    Если мы хотели бы их применить, то можно использовать Object.entries с последующим вызовом Object.fromEntries: <br><br>
+                    1) Вызов Object.entries(obj) возвращает массив пар ключ/значение для obj. <br><br>
+                    2) На нём вызываем методы массива, например, map. <br><br>
+                    3) Используем Object.fromEntries(array) на результате, чтобы преобразовать его обратно в объект.
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Сумма свойств объекта</b>
+                <p>
+                    <code>
+                        function sumSalaries(salaries) {
+                            let sum = 0;
+                            for (let salary of Object.values(salaries)) {
+                                sum += salary;
+                            }
+                            return sum;
+                        }
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Подсчёт количества свойств объекта</b>
+                <p>
+                    <code>
+                        function count(obj) {
+                            return Object.keys(obj).length;
+                        }
+                    </code>
+                </p>
+            </div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <h3>5.10 Деструктурирующее присваивание</h3>
+            <div class="text">
+                <b>Деструктуризация массива</b>
+                <p>
+                    Пример: let arr = ["Ilya", "Kantor"]; let [firstName, surname] = arr; // записывает firstName=arr[0], surname=arr[1] <br><br>
+                    Пропускайте элементы, используя запятые: let [firstName, , title] = arr;<br><br>
+                    Работает с любым перебираемым объектом с правой стороны, не только с массивами.
+                </p>
+            </div>
+            <div class="help">
+                <b>Остаточные параметры «…»</b>
+                <p>
+                    Означает "добавить к тому что есть всё остальное": let [name1, name2, ...rest] = arr; <br><br>
+                    Переменная rest является массивом из оставшихся элементов. 
+                    Вместо rest можно использовать любое другое название переменной, просто убедитесь, 
+                    что перед переменной есть три точки и она стоит на последнем месте в деструктурирующем присваивании.
+                </p>
+            </div>
+            <div class="help">
+                <b>Значения по умолчанию</b>
+                <p>
+                    Если нам необходимо указать значения по умолчанию, то мы можем использовать =: <br><br>
+                    let [name = "Guest", surname = "Anonymous"] = ["Julius"]; // name равно Julius (из массива)
+                </p>
+            </div>
+            <div class="text">
+                <b>Деструктуризация объекта</b>
+                <p>
+                    Синтаксис: let {var1, var2} = {var1:…, var2:…} <br><br>
+                    Например: let options = {title: "Menu",width: 100,height: 200}; let {title, width, height} = options; <br><br>
+                    Если мы хотим присвоить свойство объекта переменной с другим названием, например, свойство options.width присвоить переменной w, 
+                    то мы можем использовать двоеточие: <br><br>
+                    let {width: w, height: h, title} = options; // { sourceProperty: targetVariable } <br><br>
+                    Для потенциально отсутствующих свойств мы можем установить значения по умолчанию: let {width = 100, height = 200, title} = options;
+                </p>
+            </div>
+            <div class="help">
+                <b>Остаток объекта «…»</b>
+                <p>
+                    Пример: let options = {title: "Menu",width: 100,height: 200}; let {title, ...rest} = options; <br><br>
+                    // rest = объект с остальными свойствами; // сейчас title="Menu", rest={height: 200, width: 100}
+                </p>
+            </div>
+            <div class="text">
+                <b>Вложенная деструктуризация</b>
+                <p>
+                    Если объект или массив содержит другие вложенные объекты или массивы, то мы можем использовать 
+                    более сложные шаблоны с левой стороны, чтобы извлечь более глубокие свойства.
+                </p>
+                <img src="./img/4.png" alt="" width="100%">
+            </div>
+            <div class="text">
+                <b>Умные параметры функций</b>
+                <p>
+                    Есть ситуации, когда функция имеет много параметров, большинство из которых не обязательны. <br><br>
+                    Мы можем передать параметры как объект, и функция немедленно деструктурирует его в переменные:
+                </p>
+                <img src="./img/5.png" alt="" width="100%">
+            </div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <h3>5.11 Дата и время</h3>
+            <div class="text">
+                <b>Создание</b>
+                <p>
+                    new Date(); // Без аргументов – создать объект Date с текущими датой и временем <br><br>
+                    new Date(milliseconds); // объект Date с временем, равным количеству миллисекунд, с 1 января 1970 года UTC+0. <br><br>
+                    new Date(datestring); // let date = new Date("2017-01-26"); <br><br>
+                    new Date(year, month, date, hours, minutes, seconds, ms)
+                </p>
+            </div>
+            <div class="text">
+                <b>Получение компонентов даты</b>
+                <p>
+                    1) getFullYear() // Получить год (4 цифры) <br><br>
+                    2) getMonth() // Получить месяц, от 0 до 11. <br><br>
+                    3) getDate() // Получить день месяца, от 1 до 31, что несколько противоречит названию метода. <br><br>
+                    4) getHours(), getMinutes(), getSeconds(), getMilliseconds() <br><br>
+                    5) getDay() // день недели от 0 (воскресенье) до 6 (суббота)
+                    <b>Все вышеперечисленные методы возвращают значения в соответствии с местным часовым поясом.</b> 
+                </p>
+            </div>
+            <div class="text">
+                <b>Установка компонентов даты</b>
+                <p>
+                    Следующие методы позволяют установить компоненты даты и времени: <br><br>
+                    setFullYear(year, [month], [date])<br><br>
+                    setMonth(month, [date])<br><br>
+                    setDate(date)<br><br>
+                    setHours(hour, [min], [sec], [ms])<br><br>
+                    setMinutes(min, [sec], [ms])<br><br>
+                    setSeconds(sec, [ms])<br><br>
+                    setMilliseconds(ms)<br><br>
+                    setTime(milliseconds)<br><br>
+                </p>
+            </div>
+            <div class="text">
+                <b>Автоисправление даты</b>
+                <p>
+                    Автоисправление – это очень полезная особенность объектов Date. 
+                    Можно устанавливать компоненты даты вне обычного диапазона значений, а объект сам себя исправит.
+                </p>
+            </div>
+            <div class="text">
+                <b>Преобразование к числу, разность дат</b>
+                <p>
+                    Если объект Date преобразовать в число, то получим таймстамп по аналогии с date.getTime(): <br><br>
+                    alert(+date); // количество миллисекунд, то же самое, что date.getTime() <br><br>
+                    Важный побочный эффект: даты можно вычитать, в результате получаем разность в миллисекундах.
+                </p>
+            </div>
+            <div class="text">
+                <b>Date.now()</b>
+                <p>
+                    Если нужно просто измерить время, объект Date нам не нужен. <br><br>
+                    Данный метод используется из соображений удобства или когда важно быстродействие, 
+                    например, при разработке игр на JavaScript или других специализированных приложений. <br><br>
+                </p>
+                <img src="./img/6.png" alt="" width="100%">
+            </div>
+            <div class="text">
+                <b>Разбор строки с датой</b>
+                <p>
+                    Метод Date.parse(str) считывает дату из строки. <br><br>
+                    Формат строки должен быть следующим: YYYY-MM-DDTHH:mm:ss.sssZ // 'Z' обозначает часовой пояс в формате +-hh:mm.
+                    Если указать просто букву Z, то получим UTC+0. <br><br>
+                    Возможны и более короткие варианты, например, YYYY-MM-DD или YYYY-MM, или даже YYYY.
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Создайте дату</b>
+                <p>
+                    <code>
+                        alert(new Date(2012, 2, 20, 3, 12));
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Покажите день недели</b>
+                <p>
+                    <code>
+                        function getWeekDay(date) {
+                            let days = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'];
+                            return days[date.getDate()];
+                        }
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. День недели в европейской нумерации</b>
+                <p>
+                    <code>
+                        function getLocalDay(date) {
+                            let day = date.getDate();
+                            if (day == 0) {
+                                day = 7;
+                            }
+                            return day;
+                        }
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Какой день месяца был много дней назад?</b>
+                <p>
+                    <code>
+                        function getDateAgo(date, days) {
+                            let dateCopy = new Date(date);
+                            dateCopy.setDate(date.getDate() - days);
+                            return dateCopy.getDate();
+                        }
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Последнее число месяца?</b>
+                <p>
+                    <code>
+                        function getLastDayOfMonth(year, month) {
+                            let date = new Date(year, month + 1, 0);
+                            return date.getDate();
+                        }
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Сколько сегодня прошло секунд?</b>
+                <p>
+                    <code>
+                        function getSecondsToday() {
+                            let now = new Date();
+                            let today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+                            let result = now - today; // ms
+                            return Math.round(result / 1000); // sec
+                        }
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Сколько секунд осталось до завтра?</b>
+                <p>
+                    <code>
+                        function getSecondsToday() {
+                            let now = new Date();
+                            let tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+                            let result = tomorrow - now; // ms
+                            return Math.round(result / 1000); // sec
+                        }
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Форматирование относительной даты</b>
+                <p>
+                    <code>
+                        no way
+                    </code>
+                </p>
+            </div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <h3>5.12 Формат JSON, метод toJSON</h3>
+            <div class="text">
+                <b>JSON.stringify</b>
+                <p>
+                    JSON – это формат данных, который имеет собственный независимый стандарт и библиотеки для большинства языков программирования. <br><br>
+                    JSON поддерживает простые объекты, массивы, строки, числа, логические значения и null. <br><br>
+                    JSON.stringify для преобразования объектов в JSON. Метод JSON.stringify(obj) берёт объект и преобразует его в строку. <br><br>
+                    Полный синтаксис JSON.stringify: let json = JSON.stringify(value[, replacer, space]):
+                    value: Значение для кодирования. <br><br>
+                    replacer: Массив свойств для кодирования или функция соответствия function(key, value). <br><br>
+                    space: Дополнительное пространство (отступы), используемое для форматирования.
+                </p>
+            </div>
+            <div class="text">
+                <b>JSON.parse</b>
+                <p>
+                    Чтобы декодировать JSON-строку, нам нужен другой метод с именем JSON.parse. let value = JSON.parse(str, [reviver]); <br><br>
+                    str: JSON для преобразования в объект. <br><br>
+                    reviver: Необязательная функция, которая будет вызываться для каждой пары (ключ, значение) и может преобразовывать значение.
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Преобразуйте объект в JSON, а затем обратно в обычный объект</b>
+                <p>
+                    <code>
+                        let newUser = JSON.parse(JSON.stringify(user));
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Исключить обратные ссылки</b>
+                <p>
+                    <code>
+                        no way
+                    </code>
+                </p>
+            </div>
+        </section>
     </div>
 </body>
 </html>
