@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: rgb(235 236 238);;
+}
+
+code {
+  display: block;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+}
+
+.learn-page__layout {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 25px 0;
+  background: url('https://yt3.ggpht.com/a/AGF-l7-OY3Y94086xfi3-a522vkEbcwryGiLOjxe3A=s900-c-k-c0xffffffff-no-rj-mo');
+  background-size: 300px;
+}
+
+.learn-page__layout--study-block {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: rgb(184, 173, 160);
+  width: 50%;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  padding: 25px;
+  box-shadow: 12px 12px 12px 5px rgba(0, 0, 0, 0.5);
+}
+
+.learn-page__layout--study-block .text {
+  background-color: rgb(147, 201, 165);
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.learn-page__layout--study-block .help {
+  background-color: rgb(128, 159, 189);
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.learn-page__layout--study-block .script {
+  background-color: rgb(190, 129, 129);
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
