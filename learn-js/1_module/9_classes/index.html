@@ -19,7 +19,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>9.1 Класс: базовый синтаксис</h3>
-            <div class="text">
+            <div class="text helpful">
                 <b>Синтаксис «class»</b>
                 <p>
                     Синтаксис: class MyClass {constructor() { ... } method1() { ... } method2() { ... } ...} <br><br>
@@ -31,7 +31,7 @@
                     …Затем можно вызывать на объекте методы, такие как user.sayHi().
                 </p>
             </div>
-            <div class="text">
+            <div class="text helpful">
                 <b>Что такое класс?</b>
                 <p>
                     В JavaScript класс – это разновидность функции. Вот что на самом деле делает конструкция class User {...}:<br><br>
@@ -41,7 +41,7 @@
                     При вызове метода объекта new User он будет взят из прототипа: поля в User, методы в User.prototype.
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>Не просто синтаксический сахар</b>
                 <p>
                     1) В отличие от обычных функций, конструктор класса не может быть вызван без new. <br><br>
@@ -50,7 +50,7 @@
                     3) Классы всегда используют use strict. Весь код внутри класса автоматически находится в строгом режиме.
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>Геттеры/сеттеры, другие сокращения</b>
                 <p>
                     Вот пример user.name, реализованного с использованием get/set:
@@ -60,7 +60,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>9.2 Наследование классов</h3>
-            <div class="text">
+            <div class="text helpful">
                 <b>Основы</b>
                 <p>
                     Для того, чтобы наследовать класс от другого, мы должны использовать ключевое слово "extends" и указать название родительского класса перед {..}. <br><br>
@@ -72,7 +72,7 @@
                     Так что если метод не найден в Rabbit.prototype, JavaScript берёт его из Animal.prototype.
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>Переопределение методов</b>
                 <p>
                     Обычно мы не хотим полностью заменить родительский метод, а скорее хотим сделать новый на его основе, изменяя или расширяя его функциональность. <br></br>
@@ -87,7 +87,7 @@
                     У стрелочных функций нет super.
                 </p>
             </div>
-            <div class="text">
+            <div class="text helpful">
                 <b>Переопределение конструктора</b>
                 <p>
                     Если класс расширяет другой класс и не имеет конструктора, то автоматически создаётся такой «пустой» конструктор: <br><br>
@@ -100,7 +100,7 @@
                     Вот так будет правильно: constructor(name, earLength) {super(name);this.earLength = earLength;}
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Ошибка создания экземпляра класса</b>
                 <p>
                     Дочерний конструктор должен вызвать super и унаследовать от родительского конструктора: super(name)
@@ -109,7 +109,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>9.3 Статические свойства и методы</h3>
-            <div class="text">
+            <div class="text useless">
                 <b>Основы</b>
                 <p>
                     Мы также можем присвоить метод самой функции-классу, а не её "prototype". Такие методы называются статическими. <br><br>
@@ -125,7 +125,7 @@
                     Статические методы также используются в классах, относящихся к базам данных, для поиска/сохранения/удаления вхождений в базу данных.
                 </p>
             </div>
-            <div class="help">
+            <div class="help checked">
                 <b>Статические свойства</b>
                 <p>
                     Статические свойства также возможны, они выглядят как свойства класса, но с static в начале: <br><br>
@@ -133,7 +133,7 @@
                     Это то же самое, что и прямое присваивание Article: Article.publisher = "Илья Кантор";
                 </p>
             </div>
-            <div class="help">
+            <div class="help useless">
                 <b>Наследование статических свойств и методов</b>
                 <p>
                     Статические свойства и методы наследуются. <br><br>
@@ -141,7 +141,7 @@
                 </p>
                 <img src="./img/6.png" alt="" width="100%">
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Класс расширяет объект?</b>
                 <p>
                     Унаследованный конструктор должен вызвать super(), т.к. в противном случае this будет неизвестен.
@@ -150,7 +150,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>9.4 Приватные и защищённые методы и свойства</h3>
-            <div class="text">
+            <div class="text checked">
                 <b>Внутренний и внешний интерфейсы</b>
                 <p>
                     В объектно-ориентированном программировании свойства и методы разделены на 2 группы: <br><br>
@@ -161,7 +161,7 @@
                     2) Приватные: доступны только внутри класса. Они для внутреннего интерфейса.
                 </p>
             </div>
-            <div class="help">
+            <div class="help helpful">
                 <b>Защищённое свойство «waterAmount»</b>
                 <p>
                     Защищённые свойства обычно начинаются с префикса _. <br><br>
@@ -173,7 +173,7 @@
                 </p>
                 <img src="./img/8.png" alt="" width="100%">
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>Приватное свойство «#waterLimit»</b>
                 <p>
                     Есть новшество в языке JavaScript, которое почти добавлено в стандарт: оно добавляет поддержку приватных свойств и методов. <br><br>
@@ -184,7 +184,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>9.5 Расширение встроенных классов</h3>
-            <div class="text">
+            <div class="text useless">
                 <b>Основы</b>
                 <p>
                     От встроенных классов, таких как Array, Map и других, тоже можно наследовать.
@@ -193,7 +193,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>9.6 Проверка класса: "instanceof"</h3>
-            <div class="text">
+            <div class="text helpful">
                 <b>Оператор instanceof</b>
                 <p>
                     Оператор instanceof позволяет проверить, к какому классу принадлежит объект, с учётом наследования. <br><br>
@@ -203,7 +203,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>9.7 Примеси</h3>
-            <div class="text">
+            <div class="text useless">
                 <b>Основы</b>
                 <p>
                     В JavaScript можно наследовать только от одного объекта.  <br><br>
@@ -213,7 +213,7 @@
                     Мы не используем примесь саму по себе, а используем её, чтобы добавить функциональность другим классам.
                 </p>
             </div>
-            <div class="text">
+            <div class="text useless">
                 <b>Пример примеси</b>
                 <p>
                     Простейший способ реализовать примесь в JavaScript – это создать объект с полезными методами, 

@@ -19,7 +19,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>7.1 Флаги и дескрипторы свойств</h3>
-            <div class="text">
+            <div class="text checked">
                 <b>Флаги свойств</b>
                 <p>
                     Помимо значения value, свойства объекта имеют три специальных атрибута (так называемые «флаги»). <br><br>
@@ -29,7 +29,7 @@
                     Как получить их текущие значения? let descriptor = Object.getOwnPropertyDescriptor(obj, "propertyName");
                 </p>
             </div>
-            <div class="text">
+            <div class="text useless">
                 <b>Только для чтения</b>
                 <p>
                     Сделаем свойство user.name доступным только для чтения: <br><br>
@@ -39,7 +39,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>7.2 Свойства - геттеры и сеттеры</h3>
-            <div class="text">
+            <div class="text helpful">
                 <b>Геттеры и сеттеры</b>
                 <p>
                     Есть два типа свойств объекта: <br><br>
@@ -69,7 +69,7 @@
                     4) configurable – то же самое, что и для свойств-данных.
                 </p>
             </div>
-            <div class="text">
+            <div class="text helpful">
                 <b>Умные геттеры/сеттеры</b>
                 <p>
                     Геттеры/сеттеры можно использовать как обёртки над «реальными» значениями свойств, 
@@ -79,7 +79,7 @@
                 </p>
                 <img src="./img/3.png" alt="" width="100%">
             </div>
-            <div class="text">
+            <div class="text useless">
                 <b>Использование для совместимости</b>
                 <p>
                     Например, представим, что мы начали реализовывать объект user, используя свойства-данные имя name и возраст age.<br><br>

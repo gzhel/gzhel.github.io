@@ -19,7 +19,7 @@
         </section>
         <section class="learn-page__layout--study-block helpful">
             <h3>6.1 Рекурсия и стек</h3>
-            <div class="text">
+            <div class="text helpful">
                 <b>Два способа мышления</b>
                 <p>
                     Рекурсия – это когда функция вызывает сама себя. <br><br>
@@ -29,7 +29,7 @@
                     Рекурсивные функции могут быть использованы для элегантного решения определённых задач.
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>Контекст выполнения, стек</b>
                 <p>
                     Информация о процессе выполнения запущенной функции хранится в её контексте выполнения. <br><br>
@@ -46,7 +46,7 @@
                     Любая рекурсия может быть переделана в цикл. Как правило, вариант с циклом будет эффективнее.
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>Рекурсивные обходы</b>
                 <p>
                     Например, у нас есть компания, в компании есть отделы, а там подотделы, а там подразделения, 
@@ -54,7 +54,7 @@
                 </p>
                 <img src="./img/1.png" alt="" width="100%">
             </div>
-            <div class="text">
+            <div class="text useless">
                 <b>Связанный список</b>
                 <p>
                     Для чего? Например упорядоченный список объектов (массив не подходит из-за медленной вставки/удаления). <br><br>
@@ -69,7 +69,7 @@
                     В простом массиве: arr[n] является прямой ссылкой. Но в списке мы должны начать с первого элемента и перейти в next N раз, чтобы получить N-й элемент.
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Вычислить сумму чисел до данного</b>
                 <p>
                     <code>
@@ -101,7 +101,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Вычислить факториал</b>
                 <p>
                     <code>
@@ -111,7 +111,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Числа Фибоначчи</b>
                 <p>
                     <code>
@@ -121,7 +121,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Вывод односвязного списка</b>
                 <p>
                     <code>
@@ -144,7 +144,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Вывод односвязного списка</b>
                 <p>
                     <code>
@@ -165,7 +165,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>6.2 Остаточные параметры и оператор расширения</h3>
-            <div class="text">
+            <div class="text helpful">
                 <b>Остаточные параметры (...)</b>
                 <p>
                     Вызывать функцию можно с любым количеством аргументов независимо от того, как она была определена.<br><br>
@@ -175,7 +175,7 @@
                     Остаточные параметры должны располагаться в конце.
                 </p>
             </div>
-            <div class="text">
+            <div class="text useless">
                 <b>Переменная "arguments"</b>
                 <p>
                     Все аргументы функции находятся в псевдомассиве arguments под своими порядковыми номерами.<br><br>
@@ -184,7 +184,7 @@
                     Стрелочные функции не имеют "arguments". Если мы обратимся к arguments из стрелочной функции, то получим аргументы внешней «нормальной» функции.
                 </p>
             </div>
-            <div class="text">
+            <div class="text helpful">
                 <b>Оператор расширения</b>
                 <p>
                     Он похож на остаточные параметры – тоже использует ..., но делает совершенно противоположное.<br><br>
@@ -197,7 +197,7 @@
         </section>
         <section class="learn-page__layout--study-block helpful">
             <h3>6.3 Замыкание</h3>
-            <div class="text">
+            <div class="text helpful">
                 <b>Лексическое Окружение</b>
                 <p>
                     В JavaScript у каждой выполняемой функции, блока кода и скрипта есть связанный с ними внутренний (скрытый) объект, 
@@ -210,7 +210,7 @@
                     Работа с переменными – это на самом деле работа со свойствами этого объекта.
                 </p>
             </div>
-            <div class="help">
+            <div class="help checked">
                 <b>Function Declaration</b>
                 <p>
                     В отличие от переменных, объявленных с помощью let, они полностью инициализируются не тогда, 
@@ -220,7 +220,7 @@
                 </p>
                 <img src="./img/2.png" alt="" width="100%">
             </div>
-            <div class="text">
+            <div class="text helpful">
                 <b>Внутреннее и внешнее лексическое окружение</b>
                 <p>
                     При запуске функции для неё автоматически создаётся новое лексическое окружение, для хранения локальных переменных и параметров вызова. <br><br>
@@ -234,7 +234,7 @@
                 </p>
                 <img src="./img/3.png" alt="" width="100%">
             </div>
-            <div class="help">
+            <div class="help checked">
                 <b>Один вызов – одно лексическое окружение</b>
                 <p>
                     Новое лексическое окружение функции создаётся каждый раз, когда функция выполняется. <br><br>
@@ -242,7 +242,7 @@
                     со своими, специфичными для этого вызова, локальными переменными и параметрами.
                 </p>
             </div>
-            <div class="text">
+            <div class="text helpful">
                 <b>Вложенные функции</b>
                 <p>
                     Функция называется «вложенной», когда она создаётся внутри другой функции. <br><br>
@@ -257,7 +257,7 @@
                     2) Для каждого вызова функции создаётся новое лекс. окружение: let fn1 = funcName(); let fn2 = funcName(); - независимы друг от друга.
                 </p>
             </div>
-            <div class="text">
+            <div class="text helpful">
                 <b>Окружение в деталях</b>
                 <p>
                     1) Когда скрипт только начинает выполняться, есть только глобальное лексическое окружение <br><br>
@@ -303,7 +303,7 @@
                 </p>
                 <img src="./img/11.png" alt="" width="100%">
             </div>
-            <div class="help">
+            <div class="help checked">
                 <b>Замыкания</b>
                 <p>
                     Замыкание – это функция, которая запоминает свои внешние переменные и может получить к ним доступ. <br><br>
@@ -311,7 +311,7 @@
                     и все они могут получить доступ к внешним переменным.
                 </p>
             </div>
-            <div class="text">
+            <div class="text helpful">
                 <b>Блоки кода и циклы</b>
                 <p>
                     Предыдущие примеры сосредоточены на функциях. Но лексическое окружение существует для любых блоков кода {...}. <br><br>
@@ -328,7 +328,7 @@
                     {let message = "Hello"; alert(message); // Hello} alert(message); // Ошибка: переменная message не определена
                 </p>
             </div>
-            <div class="help">
+            <div class="help useless">
                 <b>IIFE</b>
                 <p>
                     «immediately-invoked function expressions» (аббревиатура IIFE), что означает функцию, запускаемую сразу после объявления. <br><br>
@@ -337,7 +337,7 @@
                     Стоит обратить внимание, что это работает только с анонимными функциями.
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Независимы ли счётчики?</b>
                 <p>
                     <code>
@@ -345,7 +345,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Объект счётчика</b>
                 <p>
                     <code>
@@ -356,7 +356,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Функция в if</b>
                 <p>
                     <code>
@@ -364,7 +364,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Сумма с помощью замыканий</b>
                 <p>
                     <code>
@@ -376,7 +376,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Фильтрация с помощью функции</b>
                 <p>
                     <code>
@@ -398,7 +398,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Сортировать по полю</b>
                 <p>
                     <code>
@@ -410,7 +410,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script useless">
                 <b>Задачи. Армия функций</b>
                 <p>
                     <code>
@@ -421,7 +421,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>6.4 Устаревшее ключевое слово "var"</h3>
-            <div class="text">
+            <div class="text useless">
                 <b>Для «var» не существует блочной области видимости</b>
                 <p>
                     Область видимости переменных var ограничивается либо функцией, либо, если переменная глобальная, 
@@ -429,7 +429,7 @@
                     if (true) {var test = true;} alert(test); // true
                 </p>
             </div>
-            <div class="text">
+            <div class="text useless">
                 <b>«var» обрабатываются в начале запуска функции</b>
                 <p>
                     Т.е. код 1 эквивалентен коду 2: <br><br>
@@ -443,7 +443,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>6.5 Глобальный объект</h3>
-            <div class="text">
+            <div class="text helpful">
                 <b>Основы</b>
                 <p>
                     Глобальный объект предоставляет переменные и функции, доступные в любом месте программы.<br><br>
@@ -452,7 +452,7 @@
                     Обычно не рекомендуется использовать глобальные переменные.
                 </p>
             </div>
-            <div class="text">
+            <div class="text useless">
                 <b>Использование для полифилов</b>
                 <p>
                     Глобальный объект можно использовать, чтобы проверить поддержку современных возможностей языка.<br><br>
@@ -464,20 +464,20 @@
         </section>
         <section class="learn-page__layout--study-block helpful">
             <h3>6.6 Объект функции, NFE</h3>
-            <div class="text">
+            <div class="text checked">
                 <b>Основы</b>
                 <p>
                     В JavaScript функции – это объекты. «объект, который может делать какое-то действие»<br><br>
                     Функции можно не только вызывать, но и использовать их как обычные объекты: добавлять/удалять свойства, передавать их по ссылке и т.д.
                 </p>
             </div>
-            <div class="help">
+            <div class="help useless">
                 <b>Свойство «name»</b>
                 <p>
                     Имя функции нам доступно как свойство «name»: alert(sayHi.name); // sayHi
                 </p>
             </div>
-            <div class="help">
+            <div class="help useless">
                 <b>Свойство «length»</b>
                 <p>
                     Содержит количество параметров функции в её объявлении. <br><br>
@@ -485,13 +485,13 @@
                     alert(f1.length); // 1 alert(f2.length); // 2 alert(many.length); // 2
                 </p>
             </div>
-            <div class="help">
+            <div class="help useless">
                 <b>Пользовательские свойства</b>
                 <p>
                     Мы также можем добавить свои собственные свойства.
                 </p>
             </div>
-            <div class="text">
+            <div class="text helpful">
                 <b>Named Function Expression</b>
                 <p>
                     NFE – это термин для Function Expression, у которого есть имя.<br><br>
@@ -509,7 +509,7 @@
                     Трюк с «внутренним» именем, описанный выше, работает только для Function Expression и не работает для Function Declaration.
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Установка и уменьшение значения счётчика</b>
                 <p>
                     <code>
@@ -530,7 +530,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Сумма с произвольным количеством скобок</b>
                 <p>
                     <code>
@@ -551,7 +551,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>6.7 Синтаксис "new Function"</h3>
-            <div class="text">
+            <div class="text useless">
                 <b>Синтаксис</b>
                 <p>
                     Существует ещё один вариант объявлять функции. Он используется крайне редко.<br><br>
@@ -561,7 +561,7 @@
         </section>
         <section class="learn-page__layout--study-block helpful">
             <h3>6.8 Планирование: setTimeout и setInterval</h3>
-            <div class="text">
+            <div class="text checked">
                 <b>Основы</b>
                 <p>
                     Мы можем вызвать функцию не в данный момент, а позже, через заданный интервал времени. Это называется «планирование вызова».<br><br>
@@ -569,7 +569,7 @@
                     2) setInterval позволяет вызывать функцию регулярно, повторяя вызов через определённый интервал времени.
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>setTimeout</b>
                 <p>
                     Синтаксис: let timerId = setTimeout(func, [delay], [arg1], [arg2], ...)<br><br>
@@ -580,14 +580,14 @@
                     Передавайте функцию, но не запускайте её. Так - неправильно: setTimeout(sayHi(), 1000);
                 </p>
             </div>
-            <div class="help">
+            <div class="help useless">
                 <b>Отмена через clearTimeout</b>
                 <p>
                     Вызов setTimeout возвращает «идентификатор таймера» timerId, который можно использовать для отмены дальнейшего выполнения.<br><br>
                     Синтаксис для отмены: let timerId = setTimeout(...); clearTimeout(timerId);
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>Рекурсивный setTimeout</b>
                 <p>
                     Есть два способа запускать что-то регулярно: setInterval и рекурсивный setTimeout. Пример:
@@ -597,7 +597,7 @@
                     Рекурсивный setTimeout позволяет задать задержку между выполнениями более точно, чем setInterval.
                 </p>
             </div>
-            <div class="text">
+            <div class="text helpful">
                 <b>setTimeout с нулевой задержкой</b>
                 <p>
                     Особый вариант использования: setTimeout(func, 0) или просто setTimeout(func). <br><br>
@@ -610,7 +610,7 @@
                     Поэтому "Привет" выводится первым, а "Мир" – после него.
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Вывод каждую секунду</b>
                 <p>
                     <code>
@@ -637,7 +637,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Что покажет setTimeout?</b>
                 <p>
                     <code>
@@ -651,7 +651,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>6.9 Декораторы и переадресация вызова, call/apply</h3>
-            <div class="text">
+            <div class="text useless">
                 <b>Прозрачное кеширование</b>
                 <p>
                     Представим, что у нас есть функция slow(x), выполняющая ресурсоёмкие вычисления, но возвращающая стабильные результаты. <br><br>
@@ -664,7 +664,7 @@
                     С точки зрения внешнего кода, обёрнутая функция slow по-прежнему делает то же самое. Обёртка всего лишь добавляет к её поведению аспект кеширования.
                 </p>
             </div>
-            <div class="text">
+            <div class="text useless">
                 <b>Применение «func.call» для передачи контекста</b>
                 <p>
                     Упомянутый выше кеширующий декоратор не подходит для работы с методами объектов. <br><br>
@@ -672,7 +672,7 @@
                 </p>
                 <img src="./img/16.png" alt="" width="100%">
             </div>
-            <div class="text">
+            <div class="text useless">
                 <b>Переходим к нескольким аргументам с «func.apply»</b>
                 <p>
                     Теперь давайте сделаем cachingDecorator ещё более универсальным. 
@@ -681,7 +681,7 @@
                 </p>
                 <img src="./img/17.png" alt="" width="100%">
             </div>
-            <div class="script">
+            <div class="script useless">
                 <b>Задачи</b>
                 <p>
                     <code>
@@ -692,7 +692,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>6.10 Привязка контекста к функции</h3>
-            <div class="text">
+            <div class="text checked">
                 <b>Потеря «this»</b>
                 <p>
                     При передаче методов объекта в качестве колбэков, например для setTimeout, возникает потеря this. <br><br>
@@ -704,7 +704,7 @@
                     То есть последняя строка может быть переписана как: let f = user.sayHi; setTimeout(f, 1000); // контекст user потеряли
                 </p>
             </div>
-            <div class="text">
+            <div class="text helpful">
                 <b>Решение: привязать контекст с помощью bind</b>
                 <p>
                     Базовый синтаксис bind: let boundFunc = func.bind(context);<br><br>
@@ -716,7 +716,7 @@
                     Обычно bind применяется для фиксации this в методе объекта, чтобы передать его в качестве колбэка. Например, для setTimeout.
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Связанная функция как метод</b>
                 <p>
                     <code>
@@ -724,7 +724,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Повторный bind</b>
                 <p>
                     <code>
@@ -732,7 +732,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Свойство функции после bind</b>
                 <p>
                     <code>
@@ -743,14 +743,14 @@
         </section>
         <section class="learn-page__layout--study-block">
             <h3>6.11 Повторяем стрелочные функции</h3>
-            <div class="text">
+            <div class="text checked">
                 <b>У стрелочных функций нет «this»</b>
                 <p>
                     Если происходит обращение к this, его значение берётся снаружи. <br><br>
                     Стрелочные функции не могут быть использованы как конструкторы. Они не могут быть вызваны с new.
                 </p>
             </div>
-            <div class="text">
+            <div class="text useless">
                 <b>Стрелочные функции не имеют «arguments»</b>
                 <p>
                     У стрелочных функций также нет переменной arguments.
