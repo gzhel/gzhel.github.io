@@ -419,6 +419,344 @@
                 </p>
             </div>
         </section>
+        <section class="learn-page__layout--study-block">
+            <h3>6.4 Устаревшее ключевое слово "var"</h3>
+            <div class="text">
+                <b>Для «var» не существует блочной области видимости</b>
+                <p>
+                    Область видимости переменных var ограничивается либо функцией, либо, если переменная глобальная, 
+                    то скриптом. Такие переменные доступны за пределами блока {...}. Пример: <br><br>
+                    if (true) {var test = true;} alert(test); // true
+                </p>
+            </div>
+            <div class="text">
+                <b>«var» обрабатываются в начале запуска функции</b>
+                <p>
+                    Т.е. код 1 эквивалентен коду 2: <br><br>
+                    1) function sayHi() {phrase = "Привет";alert(phrase);var phrase;} <br><br>
+                    2) function sayHi() {var phrase;phrase = "Привет";alert(phrase);} <br><br>
+                    Объявления переменных «всплывают», но присваивания значений – нет. Т.е. код 3 эквивалентен коду 4:<br><br>
+                    3) function sayHi() {alert(phrase);var phrase = "Привет";} <br><br>
+                    4) function sayHi() {var phrase;alert(phrase);phrase = "Привет";} // undefined
+                </p>
+            </div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <h3>6.5 Глобальный объект</h3>
+            <div class="text">
+                <b>Основы</b>
+                <p>
+                    Глобальный объект предоставляет переменные и функции, доступные в любом месте программы.<br><br>
+                    В браузере он называется window, в Node.js — global. <br><br>
+                    Ко всем свойствам глобального объекта можно обращаться напрямую: alert("Привет"); то же самое, что и window.alert("Привет"); <br><br>
+                    Обычно не рекомендуется использовать глобальные переменные.
+                </p>
+            </div>
+            <div class="text">
+                <b>Использование для полифилов</b>
+                <p>
+                    Глобальный объект можно использовать, чтобы проверить поддержку современных возможностей языка.<br><br>
+                    Например, проверить наличие встроенного объекта Promise: if (!window.Promise) {alert("Ваш браузер очень старый!");} <br><br>
+                    Если нет (скажем, используется старый браузер), мы можем создать полифил: добавить функции, 
+                    которые не поддерживаются окружением, но существуют в современном стандарте. window.Promise = ... // собственная реализация современной возможности языка
+                </p>
+            </div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <h3>6.6 Объект функции, NFE</h3>
+            <div class="text">
+                <b>Основы</b>
+                <p>
+                    В JavaScript функции – это объекты. «объект, который может делать какое-то действие»<br><br>
+                    Функции можно не только вызывать, но и использовать их как обычные объекты: добавлять/удалять свойства, передавать их по ссылке и т.д.
+                </p>
+            </div>
+            <div class="help">
+                <b>Свойство «name»</b>
+                <p>
+                    Имя функции нам доступно как свойство «name»: alert(sayHi.name); // sayHi
+                </p>
+            </div>
+            <div class="help">
+                <b>Свойство «length»</b>
+                <p>
+                    Содержит количество параметров функции в её объявлении. <br><br>
+                    function f1(a) {} function f2(a, b) {} function many(a, b, ...more) {} <br><br>
+                    alert(f1.length); // 1 alert(f2.length); // 2 alert(many.length); // 2
+                </p>
+            </div>
+            <div class="help">
+                <b>Пользовательские свойства</b>
+                <p>
+                    Мы также можем добавить свои собственные свойства.
+                </p>
+            </div>
+            <div class="text">
+                <b>Named Function Expression</b>
+                <p>
+                    NFE – это термин для Function Expression, у которого есть имя.<br><br>
+                    Пример: let sayHi = function <b>func</b>(who) {...} <br><br>
+                    А зачем имя func? 1) позволяет функции ссылаться на себя же; 2) не доступно за пределами функции. <br><br>
+                    Например, ниже функция sayHi вызывает себя с "Guest", если не передан параметр who:
+                </p>
+                <img src="./img/13.png" alt="" width="100%">
+                <p>
+                    Почему не сделаем так: else {sayHi("Guest");} ? <br><br>
+                    Потому что если переопределим sayHi, получим ошибку: sayHi берётся из внешнего лексического окружения 
+                    (т.к. локальная отсутствует), и если зададим ей null, то на "последний" момент вызова она будет равна null. <br></br>
+                    "func" локальное и находится внутри функции. Теперь оно взято не снаружи (и недоступно оттуда). 
+                    Спецификация гарантирует, что оно всегда будет ссылаться на текущую функцию. <br></br>
+                    Трюк с «внутренним» именем, описанный выше, работает только для Function Expression и не работает для Function Declaration.
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Установка и уменьшение значения счётчика</b>
+                <p>
+                    <code>
+                        function makeCounter() {
+                            let count = 0;
+                            function counter() {
+                                return count++;
+                            }
+                            counter.set = function(val) {
+                                count = value;
+                            }
+                            counter.decrease = function() {
+                                count--;
+                            }
+
+                            return counter;
+                        }
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Сумма с произвольным количеством скобок</b>
+                <p>
+                    <code>
+                        function sum(a) {
+                            let currSum = a;
+                            function f(b) {
+                                currSum += b;
+                                return f;
+                            }
+                            f.toString = function() {
+                                return currSum;
+                            }
+                            return next;
+                        }
+                    </code>
+                </p>
+            </div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <h3>6.7 Синтаксис "new Function"</h3>
+            <div class="text">
+                <b>Синтаксис</b>
+                <p>
+                    Существует ещё один вариант объявлять функции. Он используется крайне редко.<br><br>
+                    let func = new Function([arg1, arg2, ...argN], functionBody);
+                </p>
+            </div>
+        </section>
+        <section class="learn-page__layout--study-block helpful">
+            <h3>6.8 Планирование: setTimeout и setInterval</h3>
+            <div class="text">
+                <b>Основы</b>
+                <p>
+                    Мы можем вызвать функцию не в данный момент, а позже, через заданный интервал времени. Это называется «планирование вызова».<br><br>
+                    1) setTimeout позволяет вызвать функцию один раз через определённый интервал времени. <br><br>
+                    2) setInterval позволяет вызывать функцию регулярно, повторяя вызов через определённый интервал времени.
+                </p>
+            </div>
+            <div class="text">
+                <b>setTimeout</b>
+                <p>
+                    Синтаксис: let timerId = setTimeout(func, [delay], [arg1], [arg2], ...)<br><br>
+                    1) func: Функция или строка кода для выполнения. Обычно это функция. <br><br>
+                    2) delay: Задержка перед запуском в миллисекундах (1000 мс = 1 с). Значение по умолчанию – 0. <br><br>
+                    3) arg1, arg2: Аргументы, передаваемые в функцию. <br><br>
+                    Пример (код вызывает sayHi() спустя одну секунду): setTimeout(sayHi, 1000); <br><br>
+                    Передавайте функцию, но не запускайте её. Так - неправильно: setTimeout(sayHi(), 1000);
+                </p>
+            </div>
+            <div class="help">
+                <b>Отмена через clearTimeout</b>
+                <p>
+                    Вызов setTimeout возвращает «идентификатор таймера» timerId, который можно использовать для отмены дальнейшего выполнения.<br><br>
+                    Синтаксис для отмены: let timerId = setTimeout(...); clearTimeout(timerId);
+                </p>
+            </div>
+            <div class="text">
+                <b>Рекурсивный setTimeout</b>
+                <p>
+                    Есть два способа запускать что-то регулярно: setInterval и рекурсивный setTimeout. Пример:
+                </p>
+                <img src="./img/14.png" alt="" width="100%">
+                <p>
+                    Рекурсивный setTimeout позволяет задать задержку между выполнениями более точно, чем setInterval.
+                </p>
+            </div>
+            <div class="text">
+                <b>setTimeout с нулевой задержкой</b>
+                <p>
+                    Особый вариант использования: setTimeout(func, 0) или просто setTimeout(func). <br><br>
+                    Это планирует вызов func настолько быстро, насколько это возможно. Но планировщик будет 
+                    вызывать функцию только после завершения выполнения текущего кода. Так вызов функции 
+                    будет запланирован сразу после выполнения текущего кода. <br></br>
+                    Пример: setTimeout(() => alert("Мир")); alert("Привет"); <br></br>
+                    Первая строка помещает вызов в «календарь» через 0 мс. 
+                    Но планировщик проверит «календарь» только после того, как текущий код завершится. 
+                    Поэтому "Привет" выводится первым, а "Мир" – после него.
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Вывод каждую секунду</b>
+                <p>
+                    <code>
+                        function printNumbers(from, to) {
+                            let current = from;
+                            let timerId = setInterval(function() {
+                                alert(current);
+                                if (current === to) clearInterval(timerId);
+                                current++;
+                            }, 1000);
+                        }
+                    </code>
+                </p>
+                <p>
+                    <code>
+                        function printNumbers(from, to) {
+                            let current = from;
+                            let timerId = setTimeout(function tick() {
+                                alert(current);
+                                if (current &lt; to) setTimeout(tick, 1000);
+                                current++;
+                            }, 1000);
+                        }
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Что покажет setTimeout?</b>
+                <p>
+                    <code>
+                        1. Объявился i; <br><br>
+                        2. setTimeout зашёл в стек <br><br>
+                        3. for зашёл в стек <br><br>
+                        Ответ: 100000000 // setTimeout ждёт пока for выйдет из стека
+                    </code>
+                </p>
+            </div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <h3>6.9 Декораторы и переадресация вызова, call/apply</h3>
+            <div class="text">
+                <b>Прозрачное кеширование</b>
+                <p>
+                    Представим, что у нас есть функция slow(x), выполняющая ресурсоёмкие вычисления, но возвращающая стабильные результаты. <br><br>
+                    Если функция вызывается часто, то, вероятно, мы захотим кешировать (запоминать) возвращаемые ею результаты, 
+                    чтобы сэкономить время на повторных вычислениях. <br><br>
+                    Вместо того, чтобы усложнять slow(x) дополнительной функциональностью, мы заключим её в функцию-обёртку – «wrapper», которая добавит кеширование.
+                </p>
+                <img src="./img/15.png" alt="" width="100%">
+                <p>
+                    С точки зрения внешнего кода, обёрнутая функция slow по-прежнему делает то же самое. Обёртка всего лишь добавляет к её поведению аспект кеширования.
+                </p>
+            </div>
+            <div class="text">
+                <b>Применение «func.call» для передачи контекста</b>
+                <p>
+                    Упомянутый выше кеширующий декоратор не подходит для работы с методами объектов. <br><br>
+                    В нашем случае мы можем использовать call в обёртке для передачи контекста в исходную функцию:
+                </p>
+                <img src="./img/16.png" alt="" width="100%">
+            </div>
+            <div class="text">
+                <b>Переходим к нескольким аргументам с «func.apply»</b>
+                <p>
+                    Теперь давайте сделаем cachingDecorator ещё более универсальным. 
+                    До сих пор он работал только с функциями с одним аргументом.<br><br>
+                    Вот более мощный cachingDecorator:
+                </p>
+                <img src="./img/17.png" alt="" width="100%">
+            </div>
+            <div class="script">
+                <b>Задачи</b>
+                <p>
+                    <code>
+                        Задачи украли цыгане
+                    </code>
+                </p>
+            </div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <h3>6.10 Привязка контекста к функции</h3>
+            <div class="text">
+                <b>Потеря «this»</b>
+                <p>
+                    При передаче методов объекта в качестве колбэков, например для setTimeout, возникает потеря this. <br><br>
+                    Вот как это может произойти в случае с setTimeout:
+                </p>
+                <img src="./img/18.png" alt="" width="100%">
+                <p>
+                    Это произошло потому, что setTimeout получил функцию sayHi отдельно от объекта user (именно здесь функция и потеряла контекст). <br><br>
+                    То есть последняя строка может быть переписана как: let f = user.sayHi; setTimeout(f, 1000); // контекст user потеряли
+                </p>
+            </div>
+            <div class="text">
+                <b>Решение: привязать контекст с помощью bind</b>
+                <p>
+                    Базовый синтаксис bind: let boundFunc = func.bind(context);<br><br>
+                    Вызов boundFunc подобен вызову func с фиксированным this. <br><br>
+                    Теперь давайте попробуем с методом объекта:
+                </p>
+                <img src="./img/19.png" alt="" width="100%">
+                <p>
+                    Обычно bind применяется для фиксации this в методе объекта, чтобы передать его в качестве колбэка. Например, для setTimeout.
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Связанная функция как метод</b>
+                <p>
+                    <code>
+                        null
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Повторный bind</b>
+                <p>
+                    <code>
+                        Вася, т.к. мы не можем изменить уже созданную привязку.
+                    </code>
+                </p>
+            </div>
+            <div class="script">
+                <b>Задачи. Свойство функции после bind</b>
+                <p>
+                    <code>
+                        undefined, т.к. bind привязывается к другому объекту без свойства test.
+                    </code>
+                </p>
+            </div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <h3>6.11 Повторяем стрелочные функции</h3>
+            <div class="text">
+                <b>У стрелочных функций нет «this»</b>
+                <p>
+                    Если происходит обращение к this, его значение берётся снаружи. <br><br>
+                    Стрелочные функции не могут быть использованы как конструкторы. Они не могут быть вызваны с new.
+                </p>
+            </div>
+            <div class="text">
+                <b>Стрелочные функции не имеют «arguments»</b>
+                <p>
+                    У стрелочных функций также нет переменной arguments.
+                </p>
+            </div>
+        </section>
     </div>
 </body>
 </html>
