@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="../../styles.css">
+    <title>Свойства объекта, их конфигурация</title>
+</head>
+<body>
+    <div class="learn-page__layout">
+        <h1><a href="../../1_module/">Back to module 1</a></h1>
+        <section class="learn-page__layout--study-block">
+            <h3>Обозначения:</h3>
+            <div class="text checked">Зеленый блок = прогресс изучения; Зеленая рамка = повторил, классно.</div>
+            <div class="help helpful">Синий блок = полезная подсказка; Синяя рамка = очень важно, очень классно.</div>
+            <div class="script useless">Красный блок = задача; Красная рамка = на мой взгляд не стоит внимания.</div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <h3>7.1 Флаги и дескрипторы свойств</h3>
+            <div class="text">
+                <b>Флаги свойств</b>
+                <p>
+                    Помимо значения value, свойства объекта имеют три специальных атрибута (так называемые «флаги»). <br><br>
+                    1) writable – если true, свойство можно изменить, иначе оно только для чтения.<br></br>
+                    2) enumerable – если true, свойство перечисляется в циклах, в противном случае циклы его игнорируют.<br><br>
+                    3) configurable – если true, свойство можно удалить, а эти атрибуты можно изменять, иначе этого делать нельзя. <br><br>
+                    Как получить их текущие значения? let descriptor = Object.getOwnPropertyDescriptor(obj, "propertyName");
+                </p>
+            </div>
+            <div class="text">
+                <b>Только для чтения</b>
+                <p>
+                    Сделаем свойство user.name доступным только для чтения: <br><br>
+                    Object.defineProperty(user, "name", {writable: false}); user.name = "Pete"; // Ошибка
+                </p>
+            </div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <h3>7.2 Свойства - геттеры и сеттеры</h3>
+            <div class="text">
+                <b>Геттеры и сеттеры</b>
+                <p>
+                    Есть два типа свойств объекта: <br><br>
+                    1) свойства-данные (data properties). Все свойства, которые мы использовали до текущего момента, были свойствами-данными. <br><br>
+                    2) свойства-аксессоры (accessor properties). Это функции, которые используются для присвоения и получения значения, 
+                    но во внешнем коде они выглядят как обычные свойства объекта. <br><br><br>
+                    Свойства-аксессоры: get и set. <br><br>
+                    Геттер срабатывает, когда obj.propName читается, сеттер – когда значение присваивается. <br><br>
+                    Например, у нас есть объект user со свойствами name и surname: let user = {name: "John",surname: "Smith"}; <br><br>
+                    Хотим добавить метод fullName:
+                </p>
+                <img src="./img/1.png" alt="" width="100%">
+                <p>
+                    user.fullName = "Тест"; // Ошибка (у свойства есть только геттер) <br><br>
+                    Добавим сеттер для user.fullName:
+                </p>
+                <img src="./img/2.png" alt="" width="100%">
+            </div>
+            <div class="text useless">
+                <b>Дескрипторы свойств доступа</b>
+                <p>
+                    Свойства-аксессоры не имеют value и writable, но взамен предлагают функции get и set. <br><br>
+                    То есть, дескриптор аксессора может иметь: <br><br>
+                    1) get – функция без аргументов, которая сработает при чтении свойства. <br><br>
+                    2) set – функция, принимающая один аргумент, вызываемая при присвоении свойства. <br><br>
+                    3) enumerable – то же самое, что и для свойств-данных. <br><br>
+                    4) configurable – то же самое, что и для свойств-данных.
+                </p>
+            </div>
+            <div class="text">
+                <b>Умные геттеры/сеттеры</b>
+                <p>
+                    Геттеры/сеттеры можно использовать как обёртки над «реальными» значениями свойств, 
+                    чтобы получить больше контроля над операциями с ними. <br><br>
+                    Например, если мы хотим запретить устанавливать короткое имя для user, 
+                    мы можем использовать сеттер name для проверки, а само значение хранить в отдельном свойстве _name: <br><br>
+                </p>
+                <img src="./img/3.png" alt="" width="100%">
+            </div>
+            <div class="text">
+                <b>Использование для совместимости</b>
+                <p>
+                    Например, представим, что мы начали реализовывать объект user, используя свойства-данные имя name и возраст age.<br><br>
+                    …Но рано или поздно всё может измениться. Взамен возраста age мы можем решить хранить дату рождения birthday.<br><br>
+                    Что нам делать со старым кодом, который использует свойство age? Добавление геттера для age решит проблему:
+                </p>
+                <img src="./img/4.png" alt="" width="100%">
+            </div>
+        </section>
+    </div>
+</body>
+</html>
