@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles.css">
+    <title>Модули</title>
+</head>
+<body>
+    <div class="learn-page__layout">
+        <h1><a href="../../1_module/">Back to module 1</a></h1>
+        <section class="learn-page__layout--study-block">
+            <h3>Обозначения:</h3>
+            <div class="text checked">Зеленый блок = прогресс изучения; Зеленая рамка = повторил, классно.</div>
+            <div class="help helpful">Синий блок = полезная подсказка; Синяя рамка = очень важно, очень классно.</div>
+            <div class="script useless">Красный блок = задача; Красная рамка = на мой взгляд не стоит внимания.</div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <h3>13.1 Модули, введение</h3>
+            <div class="text helpful">
+                <b>Основы</b>
+                <p>
+                    Модуль – это просто файл. Один скрипт – это один модуль. <br><br>
+                    export отмечает переменные и функции, которые должны быть доступны вне текущего модуля. <br><br>
+                    import позволяет импортировать функциональность из других модулей. <br><br>
+                    У модулей есть своя область видимости. <br><br>
+                    В модулях всегда включена директива use strict.
+                </p>
+            </div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <h3>13.2 Экспорт и импорт</h3>
+            <div class="text helpful">
+                <b>Основы</b>
+                <p>
+                    Директивы экспорт и импорт имеют несколько вариантов вызова. <br><br>
+                    Для export: <br><br>
+                    1) Перед объявлением класса/функции/…: export [default] class/function/variable ... <br><br>
+                    2) Отдельный от объявления экспорт: export {x [as y], ...}. <br><br>
+                    3) Реэкспорт (импортировать что-то и тут же экспортировать): export {sayHi} from './say.js'; <br><br><br>
+                    Для import: <br><br>
+                    1) Именованные экспорты из модуля: import {x [as y], ...} from "module" <br><br>
+                    2) Импорт по умолчанию: import x from "module" (для export default) <br><br>
+                    3) Всё сразу: import * as obj from "module" <br><br>
+                    4) Только подключить модуль (его код запустится), но не присваивать его переменной: import "module"
+                </p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
