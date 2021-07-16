@@ -18,7 +18,7 @@
         </section>
         <section class="learn-page__layout--study-block helpful">
             <h3>11.1 Введение: колбэки</h3>
-            <div class="text">
+            <div class="text helpful">
                 <b>Основы</b>
                 <p>
                     Многие действия в JavaScript асинхронные. Пример: loadScript('/my/script.js'); // загрузка скрипта будет завершена не сейчас, а потом.<br><br>
@@ -33,7 +33,7 @@
                     <b>Смысл такой: вторым аргументом передаётся функция (обычно анонимная), которая выполняется по завершении действия.</b>
                 </p>
             </div>
-            <div class="help">
+            <div class="help checked">
                 <b>Перехват ошибок</b>
                 <p>
                     А что если загрузить скрипт не удалось? Колбэк должен уметь реагировать на возможные проблемы.<br><br>
@@ -44,7 +44,7 @@
                     Пример: loadScript('/my/script.js', function(error, script) {if (error) {// обрабатываем ошибку} else {// скрипт успешно загружен}});
                 </p>
             </div>
-            <div class="help">
+            <div class="help helpful">
                 <b>Колбэк в колбэке (адская пирамида вызовов)</b>
                 <p>
                     Как нам загрузить два скрипта один за другим: сначала первый, а за ним второй?<br><br>
@@ -53,7 +53,7 @@
                     Мы можем попытаться решить эту проблему, изолируя каждое действие в отдельную функцию (то же, но без вложенности).
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Анимация круга с помощью колбэка</b>
                 <p>
                     <code>
@@ -105,7 +105,7 @@
         </section>
         <section class="learn-page__layout--study-block helpful">
             <h3>11.2 Промисы</h3>
-            <div class="text">
+            <div class="text helpful">
                 <b>Основы</b>
                 <p>
                     Синтаксис создания Promise: let promise = new Promise(function(resolve, reject) {// функция-исполнитель (executor)});<br><br>
@@ -123,7 +123,7 @@
                 </p>
                 <img src="./img/3.png" alt="" width="100%">
             </div>
-            <div class="help">
+            <div class="help checked">
                 <b>Может быть что-то одно: либо результат, либо ошибка</b>
                 <p>
                     Исполнитель должен вызвать что-то одно: resolve или reject. Состояние промиса может быть изменено только один раз. <br><br>
@@ -131,7 +131,7 @@
                 </p>
                 <img src="./img/3.png" alt="" width="100%">
             </div>
-            <div class="help">
+            <div class="help helpful">
                 <b>Потребители: then, catch, finally</b>
                 <p>
                     1) then: promise.then(function(result) { /* обработает успешное выполнение */ },function(error) { /* обработает ошибку */ }); <br><br>
@@ -146,7 +146,7 @@
                 </p>
                 <img src="./img/3.png" alt="" width="100%">
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>Пример: loadScript</b>
                 <p>
                     Вариант с колбэками:
@@ -157,7 +157,7 @@
                 </p>
                 <img src="./img/5.png" alt="" width="100%">
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Можно ли "перевыполнить" промис?</b>
                 <p>
                     <code>
@@ -165,7 +165,7 @@
                     </code>
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Задержка на промисах</b>
                 <p>
                     <code>
@@ -178,7 +178,7 @@
         </section>
         <section class="learn-page__layout--study-block helpful">
             <h3>11.3 Цепочка промисов</h3>
-            <div class="text">
+            <div class="text helpful">
                 <b>Основы</b>
                 <p>
                     Результат первого промиса передаётся по цепочке обработчиков .then<br><br>
@@ -191,7 +191,7 @@
                 </p>
                 <img src="./img/6.png" alt="" width="100%">
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Промисы: сравните then и catch</b>
                 <p>
                     <code>
@@ -202,7 +202,7 @@
         </section>
         <section class="learn-page__layout--study-block helpful">
             <h3>11.4 Промисы: обработка ошибок</h3>
-            <div class="text">
+            <div class="text checked">
                 <b>Основы</b>
                 <p>
                     Цепочки промисов отлично подходят для перехвата ошибок. Если промис завершается с ошибкой, 
@@ -210,7 +210,7 @@
                     fetch('https://no-such-server.blabla').then(response => response.json()).catch(err => alert(err)) // TypeError: failed to fetch
                 </p>
             </div>
-            <div class="help">
+            <div class="help checked">
                 <b>Неявный try…catch</b>
                 <p>
                     .catch перехватывает все виды ошибок в промисах: будь то вызов reject() или ошибка, брошенная в обработчике при помощи throw. <br><br>
@@ -218,14 +218,14 @@
                     Например, если ошибка находится в setTimeout.
                 </p>
             </div>
-            <div class="help">
+            <div class="help helpful">
                 <b>Пробрасывание ошибок</b>
                 <p>
                     Необходимо размещать .catch там, где мы хотим обработать ошибки и знаем, как это сделать. Обработчик может проанализировать 
                     ошибку (могут быть полезны пользовательские классы ошибок) и пробросить её, если ничего не знает о ней (возможно, это программная ошибка).
                 </p>
             </div>
-            <div class="help">
+            <div class="help checked">
                 <b>Необработанные ошибки</b>
                 <p>
                     Что произойдёт, если ошибка не будет обработана? Например, мы просто забыли добавить .catch. <br><br>
@@ -235,7 +235,7 @@
                     window.addEventListener('unhandledrejection', function(event) {alert(event.promise);alert(event.reason);});
                 </p>
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Ошибка в setTimeout</b>
                 <p>
                     <code>
@@ -246,7 +246,7 @@
         </section>
         <section class="learn-page__layout--study-block helpful">
             <h3>11.5 Promise API</h3>
-            <div class="text">
+            <div class="text helpful">
                 <b>Основы</b>
                 <p>
                     В классе Promise есть 5 статических методов.<br><br>
@@ -258,13 +258,13 @@
                     3) Promise.race(promises) – ожидает первый выполненный промис, который становится его результатом, остальные игнорируются. <br><br>
                     4) Promise.resolve(value) – возвращает успешно выполнившийся промис с результатом value. <br><br>
                     5) Promise.reject(error) – возвращает промис с ошибкой error. <br><br>
-                    Из всех перечисленных методов, самый часто используемый – это, пожалуй, Promise.all.
+                    Из всех перечисленных методов, самый часто используемый – Promise.all и Promise.race.
                 </p>
             </div>
         </section>
         <section class="learn-page__layout--study-block helpful">
             <h3>11.6 Промисификация</h3>
-            <div class="text">
+            <div class="text checked">
                 <b>Основы</b>
                 <p>
                     Мы берём функцию, которая принимает колбэк и меняем её, чтобы она вместо этого возвращала промис.<br><br>
@@ -276,7 +276,7 @@
                 <p>Из неё сделаем это:</p>
                 <img src="./img/8.png" alt="" width="100%">
             </div>
-            <div class="help">
+            <div class="help checked">
                 <b>На заметку</b>
                 <p>
                     Промисификация – это отличный подход, особенно, если вы будете использовать async/await, но она не является тотальной заменой любых колбэков. <br><br>
@@ -287,7 +287,7 @@
         </section>
         <section class="learn-page__layout--study-block helpful">
             <h3>11.7 Микрозадачи</h3>
-            <div class="text">
+            <div class="text helpful">
                 <b>Очередь микрозадач</b>
                 <p>
                     Асинхронные задачи требуют правильного управления. Для этого стандарт предусматривает внутреннюю очередь PromiseJobs, 
@@ -304,7 +304,7 @@
                     то лучше всего добавить его вызов в цепочку .then.
                 </p>
             </div>
-            <div class="text">
+            <div class="text checked">
                 <b>Необработанные ошибки</b>
                 <p>
                     "Необработанная ошибка" возникает в случае, если ошибка промиса не обрабатывается в конце очереди микрозадач.<br><br>
@@ -314,7 +314,7 @@
         </section>
         <section class="learn-page__layout--study-block helpful">
             <h3>11.8 Async/await</h3>
-            <div class="text">
+            <div class="text helpful">
                 <b>Асинхронные функции</b>
                 <p>
                     Существует специальный синтаксис для работы с промисами, который называется «async/await». <br><br>
@@ -328,7 +328,7 @@
                 </p>
                 <img src="./img/10.png" alt="" width="100%">
             </div>
-            <div class="help">
+            <div class="help checked">
                 <b>Асинхронные методы классов</b>
                 <p>
                     Для объявления асинхронного метода достаточно написать async перед именем: <br><br>
@@ -336,7 +336,7 @@
                     new Waiter().wait().then(alert); // 1
                 </p>
             </div>
-            <div class="text">
+            <div class="text helpful">
                 <b>Обработка ошибок</b>
                 <p>
                     На практике промис может завершиться с ошибкой не сразу, а через некоторое время. В этом случае будет задержка, а затем await выбросит исключение.<br><br>
@@ -344,7 +344,7 @@
                 </p>
                 <img src="./img/11.png" alt="" width="100%">
             </div>
-            <div class="script">
+            <div class="script checked">
                 <b>Задачи. Перепишите, используя async/await</b>
                 <p>
                     <code>
