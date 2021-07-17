@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles.css">
+    <title>Разное</title>
+</head>
+<body>
+    <div class="learn-page__layout checklist">
+        <h1><a href="../../1_module/">Back to module 1</a></h1>
+        <section class="learn-page__layout--study-block">
+            <h3>Обозначения (субъективно):</h3>
+            <div>Зеленый = актуально, мастхэв</div>
+            <div>Оранжевый = актуально, но не мастхэв</div>
+            <div>Красный = на мой взгляд не актуально</div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <div class="text" style="background-color: white;">
+                <b>2) Основы JavaScript</b><hr>
+                <div>
+                    <input type="checkbox" name="2_2" id="2_2">
+                    <label for="2_2">2.2 Структура кода</label>
+                    <p class="green">1) Точка с запятой в конце выражения</p>
+                    <p class="green">2) Комментарии</p>
+                </div>
+                <div>
+                    <input type="checkbox" name="2_3" id="2_3">
+                    <label for="2_3">2.3 Строгий режим - "use strict"</label>
+                    <p class="green">1) "use strict" (поддержка старого кода)</p>
+                </div>
+                <div>
+                    <input type="checkbox" name="2_4" id="2_4">
+                    <label for="2_4">2.4 Переменные</label>
+                    <p class="green">1) let (переменная, можно переопределять, блочная обл. видимости)</p>
+                    <p class="green">2) const (константа, нельзя переопределять, блочная обл. видимости)</p>
+                    <p class="orange">3) var (переменная (олд), можно переопределять, обл. видимости файла/функции, но не блока)</p>
+                    <p class="green">4) Имена переменных (camelCase, должны быть ясны, конкретика, но не более 2-3 слов: userName)</p>
+                    <p class="green">5) Присвоение результата функции (можем присвоить результат функции: let result = sum(2, 3))</p>
+                </div>
+                <div>
+                    <input type="checkbox" name="2_5" id="2_5">
+                    <label for="2_5">2.5 Типы данных</label>
+                    <p class="green">1) 8 типов данных (number, string, object, bool, null, undefined, BigInt (big number), Symbol)</p>
+                    <p class="green">2) Оператор typeof (возвращает тип чего-либо строкой)</p>
+                </div>
+                <div>
+                    <input type="checkbox" name="2_7" id="2_7">
+                    <label for="2_7">2.7 Преобразование типов</label>
+                    <p class="green">1) Строковое преобразование (к string, String(value))</p>
+                    <p class="green">2) Численное преобразование (к number, Number(value) или +value)</p>
+                    <p class="green">3) Логическое преобразование (к bool, Boolean(value) или !!value)</p>
+                    <p class="green">4) 0, null, undefined, NaN, "" возвращает false, остальное возвращает true</p>
+                </div>
+                <div>
+                    <input type="checkbox" name="2_8" id="2_8">
+                    <label for="2_8">2.8 Базовые операторы, математика</label>
+                    <p class="green">1) «унарный» (+a), «бинарный» (a + b), «операнд» (a, b - это операнды)</p>
+                    <p class="green">2) Постфиксный инкремент (v++)/декремент (v--), увеличить, но получить результат до увеличения</p>
+                    <p class="green">3) Префиксный инкремент (++v)/декремент (--v), увеличить, и сразу получить новый результат</p>
+                </div>
+                <div>
+                    <input type="checkbox" name="2_9" id="2_9">
+                    <label for="2_9">2.9 Операторы сравнения</label>
+                    <p class="green">1) Результат сравнения имеет логический тип (let a = 3 > 2; // true)</p>
+                    <p class="green">2) Строгое сравнение (===, !==), всегда стоит использовать его</p>
+                </div>
+                <div>
+                    <input type="checkbox" name="2_10" id="2_10">
+                    <label for="2_10">2.10 Условное ветвление: if, '?'</label>
+                    <p class="green">1) if (condition) {...} (опционально: else if (condition) {...} else {...})</p>
+                    <p class="green">2) Тернарный оператор "?" (let result = условие ? значение1 : значение2;)</p>
+                </div>
+                <div>
+                    <input type="checkbox" name="2_11" id="2_11">
+                    <label for="2_11">2.11 Логические операторы</label>
+                    <p class="green">1) ИЛИ «||» (a || b || c) находит первое истинное значение, либо возвращает последнее значение в цепочке</p>
+                    <p class="green">2) И «&&» (a && b && c) находит первое ложное значение, либо возвращает последнее значение в цепочке</p>
+                    <p class="green">2) ! (НЕ) (!value) приводит аргумент к bool, возвращает противоположное значение</p>
+                </div>
+                <div>
+                    <input type="checkbox" name="2_12" id="2_12">
+                    <label for="2_12">2.12 Оператор объединения с null '??'</label>
+                    <p class="orange">1) ?? возвращает первое определённое значение (в отлчие от || различает false, 0, "" и null/undefined)</p>
+                </div>
+                <div>
+                    <input type="checkbox" name="2_13" id="2_13">
+                    <label for="2_13">2.13 Циклы while и for</label>
+                    <p class="orange">1) Цикл «while» (while (condition) {...}, цикл выполняется, пока условие condition истинно)</p>
+                    <p class="orange">2) Цикл «do...while» (выполнит тело, а затем проверит условие condition, и пока его значение равно true)</p>
+                    <p class="green">3) Цикл «for» (for (начало; условие; шаг) {тело}, послед.: начало => (условие -> тело -> шаг -> условие)})</p>
+                    <p class="orange">4) Прерывание цикла: «break» (позволяет выйти из цикла, if (!value) {break;})</p>
+                </div>
+                <div>
+                    <input type="checkbox" name="2_14" id="2_14">
+                    <label for="2_14">2.14 Конструкция "switch"</label>
+                    <p class="green">1) switch(x) {case 'val1': ... break; default: ... break;} (проверка строгая (===), case могут быть слитно)</p>
+                </div>
+                <div>
+                    <input type="checkbox" name="2_15" id="2_15">
+                    <label for="2_15">2.15 Функции</label>
+                    <p class="green">1) Объявление функции (function showMessage(params) {...}, переменные, объявленные в ней, извне не доступны)</p>
+                    <p class="green">2) Внешние переменные (функция имеет доступ к переменным, объявленным выше тела функции)</p>
+                    <p class="green">3) Возврат значения (return возвращает результат, его может не быть, тогда функция вернёт undefined)</p>
+                    <p class="green">4) Выбор имени функции (глагольный префикс, сделалКого, делает ровно то, что написано в её названии)</p>
+                    <p class="green">5) Одна функция, одно действие (два действия, две функции, и третья, которая вызывает их обоих)</p>
+                </div>
+                <div>
+                    <input type="checkbox" name="2_16" id="2_16">
+                    <label for="2_16">2.16 Function Expression/Declaration, Callbacks</label>
+                    <p class="green">1) Function Expression (let sayHi = function() {...}, создаётся, когда выполнение доходит до него)</p>
+                    <p class="green">2) Function Expression (function sayHi() {...}, создаётся сразу, как только начинает работать скрипт)</p>
+                    <p class="green">3) Функции-«колбэки» (передаём функцию как параметр функции, она ждёт пока её вызовут, когда это будет нужно)</p>
+                    <p class="red">// Позже добавить примеры кода с использованием колбэков</p>
+                </div>
+                <div>
+                    <input type="checkbox" name="2_17" id="2_17">
+                    <label for="2_17">2.17 Функции-стрелки, основы</label>
+                    <p class="green">1) Функции-стрелки (let func = (arg1, ...argN) => expression, однострочным не нужен return, не имеют this)</p>
+                </div>
+            </div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <div class="text" style="background-color: white;">
+                <b>3) Качество кода</b>
+                <div>
+                    <input type="checkbox" name="3_1" id="3_1">
+                    <label for="3_1">3.1 Отладка в браузере Chrome (Chrome DevTools)</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="3_2" id="3_2">
+                    <label for="3_2">3.2 Советы по стилю кода</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="3_3" id="3_3">
+                    <label for="3_3">3.3 Комментарии</label>
+                </div>
+            </div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <div class="text" style="background-color: white;">
+                <b>4) Объекты: основы</b>
+                <div>
+                    <input type="checkbox" name="4_1" id="4_1">
+                    <label for="4_1">4.1 Объекты</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="4_2" id="4_2">
+                    <label for="4_2">4.2 Копирование объектов и ссылки</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="4_3" id="4_3">
+                    <label for="4_3">4.3 Сборка мусора</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="4_4" id="4_4">
+                    <label for="4_4">4.4 Методы объекта, "this"</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="4_5" id="4_5">
+                    <label for="4_5">4.5 Конструкторы, создание объектов через "new"</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="4_6" id="4_6">
+                    <label for="4_6">4.6 Опциональная цепочка '?.'</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="4_7" id="4_7">
+                    <label for="4_7">4.7 Тип данных Symbol</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="4_8" id="4_8">
+                    <label for="4_8">4.8 Преобразование объектов в примитивы</label>
+                </div>
+            </div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <div class="text" style="background-color: white;">
+                <b>5) Типы данных</b>
+                <div>
+                    <input type="checkbox" name="5_1" id="5_1">
+                    <label for="5_1">5.1 Методы у примитивов</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="5_2" id="5_2">
+                    <label for="5_2">5.2 Числа (number)</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="5_3" id="5_3">
+                    <label for="5_3">5.3 Строки (string)</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="5_4" id="5_4">
+                    <label for="5_4">5.4 Массивы</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="5_5" id="5_5">
+                    <label for="5_5">5.5 Методы массивов</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="5_6" id="5_6">
+                    <label for="5_6">5.6 Перебираемые объекты</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="5_7" id="5_7">
+                    <label for="5_7">5.7 Map и Set</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="5_8" id="5_8">
+                    <label for="5_8">5.8 WeakMap и WeakSet</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="5_9" id="5_9">
+                    <label for="5_9">5.9 Object.keys, values, entries</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="5_10" id="5_10">
+                    <label for="5_10">5.10 Деструктурирующее присваивание</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="5_11" id="5_11">
+                    <label for="5_11">5.11 Дата и время</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="5_12" id="5_12">
+                    <label for="5_12">5.12 Формат JSON, метод toJSON</label>
+                </div>
+            </div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <div class="text" style="background-color: white;">
+                <b>6) Продвинутая работа с функциями</b>
+                <div>
+                    <input type="checkbox" name="6_1" id="6_1">
+                    <label for="6_1">6.1 Рекурсия и стек</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="6_2" id="6_2">
+                    <label for="6_2">6.2 Остаточные параметры и оператор расширения</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="6_3" id="6_3">
+                    <label for="6_3">6.3 Замыкание</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="6_4" id="6_4">
+                    <label for="6_4">6.4 Устаревшее ключевое слово "var"</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="6_5" id="6_5">
+                    <label for="6_5">6.5 Глобальный объект</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="6_6" id="6_6">
+                    <label for="6_6">6.6 Объект функции, NFE</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="6_7" id="6_7">
+                    <label for="6_7">6.7 Синтаксис "new Function"</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="6_8" id="6_8">
+                    <label for="6_8">6.8 Планирование: setTimeout и setInterval</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="6_9" id="6_9">
+                    <label for="6_9">6.9 Декораторы и переадресация вызова, call/apply</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="6_10" id="6_10">
+                    <label for="6_10">6.10 Привязка контекста к функции</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="6_11" id="6_11">
+                    <label for="6_11">6.11 Повторяем стрелочные функции</label>
+                </div>
+            </div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <div class="text" style="background-color: white;">
+                <b>7) Свойства объекта, их конфигурация</b>
+                <div>
+                    <input type="checkbox" name="7_1" id="7_1">
+                    <label for="7_1">7.1 Флаги и дескрипторы свойств</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="7_2" id="7_2">
+                    <label for="7_2">7.2 Свойства - геттеры и сеттеры</label>
+                </div>
+            </div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <div class="text" style="background-color: white;">
+                <b>9) Классы</b>
+                <div>
+                    <input type="checkbox" name="9_1" id="9_1">
+                    <label for="9_1">9.1 Класс: базовый синтаксис</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="9_2" id="9_2">
+                    <label for="9_2">9.2 Наследование классов</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="9_3" id="9_3">
+                    <label for="9_3">9.3 Статические свойства и методы</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="9_4" id="9_4">
+                    <label for="9_4">9.4 Приватные и защищённые методы и свойства</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="9_5" id="9_5">
+                    <label for="9_5">9.5 Расширение встроенных классов</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="9_6" id="9_6">
+                    <label for="9_6">9.6 Проверка класса: "instanceof"</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="9_7" id="9_7">
+                    <label for="9_7">9.7 Примеси</label>
+                </div>
+            </div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <div class="text" style="background-color: white;">
+                <b>10) Обработка ошибок</b>
+                <div>
+                    <input type="checkbox" name="10_1" id="10_1">
+                    <label for="10_1">10.1 Обработка ошибок, "try..catch"</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="10_2" id="10_2">
+                    <label for="10_2">10.2 Пользовательские ошибки, расширение Error</label>
+                </div>
+            </div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <div class="text" style="background-color: white;">
+                <b>11) Промисы, async/await</b>
+                <div>
+                    <input type="checkbox" name="11_1" id="11_1">
+                    <label for="11_1">11.1 Введение: колбэки</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="11_2" id="11_2">
+                    <label for="11_2">11.2 Промисы</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="11_3" id="11_3">
+                    <label for="11_3">11.3 Цепочка промисов</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="11_4" id="11_4">
+                    <label for="11_4">11.4 Промисы: обработка ошибок</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="11_5" id="11_5">
+                    <label for="11_5">11.5 Promise API</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="11_6" id="11_6">
+                    <label for="11_6">11.6 Промисификация</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="11_7" id="11_7">
+                    <label for="11_7">11.7 Микрозадачи</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="11_8" id="11_8">
+                    <label for="11_8">11.8 Async/await</label>
+                </div>
+            </div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <div class="text" style="background-color: white;">
+                <b>12) Генераторы, продвинутая итерация</b>
+                <div>
+                    <input type="checkbox" name="12_1" id="12_1">
+                    <label for="12_1">12.1 Генераторы</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="11_2" id="11_2">
+                    <label for="11_2">12.2 Асинхронные итераторы и генераторы</label>
+                </div>
+            </div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <div class="text" style="background-color: white;">
+                <b>13) Модули</b>
+                <div>
+                    <input type="checkbox" name="13_1" id="13_1">
+                    <label for="13_1">13.1 Модули, введение</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="13_2" id="13_2">
+                    <label for="13_2">13.2 Экспорт и импорт</label>
+                </div>
+            </div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <div class="text" style="background-color: white;">
+                <b>14) Разное</b>
+                <div>
+                    <input type="checkbox" name="14_3" id="14_3">
+                    <label for="14_3">14.3 Каррирование</label>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
