@@ -18,7 +18,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <div class="text" style="background-color: white;">
-                <b>2) Основы JavaScript</b><hr>
+                <b>2) Основы JavaScript <a href="https://jsfiddle.net/gzhel/o1hn3bg6/127/" target="_blank">(примеры кода)</a></b><hr>
                 <div>
                     <input type="checkbox" name="2_2" id="2_2">
                     <label for="2_2">2.2 Структура кода</label>
@@ -110,9 +110,8 @@
                     <input type="checkbox" name="2_16" id="2_16">
                     <label for="2_16">2.16 Function Expression/Declaration, Callbacks</label>
                     <p class="green">1) Function Expression (let sayHi = function() {...}, создаётся, когда выполнение доходит до него)</p>
-                    <p class="green">2) Function Expression (function sayHi() {...}, создаётся сразу, как только начинает работать скрипт)</p>
+                    <p class="green">2) Function Declaration (function sayHi() {...}, создаётся сразу, как только начинает работать скрипт)</p>
                     <p class="green">3) Функции-«колбэки» (передаём функцию как параметр функции, она ждёт пока её вызовут, когда это будет нужно)</p>
-                    <p class="red">// Позже добавить примеры кода с использованием колбэков</p>
                 </div>
                 <div>
                     <input type="checkbox" name="2_17" id="2_17">
@@ -149,7 +148,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <div class="text" style="background-color: white;">
-                <b>4) Объекты: основы</b>
+                <b>4) Объекты: основы <a href="https://jsfiddle.net/gzhel/j7tyw89L/84/" target="_blank">(примеры кода)</a></b>
                 <hr>
                 <div>
                     <input type="checkbox" name="4_1" id="4_1">
@@ -158,7 +157,6 @@
                     <p class="green">2) Квадратные скобки (обращение через obj[key], обычно доступ через [] используют когда key это переменная)</p>
                     <p class="orange">3) Свойство из переменной (запись {name: name, age: age} можем записать как {name, age})</p>
                     <p class="orange">4) Оператор «in» ("key" in object, проверяет есть ли ключ А в объекте Б)</p>
-                    <p class="red">// Позже добавить примеры кода с использованием доступа к ключу через переменную</p>
                 </div>
                 <div>
                     <input type="checkbox" name="4_2" id="4_2">
@@ -174,14 +172,12 @@
                     <p class="green">1) «this» в методах (объект перед точкой (user. это this для name), для доступа к тому, что внутри объекта)</p>
                     <p class="green">2) «this» не фиксирован (зависит от контекста, при вызове obj.f() значение this внутри f равно obj)</p>
                     <p class="green">3) У стрелочных функций нет «this» (его значение берётся из внешней «нормальной» функции, если такая есть)</p>
-                    <p class="red">// Позже добавить примеры кода с использованием this</p>
                 </div>
                 <div>
                     <input type="checkbox" name="4_5" id="4_5">
                     <label for="4_5">4.5 Конструкторы, создание объектов через "new"</label>
                     <p class="green">1) Функция-конструктор (с большой буквы, вызов через new: function User(a) {this.a = a;} let b = new User(22);)</p>
                     <p class="green">2) Создание методов в конструкторе (в this можем добавлять методы: this.read = function() {...})</p>
-                    <p class="red">// Позже добавить примеры кода с использованием конструктора</p>
                 </div>
                 <div>
                     <input type="checkbox" name="4_6" id="4_6">
@@ -204,7 +200,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <div class="text" style="background-color: white;">
-                <b>5) Типы данных</b>
+                <b>5) Типы данных <a href="https://jsfiddle.net/gzhel/3heobtq8/162/" target="_blank">(примеры кода)</a></b>
                 <hr>
                 <div>
                     <input type="checkbox" name="5_1" id="5_1">
@@ -243,7 +239,7 @@
                     <input type="checkbox" name="5_5" id="5_5">
                     <label for="5_5">5.5 Методы массивов</label>
                     <p>Добавление/удаление элементов:</p>
-                    <p class="green">1) arr.splice(pos, deleteCount, ...items) (начиная с pos, удаляет deleteCount элементов и вставляет items)</p>
+                    <p class="green">1) arr.splice(pos, deleteCount, 'item1', ...) (начиная с pos, удал. deleteCount эл., вставляет items)</p>
                     <p class="green">2) arr.slice(start, end) (создаёт новый массив, копируя в него элементы с start до end (не включая end))</p>
                     <p class="orange">3) arr.concat(arg1, arg2...) (возвр. новый массив: копир. все члены текущего массива и добавляет к нему items)</p>
                     <p>Поиск в массиве:</p>
@@ -311,7 +307,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <div class="text" style="background-color: white;">
-                <b>6) Продвинутая работа с функциями</b>
+                <b>6) Продвинутая работа с функциями <a href="https://jsfiddle.net/gzhel/fuv846rs/75/" target="_blank">(примеры кода)</a></b>
                 <hr>
                 <div>
                     <input type="checkbox" name="6_1" id="6_1">
@@ -388,7 +384,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <div class="text" style="background-color: white;">
-                <b>7) Свойства объекта, их конфигурация</b>
+                <b>7) Свойства объекта, их конфигурация <a href="https://jsfiddle.net/gzhel/nhdjf2p1/19/" target="_blank">(примеры кода)</a></b>
                 <hr>
                 <div>
                     <input type="checkbox" name="7_1" id="7_1">
@@ -408,7 +404,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <div class="text" style="background-color: white;">
-                <b>9) Классы</b>
+                <b>9) Классы <a href="https://jsfiddle.net/gzhel/nx7e5o0r/2/" target="_blank">(примеры кода)</a></b>
                 <hr>
                 <div>
                     <input type="checkbox" name="9_1" id="9_1">
@@ -466,7 +462,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <div class="text" style="background-color: white;">
-                <b>11) Промисы, async/await</b>
+                <b>11) Промисы, async/await <a href="https://jsfiddle.net/gzhel/fzgupj9w/118/" target="_blank">(примеры кода)</a></b>
                 <hr>
                 <div>
                     <input type="checkbox" name="11_1" id="11_1">
