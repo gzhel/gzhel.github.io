@@ -20,33 +20,33 @@
             <div class="text" style="background-color: white;">
                 <b>2) Основы JavaScript <a href="https://jsfiddle.net/gzhel/o1hn3bg6/127/" target="_blank">(примеры кода)</a></b><hr>
                 <div>
-                    <input type="checkbox" name="2_2" id="2_2">
+                    <input type="checkbox" name="2_2" id="2_2" checked>
                     <label for="2_2">2.2 Структура кода</label>
                     <p class="green">1) Точка с запятой в конце выражения</p>
                     <p class="green">2) Комментарии</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="2_3" id="2_3">
+                    <input type="checkbox" name="2_3" id="2_3" checked>
                     <label for="2_3">2.3 Строгий режим - "use strict"</label>
                     <p class="green">1) "use strict" (поддержка старого кода)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="2_4" id="2_4">
+                    <input type="checkbox" name="2_4" id="2_4" checked>
                     <label for="2_4">2.4 Переменные</label>
                     <p class="green">1) let (переменная, можно переопределять, блочная обл. видимости)</p>
                     <p class="green">2) const (константа, нельзя переопределять, блочная обл. видимости)</p>
-                    <p class="orange">3) var (переменная (олд), можно переопределять, обл. видимости файла/функции, но не блока)</p>
+                    <p class="red">3) var (переменная (олд), можно переопределять, обл. видимости файла/функции, но не блока)</p>
                     <p class="green">4) Имена переменных (camelCase, должны быть ясны, конкретика, но не более 2-3 слов: userName)</p>
                     <p class="green">5) Присвоение результата функции (можем присвоить результат функции: let result = sum(2, 3))</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="2_5" id="2_5">
+                    <input type="checkbox" name="2_5" id="2_5" checked>
                     <label for="2_5">2.5 Типы данных</label>
                     <p class="green">1) 8 типов данных (number, string, object, bool, null, undefined, BigInt (big number), Symbol)</p>
                     <p class="green">2) Оператор typeof (возвращает тип чего-либо строкой)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="2_7" id="2_7">
+                    <input type="checkbox" name="2_7" id="2_7" checked>
                     <label for="2_7">2.7 Преобразование типов</label>
                     <p class="green">1) Строковое преобразование (к string, String(value))</p>
                     <p class="green">2) Численное преобразование (к number, Number(value) или +value)</p>
@@ -54,51 +54,52 @@
                     <p class="green">4) 0, null, undefined, NaN, "" возвращает false, остальное возвращает true</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="2_8" id="2_8">
+                    <input type="checkbox" name="2_8" id="2_8" checked>
                     <label for="2_8">2.8 Базовые операторы, математика</label>
                     <p class="green">1) «унарный» (+a), «бинарный» (a + b), «операнд» (a, b - это операнды)</p>
                     <p class="green">2) Постфиксный инкремент (v++)/декремент (v--), увеличить, но получить результат до увеличения</p>
                     <p class="green">3) Префиксный инкремент (++v)/декремент (--v), увеличить, и сразу получить новый результат</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="2_9" id="2_9">
+                    <input type="checkbox" name="2_9" id="2_9" checked>
                     <label for="2_9">2.9 Операторы сравнения</label>
                     <p class="green">1) Результат сравнения имеет логический тип (let a = 3 > 2; // true)</p>
                     <p class="green">2) Строгое сравнение (===, !==), всегда стоит использовать его</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="2_10" id="2_10">
+                    <input type="checkbox" name="2_10" id="2_10" checked>
                     <label for="2_10">2.10 Условное ветвление: if, '?'</label>
                     <p class="green">1) if (condition) {...} (опционально: else if (condition) {...} else {...})</p>
                     <p class="green">2) Тернарный оператор "?" (let result = условие ? значение1 : значение2;)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="2_11" id="2_11">
+                    <input type="checkbox" name="2_11" id="2_11" checked>
                     <label for="2_11">2.11 Логические операторы</label>
                     <p class="green">1) ИЛИ «||» (a || b || c) находит первое истинное значение, либо возвращает последнее значение в цепочке</p>
                     <p class="green">2) И «&&» (a && b && c) находит первое ложное значение, либо возвращает последнее значение в цепочке</p>
                     <p class="green">2) ! (НЕ) (!value) приводит аргумент к bool, возвращает противоположное значение</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="2_12" id="2_12">
+                    <input type="checkbox" name="2_12" id="2_12" checked>
                     <label for="2_12">2.12 Оператор объединения с null '??'</label>
                     <p class="orange">1) ?? возвращает первое определённое значение (в отлчие от || различает false, 0, "" и null/undefined)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="2_13" id="2_13">
+                    <input type="checkbox" name="2_13" id="2_13" checked>
                     <label for="2_13">2.13 Циклы while и for</label>
-                    <p class="orange">1) Цикл «while» (while (condition) {...}, цикл выполняется, пока условие condition истинно)</p>
-                    <p class="orange">2) Цикл «do...while» (выполнит тело, а затем проверит условие condition, и пока его значение равно true)</p>
-                    <p class="green">3) Цикл «for» (for (начало; условие; шаг) {тело}, послед.: начало => (условие -> тело -> шаг -> условие)})</p>
-                    <p class="orange">4) Прерывание цикла: «break» (позволяет выйти из цикла, if (!value) {break;})</p>
+                    <p class="red">1) Цикл «while» (while (condition) {...}, цикл выполняется, пока условие condition истинно)</p>
+                    <p class="red">2) Цикл «do...while» (выполнит тело, а затем проверит условие condition, и пока его значение равно true)</p>
+                    <p class="red">3) Цикл «for» (for (начало; условие; шаг) {тело}, послед.: начало => (условие -> тело -> шаг -> условие)})</p>
+                    <p class="red">4) Прерывание цикла: «break» (позволяет выйти из цикла, if (!value) {break;})</p>
+                    <p class="green">5) Вместо while, for всегда используются перебираемые методы (map, filter, и так далее)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="2_14" id="2_14">
+                    <input type="checkbox" name="2_14" id="2_14" checked>
                     <label for="2_14">2.14 Конструкция "switch"</label>
                     <p class="green">1) switch(x) {case 'val1': ... break; default: ... break;} (проверка строгая (===), case могут быть слитно)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="2_15" id="2_15">
+                    <input type="checkbox" name="2_15" id="2_15" checked>
                     <label for="2_15">2.15 Функции</label>
                     <p class="green">1) Объявление функции (function showMessage(params) {...}, переменные, объявленные в ней, извне не доступны)</p>
                     <p class="green">2) Внешние переменные (функция имеет доступ к переменным, объявленным выше тела функции)</p>
@@ -120,8 +121,9 @@
                 </div>
                 <div>
                     <p class="helpful" style="padding: 10px;">
-                        <a href="https://jsfiddle.net/gzhel/7kfzj1cy/101/" target="_blank">Эксперименты с потерей this, bind.</a>
+                        <a href="https://jsfiddle.net/gzhel/besmp70x/7/" target="_blank">Эксперименты с потерей this, bind.</a>
                     </p>
+                    <p class="green">1) У Function Declaration/Expression есть свой контекст, Arrow Function ищет контекст во вне</p>
                 </div>
             </div>
         </section>
@@ -219,7 +221,7 @@
                     <p class="green">1) Округление (Math.floor в меньш., Math.ceil в больш., Math.round до ближ. цел., Math.trunc уд. дроб. части)</p>
                     <p class="green">2) toFixed(n) (округляет число до n знаков после запятой и возвращает строку)</p>
                     <p class="green">3) Неточные вычисления (при работе с дробями округляем их через +number.toFixed(n); иначе могут быть ошибки)</p>
-                    <p class="green">4) isFinite и isNaN (isNaN(value) это NaN? isFinite(value) это не NaN/Infinity/-Infinity?)</p>
+                    <p class="orange">4) isFinite и isNaN (isNaN(value) это NaN? isFinite(value) это не NaN/Infinity/-Infinity?)</p>
                     <p class="orange">5) parseInt и parseFloat («читают» число из строки. parseInt('100px') // 100)</p>
                     <p class="green">6) Math.random() (число от 0 до 1), Math.max/min(a, b...) (больш./меньш. из арг.), Math.pow(n, power) (**)</p>
                 </div>
@@ -281,8 +283,8 @@
                     <input type="checkbox" name="5_9" id="5_9">
                     <label for="5_9">5.9 Object.keys, values, entries</label>
                     <p class="green">1) Object.keys/values/entries(obj) (возвр. массив ключей/значений/пар [ключ, значение])</p>
-                    <p class="green">2) Трансформация объекта (алгоритм используется для исп. методов массива на объекте)</p>
-                    <p class="green">3) Алгоритм трансформации объекта (Object.entries(obj) -> методы массива -> Object.fromEntries(array))</p>
+                    <p class="orange">2) Трансформация объекта (алгоритм используется для исп. методов массива на объекте)</p>
+                    <p class="orange">3) Алгоритм трансформации объекта (Object.entries(obj) -> методы массива -> Object.fromEntries(array))</p>
                 </div>
                 <div>
                     <input type="checkbox" name="5_10" id="5_10">
