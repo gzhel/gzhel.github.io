@@ -12,6 +12,7 @@
         <h1><a href="../../1_module/">Back to module 1</a></h1>
         <section class="learn-page__layout--study-block">
             <h3>Обозначения (субъективно):</h3>
+            <div>Синий = выведено в процессе исправления ошибок</div>
             <div>Зеленый = актуально, мастхэв</div>
             <div>Оранжевый = актуально, но не мастхэв</div>
             <div>Красный = на мой взгляд не актуально</div>
@@ -123,7 +124,7 @@
                     <p class="helpful" style="padding: 10px;">
                         <a href="https://jsfiddle.net/gzhel/besmp70x/13/" target="_blank">Эксперименты с потерей this, bind.</a>
                     </p>
-                    <p class="green">1) У Function Declaration/Expression есть свой контекст, Arrow Function ищет контекст во вне</p>
+                    <p class="blue">1) У Function Declaration/Expression есть свой контекст, Arrow Function ищет контекст во вне</p>
                 </div>
             </div>
         </section>
@@ -132,13 +133,13 @@
                 <b>3) Качество кода</b>
                 <hr>
                 <div>
-                    <input type="checkbox" name="3_1" id="3_1">
+                    <input type="checkbox" name="3_1" id="3_1" checked>
                     <label for="3_1">3.1 Отладка в браузере Chrome (Chrome DevTools)</label>
                     <p class="orange">1) Панель "Sources" (слева все файлы страницы, по центру исходный код, справа зона для отладки)</p>
                     <p class="green">2) Панель "Console" (выводит логи, ошибки, можно писать в ней свои скрипты и выполнять их)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="3_2" id="3_2">
+                    <input type="checkbox" name="3_2" id="3_2" checked>
                     <label for="3_2">3.2 Советы по стилю кода</label>
                     <p class="green">1) Фигурные скобки (в однострочных инструкциях - не нужны, многострочных - обязательны)</p>
                     <p class="red">2) Длина строки (лучше разбивать строки на более короткие, 80-120 символов)</p>
@@ -147,7 +148,7 @@
                     <p class="green">5) Линтеры (автоматически проверяют и ругают стиль кода, лучший линтер - ESLint)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="3_3" id="3_3">
+                    <input type="checkbox" name="3_3" id="3_3" checked>
                     <label for="3_3">3.3 Комментарии</label>
                     <p class="orange">1) Хорошие комментарии (почему задача была решена так?)</p>
                 </div>
@@ -158,7 +159,7 @@
                 <b>4) Объекты: основы <a href="https://jsfiddle.net/gzhel/j7tyw89L/84/" target="_blank">(примеры кода)</a></b>
                 <hr>
                 <div>
-                    <input type="checkbox" name="4_1" id="4_1">
+                    <input type="checkbox" name="4_1" id="4_1" checked>
                     <label for="4_1">4.1 Объекты</label>
                     <p class="green">1) Литералы {...} и свойства ({ключ1:значение}, обращение через obj.key, для удаления delete obj.key)</p>
                     <p class="green">2) Квадратные скобки (обращение через obj[key], обычно доступ через [] используют когда key это переменная)</p>
@@ -166,7 +167,7 @@
                     <p class="orange">4) Оператор «in» ("key" in object, проверяет есть ли ключ А в объекте Б)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="4_2" id="4_2">
+                    <input type="checkbox" name="4_2" id="4_2" checked>
                     <label for="4_2">4.2 Копирование объектов и ссылки</label>
                     <p class="green">1) Копирование по ссылке для примитивов (let a = 1; let b = a; две независимые переменные, клонов)</p>
                     <p class="green">2) Копирование по ссылке для object (let a = {}; let b = a; переменные с одной ссылкой, изменим b, изменится a)</p>
@@ -174,24 +175,24 @@
                     <p class="orange">4) Вложенное клонирование (ключом объекта может быть объект, для клона есть lodash _.cloneDeep(obj))</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="4_4" id="4_4">
+                    <input type="checkbox" name="4_4" id="4_4" checked>
                     <label for="4_4">4.4 Методы объекта, "this"</label>
                     <p class="green">1) «this» в методах (объект перед точкой (user. это this для name), для доступа к тому, что внутри объекта)</p>
                     <p class="green">2) «this» не фиксирован (зависит от контекста, при вызове obj.f() значение this внутри f равно obj)</p>
                     <p class="green">3) У стрелочных функций нет «this» (его значение берётся из внешней «нормальной» функции, если такая есть)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="4_5" id="4_5">
+                    <input type="checkbox" name="4_5" id="4_5" checked>
                     <label for="4_5">4.5 Конструкторы, создание объектов через "new"</label>
                     <p class="green">1) Функция-конструктор (с большой буквы, вызов через new: function User(a) {this.a = a;} let b = new User(22);)</p>
                     <p class="green">2) Создание методов в конструкторе (в this можем добавлять методы: this.read = function() {...})</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="4_6" id="4_6">
+                    <input type="checkbox" name="4_6" id="4_6" checked>
                     <label for="4_6">4.6 Опциональная цепочка '?.'</label>
                     <p class="green">1) ?. (возвращает undefined если часть перед "?." undefined или null, ошибки нет (если a в a?.b объявлена))</p>
-                    <p class="green">2) ?.() (для вызова потенциально несуществующей функции: user1.admin?.())</p>
-                    <p class="green">3) ?.[] (если значение ключа получаем с помощью [], например если оно берётся из переменной)</p>
+                    <p class="orange">2) ?.() (для вызова потенциально несуществующей функции: user1.admin?.())</p>
+                    <p class="orange">3) ?.[] (если значение ключа получаем с помощью [], например если оно берётся из переменной)</p>
                 </div>
                 <div>
                     <input type="checkbox" name="4_7" id="4_7">
@@ -202,6 +203,15 @@
                     <input type="checkbox" name="4_8" id="4_8">
                     <label for="4_8">4.8 Преобразование объектов в примитивы</label>
                     <p class="red">1) На практике используют obj.toString() «универсальный» метод для всех типов преобразований</p>
+                </div>
+                <div>
+                    <p class="helpful" style="padding: 10px;">
+                        <a href="https://jsfiddle.net/gzhel/4jo0ufvx/82/" target="_blank">Эксперименты с IIFE, call, Object.assign()</a>
+                    </p>
+                    <p class="blue">1) IIFE в реальных проектах чаще всего используют с замыканиями</p>
+                    <p class="blue">2) IIFE просто сокращает две переменные (с обычным замыканием) до одной</p>
+                    <p class="blue">3) call служит для расширение функционала, у NodeList нет map, мы его можем добавить с помощью call</p>
+                    <p class="blue">4) Object.assign "безопасно копирует" только верхний уровень, для остальных он меняет значения по ссылке</p>
                 </div>
             </div>
         </section>

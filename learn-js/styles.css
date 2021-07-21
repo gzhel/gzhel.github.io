@@ -127,6 +127,10 @@ code {
   color: red;
 }
 
+.blue {
+  color: blue;
+}
+
 .checklist .learn-page__layout--study-block {
   width: 60% !important;
 }
