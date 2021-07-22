@@ -125,6 +125,7 @@
                         <a href="https://jsfiddle.net/gzhel/besmp70x/13/" target="_blank">Эксперименты с потерей this, bind.</a>
                     </p>
                     <p class="blue">1) У Function Declaration/Expression есть свой контекст, Arrow Function ищет контекст во вне</p>
+                    <p class="blue">2) В методах объектов всегда запись такая objFunc(){...}, при objFunc: () => {...}, this будет равен window</p>
                 </div>
             </div>
         </section>
@@ -172,23 +173,23 @@
                     <p class="green">1) Копирование по ссылке для примитивов (let a = 1; let b = a; две независимые переменные, клонов)</p>
                     <p class="green">2) Копирование по ссылке для object (let a = {}; let b = a; переменные с одной ссылкой, изменим b, изменится a)</p>
                     <p class="green">3) Object.assign(dest, [src1, src2...]) (клон объекта, возвращает dest - новый, целевой объект)</p>
-                    <p class="orange">4) Вложенное клонирование (ключом объекта может быть объект, для клона есть lodash _.cloneDeep(obj))</p>
+                    <p class="green">4) Вложенное клонирование (ключом объекта может быть объект, для клона есть lodash _.cloneDeep(obj))</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="4_4" id="4_4" checked>
+                    <input type="checkbox" name="4_4" id="4_4">
                     <label for="4_4">4.4 Методы объекта, "this"</label>
                     <p class="green">1) «this» в методах (объект перед точкой (user. это this для name), для доступа к тому, что внутри объекта)</p>
                     <p class="green">2) «this» не фиксирован (зависит от контекста, при вызове obj.f() значение this внутри f равно obj)</p>
                     <p class="green">3) У стрелочных функций нет «this» (его значение берётся из внешней «нормальной» функции, если такая есть)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="4_5" id="4_5" checked>
+                    <input type="checkbox" name="4_5" id="4_5">
                     <label for="4_5">4.5 Конструкторы, создание объектов через "new"</label>
                     <p class="green">1) Функция-конструктор (с большой буквы, вызов через new: function User(a) {this.a = a;} let b = new User(22);)</p>
                     <p class="green">2) Создание методов в конструкторе (в this можем добавлять методы: this.read = function() {...})</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="4_6" id="4_6" checked>
+                    <input type="checkbox" name="4_6" id="4_6">
                     <label for="4_6">4.6 Опциональная цепочка '?.'</label>
                     <p class="green">1) ?. (возвращает undefined если часть перед "?." undefined или null, ошибки нет (если a в a?.b объявлена))</p>
                     <p class="orange">2) ?.() (для вызова потенциально несуществующей функции: user1.admin?.())</p>
@@ -251,7 +252,7 @@
                     <p class="green">1) [] (с 0, получить эл. arr[id], заменить эл. arr[id] = 2, длина arr.length, могут храниться даже функц.)</p>
                     <p class="green">2) push() (доб. эл. в конец), pop () (удал. эл. в конце, а после веруть этот элемент как результат)</p>
                     <p class="green">3) unshift() (доб. эл. в начало), shift () (удал. эл. в начале, а после веруть этот элемент как результат)</p>
-                    <p class="orange">4) Перебор элементов (через for или for of: for (let fruit of fruits) {...})</p>
+                    <p class="red">4) Перебор элементов (через for или for of: for (let fruit of fruits) {...})</p>
                 </div>
                 <div>
                     <input type="checkbox" name="5_5" id="5_5">
@@ -268,7 +269,7 @@
                     <p class="green">7) arr.sort(func) (сортирует массив, а потом возвращает его)</p>
                     <p class="orange">8) arr.reverse() (меняет порядок следования элементов на противоположный и возвращает изменённый массив)</p>
                     <p class="green">9) arr.split(char)/join(char) (преобразует строку в массив и обратно, по разделителю)</p>
-                    <p class="orange">10) reduce(func, initialValue) (func всегда имеет 2 параметра: accumulator, currentValue)</p>
+                    <p class="green">10) reduce(func, initialValue) (func всегда имеет 2 параметра: accumulator, currentValue)</p>
                     <p>Дополнительно:</p>
                     <p class="green">11) arr.some(fn)/arr.every(fn) (fn выз. для каждого элемента массива, если один/все true, возвращает true)</p>
                 </div>
@@ -320,6 +321,19 @@
                     <p class="green">1) JSON (поддерж. простые объекты, массивы, строки, числа, логические значения и null, всё пишется через "")</p>
                     <p class="orange">2) JSON.stringify(obj) (берёт объект и преобразует его в JSON-строку)</p>
                     <p class="orange">2) JSON.parse(str) (берёт JSON-строку и декодирует её в объект)</p>
+                </div>
+                <div>
+                    <p class="helpful" style="padding: 10px;">
+                        <a href="https://jsfiddle.net/gzhel/Lw1u3d5m/170/" target="_blank">Эксперименты с reduce, деструктуризация</a>
+                    </p>
+                    <p class="blue">1) Зачем reduce? Он позволяет абсолютно как угодно обрабатывать элементы массива и возвращать результат</p>
+                    <p class="blue">2) Полный синтаксис: reduce((accumulator, currentValue, index, array) => { ... }, initialValue)</p>
+                    <p>Избегаем ошибок:</p>
+                    <p class="blue">3) Если вы не передадите initialValue, то reduce() будет считать, что им является первый элемент в массиве</p>
+                    <p class="blue">4) Не забывайте делать return total (1ый параметр), чтобы reduce() продолжал работать</p>
+                    <p>Деструктурирующее присваивание:</p>
+                    <p class="blue">5) let [field1, field2, ...rest] = arr; тут ...rest будет отдельным массивом</p>
+                    <p class="blue">6) let {objVal1, ...rest} = obj; тут ...rest будет отдельным объектом ключ-значение</p>
                 </div>
             </div>
         </section>
