@@ -109,14 +109,14 @@
                     <p class="green">5) Одна функция, одно действие (два действия, две функции, и третья, которая вызывает их обоих)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="2_16" id="2_16">
+                    <input type="checkbox" name="2_16" id="2_16" checked>
                     <label for="2_16">2.16 Function Expression/Declaration, Callbacks</label>
                     <p class="green">1) Function Expression (let sayHi = function() {...}, создаётся, когда выполнение доходит до него)</p>
                     <p class="green">2) Function Declaration (function sayHi() {...}, создаётся сразу, как только начинает работать скрипт)</p>
                     <p class="green">3) Функции-«колбэки» (передаём функцию как параметр функции, она ждёт пока её вызовут, когда это будет нужно)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="2_17" id="2_17">
+                    <input type="checkbox" name="2_17" id="2_17" checked>
                     <label for="2_17">2.17 Функции-стрелки, основы</label>
                     <p class="green">1) Функции-стрелки (let func = (arg1, ...argN) => expression, однострочным не нужен return, не имеют this)</p>
                 </div>
@@ -176,32 +176,32 @@
                     <p class="green">4) Вложенное клонирование (ключом объекта может быть объект, для клона есть lodash _.cloneDeep(obj))</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="4_4" id="4_4">
+                    <input type="checkbox" name="4_4" id="4_4" checked>
                     <label for="4_4">4.4 Методы объекта, "this"</label>
                     <p class="green">1) «this» в методах (объект перед точкой (user. это this для name), для доступа к тому, что внутри объекта)</p>
                     <p class="green">2) «this» не фиксирован (зависит от контекста, при вызове obj.f() значение this внутри f равно obj)</p>
                     <p class="green">3) У стрелочных функций нет «this» (его значение берётся из внешней «нормальной» функции, если такая есть)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="4_5" id="4_5">
+                    <input type="checkbox" name="4_5" id="4_5" checked>
                     <label for="4_5">4.5 Конструкторы, создание объектов через "new"</label>
                     <p class="green">1) Функция-конструктор (с большой буквы, вызов через new: function User(a) {this.a = a;} let b = new User(22);)</p>
                     <p class="green">2) Создание методов в конструкторе (в this можем добавлять методы: this.read = function() {...})</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="4_6" id="4_6">
+                    <input type="checkbox" name="4_6" id="4_6" checked>
                     <label for="4_6">4.6 Опциональная цепочка '?.'</label>
                     <p class="green">1) ?. (возвращает undefined если часть перед "?." undefined или null, ошибки нет (если a в a?.b объявлена))</p>
                     <p class="orange">2) ?.() (для вызова потенциально несуществующей функции: user1.admin?.())</p>
                     <p class="orange">3) ?.[] (если значение ключа получаем с помощью [], например если оно берётся из переменной)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="4_7" id="4_7">
+                    <input type="checkbox" name="4_7" id="4_7" checked>
                     <label for="4_7">4.7 Тип данных Symbol</label>
                     <p class="orange">1) Symbol (let id = Symbol("id"); это уникальный идентификатор, уникален даже если "имя" одинаково)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="4_8" id="4_8">
+                    <input type="checkbox" name="4_8" id="4_8" checked>
                     <label for="4_8">4.8 Преобразование объектов в примитивы</label>
                     <p class="red">1) На практике используют obj.toString() «универсальный» метод для всех типов преобразований</p>
                 </div>
@@ -222,13 +222,13 @@
                 <b>5) Типы данных <a href="https://jsfiddle.net/gzhel/3heobtq8/162/" target="_blank">(примеры кода)</a></b>
                 <hr>
                 <div>
-                    <input type="checkbox" name="5_1" id="5_1">
+                    <input type="checkbox" name="5_1" id="5_1" checked>
                     <label for="5_1">5.1 Методы у примитивов</label>
                     <p class="green">1) Примитив как объект (примитивы (кроме null/undefined) имеют объект-обёртку (String, Number, Boolean итд)</p>
                     <p class="green">2) Методы (объект-обёртка даёт примитиву использовать метод объекта, при этом примитив не становится объектом)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="5_2" id="5_2">
+                    <input type="checkbox" name="5_2" id="5_2" checked>
                     <label for="5_2">5.2 Числа (number)</label>
                     <p class="green">1) Округление (Math.floor в меньш., Math.ceil в больш., Math.round до ближ. цел., Math.trunc уд. дроб. части)</p>
                     <p class="green">2) toFixed(n) (округляет число до n знаков после запятой и возвращает строку)</p>
