@@ -12,6 +12,7 @@
         <h1><a href="../../1_module/">Back to module 1</a></h1>
         <section class="learn-page__layout--study-block">
             <h3>Обозначения (субъективно):</h3>
+            <div>Синий = выведено в процессе исправления ошибок</div>
             <div>Зеленый = актуально, мастхэв</div>
             <div>Оранжевый = актуально, но не мастхэв</div>
             <div>Красный = на мой взгляд не актуально</div>
@@ -20,33 +21,33 @@
             <div class="text" style="background-color: white;">
                 <b>2) Основы JavaScript <a href="https://jsfiddle.net/gzhel/o1hn3bg6/127/" target="_blank">(примеры кода)</a></b><hr>
                 <div>
-                    <input type="checkbox" name="2_2" id="2_2">
+                    <input type="checkbox" name="2_2" id="2_2" checked>
                     <label for="2_2">2.2 Структура кода</label>
                     <p class="green">1) Точка с запятой в конце выражения</p>
                     <p class="green">2) Комментарии</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="2_3" id="2_3">
+                    <input type="checkbox" name="2_3" id="2_3" checked>
                     <label for="2_3">2.3 Строгий режим - "use strict"</label>
                     <p class="green">1) "use strict" (поддержка старого кода)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="2_4" id="2_4">
+                    <input type="checkbox" name="2_4" id="2_4" checked>
                     <label for="2_4">2.4 Переменные</label>
                     <p class="green">1) let (переменная, можно переопределять, блочная обл. видимости)</p>
                     <p class="green">2) const (константа, нельзя переопределять, блочная обл. видимости)</p>
-                    <p class="orange">3) var (переменная (олд), можно переопределять, обл. видимости файла/функции, но не блока)</p>
+                    <p class="red">3) var (переменная (олд), можно переопределять, обл. видимости файла/функции, но не блока)</p>
                     <p class="green">4) Имена переменных (camelCase, должны быть ясны, конкретика, но не более 2-3 слов: userName)</p>
                     <p class="green">5) Присвоение результата функции (можем присвоить результат функции: let result = sum(2, 3))</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="2_5" id="2_5">
+                    <input type="checkbox" name="2_5" id="2_5" checked>
                     <label for="2_5">2.5 Типы данных</label>
                     <p class="green">1) 8 типов данных (number, string, object, bool, null, undefined, BigInt (big number), Symbol)</p>
                     <p class="green">2) Оператор typeof (возвращает тип чего-либо строкой)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="2_7" id="2_7">
+                    <input type="checkbox" name="2_7" id="2_7" checked>
                     <label for="2_7">2.7 Преобразование типов</label>
                     <p class="green">1) Строковое преобразование (к string, String(value))</p>
                     <p class="green">2) Численное преобразование (к number, Number(value) или +value)</p>
@@ -54,51 +55,52 @@
                     <p class="green">4) 0, null, undefined, NaN, "" возвращает false, остальное возвращает true</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="2_8" id="2_8">
+                    <input type="checkbox" name="2_8" id="2_8" checked>
                     <label for="2_8">2.8 Базовые операторы, математика</label>
                     <p class="green">1) «унарный» (+a), «бинарный» (a + b), «операнд» (a, b - это операнды)</p>
                     <p class="green">2) Постфиксный инкремент (v++)/декремент (v--), увеличить, но получить результат до увеличения</p>
                     <p class="green">3) Префиксный инкремент (++v)/декремент (--v), увеличить, и сразу получить новый результат</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="2_9" id="2_9">
+                    <input type="checkbox" name="2_9" id="2_9" checked>
                     <label for="2_9">2.9 Операторы сравнения</label>
                     <p class="green">1) Результат сравнения имеет логический тип (let a = 3 > 2; // true)</p>
                     <p class="green">2) Строгое сравнение (===, !==), всегда стоит использовать его</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="2_10" id="2_10">
+                    <input type="checkbox" name="2_10" id="2_10" checked>
                     <label for="2_10">2.10 Условное ветвление: if, '?'</label>
                     <p class="green">1) if (condition) {...} (опционально: else if (condition) {...} else {...})</p>
                     <p class="green">2) Тернарный оператор "?" (let result = условие ? значение1 : значение2;)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="2_11" id="2_11">
+                    <input type="checkbox" name="2_11" id="2_11" checked>
                     <label for="2_11">2.11 Логические операторы</label>
                     <p class="green">1) ИЛИ «||» (a || b || c) находит первое истинное значение, либо возвращает последнее значение в цепочке</p>
                     <p class="green">2) И «&&» (a && b && c) находит первое ложное значение, либо возвращает последнее значение в цепочке</p>
                     <p class="green">2) ! (НЕ) (!value) приводит аргумент к bool, возвращает противоположное значение</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="2_12" id="2_12">
+                    <input type="checkbox" name="2_12" id="2_12" checked>
                     <label for="2_12">2.12 Оператор объединения с null '??'</label>
                     <p class="orange">1) ?? возвращает первое определённое значение (в отлчие от || различает false, 0, "" и null/undefined)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="2_13" id="2_13">
+                    <input type="checkbox" name="2_13" id="2_13" checked>
                     <label for="2_13">2.13 Циклы while и for</label>
-                    <p class="orange">1) Цикл «while» (while (condition) {...}, цикл выполняется, пока условие condition истинно)</p>
-                    <p class="orange">2) Цикл «do...while» (выполнит тело, а затем проверит условие condition, и пока его значение равно true)</p>
-                    <p class="green">3) Цикл «for» (for (начало; условие; шаг) {тело}, послед.: начало => (условие -> тело -> шаг -> условие)})</p>
-                    <p class="orange">4) Прерывание цикла: «break» (позволяет выйти из цикла, if (!value) {break;})</p>
+                    <p class="red">1) Цикл «while» (while (condition) {...}, цикл выполняется, пока условие condition истинно)</p>
+                    <p class="red">2) Цикл «do...while» (выполнит тело, а затем проверит условие condition, и пока его значение равно true)</p>
+                    <p class="red">3) Цикл «for» (for (начало; условие; шаг) {тело}, послед.: начало => (условие -> тело -> шаг -> условие)})</p>
+                    <p class="red">4) Прерывание цикла: «break» (позволяет выйти из цикла, if (!value) {break;})</p>
+                    <p class="green">5) Вместо while, for всегда используются перебираемые методы (map, filter, и так далее)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="2_14" id="2_14">
+                    <input type="checkbox" name="2_14" id="2_14" checked>
                     <label for="2_14">2.14 Конструкция "switch"</label>
                     <p class="green">1) switch(x) {case 'val1': ... break; default: ... break;} (проверка строгая (===), case могут быть слитно)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="2_15" id="2_15">
+                    <input type="checkbox" name="2_15" id="2_15" checked>
                     <label for="2_15">2.15 Функции</label>
                     <p class="green">1) Объявление функции (function showMessage(params) {...}, переменные, объявленные в ней, извне не доступны)</p>
                     <p class="green">2) Внешние переменные (функция имеет доступ к переменным, объявленным выше тела функции)</p>
@@ -107,22 +109,24 @@
                     <p class="green">5) Одна функция, одно действие (два действия, две функции, и третья, которая вызывает их обоих)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="2_16" id="2_16">
+                    <input type="checkbox" name="2_16" id="2_16" checked>
                     <label for="2_16">2.16 Function Expression/Declaration, Callbacks</label>
                     <p class="green">1) Function Expression (let sayHi = function() {...}, создаётся, когда выполнение доходит до него)</p>
                     <p class="green">2) Function Declaration (function sayHi() {...}, создаётся сразу, как только начинает работать скрипт)</p>
                     <p class="green">3) Функции-«колбэки» (передаём функцию как параметр функции, она ждёт пока её вызовут, когда это будет нужно)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="2_17" id="2_17">
+                    <input type="checkbox" name="2_17" id="2_17" checked>
                     <label for="2_17">2.17 Функции-стрелки, основы</label>
                     <p class="green">1) Функции-стрелки (let func = (arg1, ...argN) => expression, однострочным не нужен return, не имеют this)</p>
                 </div>
                 <div>
                     <p class="helpful" style="padding: 10px;">
-                        <a href="https://jsfiddle.net/gzhel/7kfzj1cy/101/" target="_blank">Эксперименты с потерей this, bind.</a>
+                        <a href="https://jsfiddle.net/gzhel/besmp70x/13/" target="_blank">Эксперименты с потерей this, bind.</a>
                         <a href="https://jsfiddle.net/gzhel/69bLvyfa/105/" target="_blank">Prototype, This, Классы, Контекст, Наследование.</a>
                     </p>
+                    <p class="blue">1) У Function Declaration/Expression есть свой контекст, Arrow Function ищет контекст во вне</p>
+                    <p class="blue">2) В методах объектов всегда запись такая objFunc(){...}, при objFunc: () => {...}, this будет равен window</p>
                 </div>
             </div>
         </section>
@@ -131,13 +135,13 @@
                 <b>3) Качество кода</b>
                 <hr>
                 <div>
-                    <input type="checkbox" name="3_1" id="3_1">
+                    <input type="checkbox" name="3_1" id="3_1" checked>
                     <label for="3_1">3.1 Отладка в браузере Chrome (Chrome DevTools)</label>
                     <p class="orange">1) Панель "Sources" (слева все файлы страницы, по центру исходный код, справа зона для отладки)</p>
                     <p class="green">2) Панель "Console" (выводит логи, ошибки, можно писать в ней свои скрипты и выполнять их)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="3_2" id="3_2">
+                    <input type="checkbox" name="3_2" id="3_2" checked>
                     <label for="3_2">3.2 Советы по стилю кода</label>
                     <p class="green">1) Фигурные скобки (в однострочных инструкциях - не нужны, многострочных - обязательны)</p>
                     <p class="red">2) Длина строки (лучше разбивать строки на более короткие, 80-120 символов)</p>
@@ -146,7 +150,7 @@
                     <p class="green">5) Линтеры (автоматически проверяют и ругают стиль кода, лучший линтер - ESLint)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="3_3" id="3_3">
+                    <input type="checkbox" name="3_3" id="3_3" checked>
                     <label for="3_3">3.3 Комментарии</label>
                     <p class="orange">1) Хорошие комментарии (почему задача была решена так?)</p>
                 </div>
@@ -157,7 +161,7 @@
                 <b>4) Объекты: основы <a href="https://jsfiddle.net/gzhel/j7tyw89L/84/" target="_blank">(примеры кода)</a></b>
                 <hr>
                 <div>
-                    <input type="checkbox" name="4_1" id="4_1">
+                    <input type="checkbox" name="4_1" id="4_1" checked>
                     <label for="4_1">4.1 Объекты</label>
                     <p class="green">1) Литералы {...} и свойства ({ключ1:значение}, обращение через obj.key, для удаления delete obj.key)</p>
                     <p class="green">2) Квадратные скобки (обращение через obj[key], обычно доступ через [] используют когда key это переменная)</p>
@@ -165,42 +169,52 @@
                     <p class="orange">4) Оператор «in» ("key" in object, проверяет есть ли ключ А в объекте Б)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="4_2" id="4_2">
+                    <input type="checkbox" name="4_2" id="4_2" checked>
                     <label for="4_2">4.2 Копирование объектов и ссылки</label>
                     <p class="green">1) Копирование по ссылке для примитивов (let a = 1; let b = a; две независимые переменные, клонов)</p>
                     <p class="green">2) Копирование по ссылке для object (let a = {}; let b = a; переменные с одной ссылкой, изменим b, изменится a)</p>
                     <p class="green">3) Object.assign(dest, [src1, src2...]) (клон объекта, возвращает dest - новый, целевой объект)</p>
-                    <p class="orange">4) Вложенное клонирование (ключом объекта может быть объект, для клона есть lodash _.cloneDeep(obj))</p>
+                    <p class="green">4) Вложенное клонирование (ключом объекта может быть объект, для клона есть lodash _.cloneDeep(obj))</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="4_4" id="4_4">
+                    <input type="checkbox" name="4_4" id="4_4" checked>
                     <label for="4_4">4.4 Методы объекта, "this"</label>
                     <p class="green">1) «this» в методах (объект перед точкой (user. это this для name), для доступа к тому, что внутри объекта)</p>
                     <p class="green">2) «this» не фиксирован (зависит от контекста, при вызове obj.f() значение this внутри f равно obj)</p>
                     <p class="green">3) У стрелочных функций нет «this» (его значение берётся из внешней «нормальной» функции, если такая есть)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="4_5" id="4_5">
+                    <input type="checkbox" name="4_5" id="4_5" checked>
                     <label for="4_5">4.5 Конструкторы, создание объектов через "new"</label>
                     <p class="green">1) Функция-конструктор (с большой буквы, вызов через new: function User(a) {this.a = a;} let b = new User(22);)</p>
                     <p class="green">2) Создание методов в конструкторе (в this можем добавлять методы: this.read = function() {...})</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="4_6" id="4_6">
+                    <input type="checkbox" name="4_6" id="4_6" checked>
                     <label for="4_6">4.6 Опциональная цепочка '?.'</label>
                     <p class="green">1) ?. (возвращает undefined если часть перед "?." undefined или null, ошибки нет (если a в a?.b объявлена))</p>
-                    <p class="green">2) ?.() (для вызова потенциально несуществующей функции: user1.admin?.())</p>
-                    <p class="green">3) ?.[] (если значение ключа получаем с помощью [], например если оно берётся из переменной)</p>
+                    <p class="orange">2) ?.() (для вызова потенциально несуществующей функции: user1.admin?.())</p>
+                    <p class="orange">3) ?.[] (если значение ключа получаем с помощью [], например если оно берётся из переменной)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="4_7" id="4_7">
+                    <input type="checkbox" name="4_7" id="4_7" checked>
                     <label for="4_7">4.7 Тип данных Symbol</label>
                     <p class="orange">1) Symbol (let id = Symbol("id"); это уникальный идентификатор, уникален даже если "имя" одинаково)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="4_8" id="4_8">
+                    <input type="checkbox" name="4_8" id="4_8" checked>
                     <label for="4_8">4.8 Преобразование объектов в примитивы</label>
                     <p class="red">1) На практике используют obj.toString() «универсальный» метод для всех типов преобразований</p>
+                </div>
+                <div>
+                    <p class="helpful" style="padding: 10px;">
+                        <a href="https://jsfiddle.net/gzhel/4jo0ufvx/91/" target="_blank">Эксперименты с IIFE, call, Object.assign()</a>
+                    </p>
+                    <p class="blue">1) IIFE в реальных проектах чаще всего используют с замыканиями</p>
+                    <p class="blue">2) IIFE просто сокращает две переменные (с обычным замыканием) до одной</p>
+                    <p class="blue">3) call служит для расширения функционала (пример: у NodeList нет map, мы его можем добавить с помощью call)</p>
+                    <p class="blue">4) Object.assign "безопасно копирует" только верхний уровень, для остальных он меняет значения по ссылке</p>
+                    <p class="blue">5) Для полного копирования можно использовать lodash _.cloneDeep(obj)</p>
                 </div>
             </div>
         </section>
@@ -209,20 +223,26 @@
                 <b>5) Типы данных <a href="https://jsfiddle.net/gzhel/3heobtq8/162/" target="_blank">(примеры кода)</a></b>
                 <hr>
                 <div>
-                    <input type="checkbox" name="5_1" id="5_1">
+                    <input type="checkbox" name="5_1" id="5_1" checked>
                     <label for="5_1">5.1 Методы у примитивов</label>
                     <p class="green">1) Примитив как объект (примитивы (кроме null/undefined) имеют объект-обёртку (String, Number, Boolean итд)</p>
                     <p class="green">2) Методы (объект-обёртка даёт примитиву использовать метод объекта, при этом примитив не становится объектом)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="5_2" id="5_2">
+                    <input type="checkbox" name="5_2" id="5_2" checked>
                     <label for="5_2">5.2 Числа (number)</label>
                     <p class="green">1) Округление (Math.floor в меньш., Math.ceil в больш., Math.round до ближ. цел., Math.trunc уд. дроб. части)</p>
                     <p class="green">2) toFixed(n) (округляет число до n знаков после запятой и возвращает строку)</p>
                     <p class="green">3) Неточные вычисления (при работе с дробями округляем их через +number.toFixed(n); иначе могут быть ошибки)</p>
-                    <p class="green">4) isFinite и isNaN (isNaN(value) это NaN? isFinite(value) это не NaN/Infinity/-Infinity?)</p>
+                    <p class="orange">4) isFinite и isNaN (isNaN(value) это NaN? isFinite(value) это не NaN/Infinity/-Infinity?)</p>
                     <p class="orange">5) parseInt и parseFloat («читают» число из строки. parseInt('100px') // 100)</p>
                     <p class="green">6) Math.random() (число от 0 до 1), Math.max/min(a, b...) (больш./меньш. из арг.), Math.pow(n, power) (**)</p>
+                </div>
+                <div>
+                    <p class="helpful" style="padding: 10px;">
+                        <a href="https://jsfiddle.net/gzhel/w8n2s3ye/149/" target="_blank">Задания: cloneDeep, BigDecimal, isNaN</a>
+                        <a href="https://jsfiddle.net/gzhel/s7d6x09v/47/" target="_blank">Задания: работа с видами функций</a>
+                    </p>
                 </div>
                 <div>
                     <input type="checkbox" name="5_3" id="5_3">
@@ -239,7 +259,7 @@
                     <p class="green">1) [] (с 0, получить эл. arr[id], заменить эл. arr[id] = 2, длина arr.length, могут храниться даже функц.)</p>
                     <p class="green">2) push() (доб. эл. в конец), pop () (удал. эл. в конце, а после веруть этот элемент как результат)</p>
                     <p class="green">3) unshift() (доб. эл. в начало), shift () (удал. эл. в начале, а после веруть этот элемент как результат)</p>
-                    <p class="orange">4) Перебор элементов (через for или for of: for (let fruit of fruits) {...})</p>
+                    <p class="red">4) Перебор элементов (через for или for of: for (let fruit of fruits) {...})</p>
                 </div>
                 <div>
                     <input type="checkbox" name="5_5" id="5_5">
@@ -256,7 +276,7 @@
                     <p class="green">7) arr.sort(func) (сортирует массив, а потом возвращает его)</p>
                     <p class="orange">8) arr.reverse() (меняет порядок следования элементов на противоположный и возвращает изменённый массив)</p>
                     <p class="green">9) arr.split(char)/join(char) (преобразует строку в массив и обратно, по разделителю)</p>
-                    <p class="orange">10) reduce(func, initialValue) (func всегда имеет 2 параметра: accumulator, currentValue)</p>
+                    <p class="green">10) reduce(func, initialValue) (func всегда имеет 2 параметра: accumulator, currentValue)</p>
                     <p>Дополнительно:</p>
                     <p class="green">11) arr.some(fn)/arr.every(fn) (fn выз. для каждого элемента массива, если один/все true, возвращает true)</p>
                 </div>
@@ -282,8 +302,8 @@
                     <input type="checkbox" name="5_9" id="5_9">
                     <label for="5_9">5.9 Object.keys, values, entries</label>
                     <p class="green">1) Object.keys/values/entries(obj) (возвр. массив ключей/значений/пар [ключ, значение])</p>
-                    <p class="green">2) Трансформация объекта (алгоритм используется для исп. методов массива на объекте)</p>
-                    <p class="green">3) Алгоритм трансформации объекта (Object.entries(obj) -> методы массива -> Object.fromEntries(array))</p>
+                    <p class="orange">2) Трансформация объекта (алгоритм используется для исп. методов массива на объекте)</p>
+                    <p class="orange">3) Алгоритм трансформации объекта (Object.entries(obj) -> методы массива -> Object.fromEntries(array))</p>
                 </div>
                 <div>
                     <input type="checkbox" name="5_10" id="5_10">
@@ -308,6 +328,19 @@
                     <p class="green">1) JSON (поддерж. простые объекты, массивы, строки, числа, логические значения и null, всё пишется через "")</p>
                     <p class="orange">2) JSON.stringify(obj) (берёт объект и преобразует его в JSON-строку)</p>
                     <p class="orange">2) JSON.parse(str) (берёт JSON-строку и декодирует её в объект)</p>
+                </div>
+                <div>
+                    <p class="helpful" style="padding: 10px;">
+                        <a href="https://jsfiddle.net/gzhel/Lw1u3d5m/170/" target="_blank">Эксперименты с reduce, деструктуризация</a>
+                    </p>
+                    <p class="blue">1) Зачем reduce? Он позволяет абсолютно как угодно обрабатывать элементы массива и возвращать результат</p>
+                    <p class="blue">2) Полный синтаксис: reduce((accumulator, currentValue, index, array) => { ... }, initialValue)</p>
+                    <p>Избегаем ошибок:</p>
+                    <p class="blue">3) Если вы не передадите initialValue, то reduce() будет считать, что им является первый элемент в массиве</p>
+                    <p class="blue">4) Не забывайте делать return total (1ый параметр), чтобы reduce() продолжал работать</p>
+                    <p>Деструктурирующее присваивание:</p>
+                    <p class="blue">5) let [field1, field2, ...rest] = arr; тут ...rest будет отдельным массивом</p>
+                    <p class="blue">6) let {objVal1, ...rest} = obj; тут ...rest будет отдельным объектом ключ-значение</p>
                 </div>
             </div>
         </section>
