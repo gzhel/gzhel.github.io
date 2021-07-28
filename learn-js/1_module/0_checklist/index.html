@@ -254,7 +254,7 @@
                     <p class="green">5) str.slice(start [, end]) (возвращает от start до end (не включая end))</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="5_4" id="5_4">
+                    <input type="checkbox" name="5_4" id="5_4" checked>
                     <label for="5_4">5.4 Массивы</label>
                     <p class="green">1) [] (с 0, получить эл. arr[id], заменить эл. arr[id] = 2, длина arr.length, могут храниться даже функц.)</p>
                     <p class="green">2) push() (доб. эл. в конец), pop () (удал. эл. в конце, а после веруть этот элемент как результат)</p>
@@ -263,11 +263,11 @@
                 </div>
                 <div>
                     <p class="helpful" style="padding: 10px;">
-                        <a href="https://jsfiddle.net/gzhel/bjusyqvk/235/" target="_blank">Задания: работа с массивами</a>
+                        <a href="https://jsfiddle.net/gzhel/bjusyqvk/242/" target="_blank">Задания: работа с массивами</a>
                     </p>
                 </div>
                 <div>
-                    <input type="checkbox" name="5_5" id="5_5">
+                    <input type="checkbox" name="5_5" id="5_5" checked>
                     <label for="5_5">5.5 Методы массивов</label>
                     <p>Добавление/удаление элементов:</p>
                     <p class="green">1) arr.splice(pos, deleteCount, 'item1', ...) (начиная с pos, удал. deleteCount эл., вставляет items)</p>
@@ -286,33 +286,27 @@
                     <p class="green">11) arr.some(fn)/arr.every(fn) (fn выз. для каждого элемента массива, если один/все true, возвращает true)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="5_6" id="5_6">
+                    <input type="checkbox" name="5_6" id="5_6" checked>
                     <label for="5_6">5.6 Перебираемые объекты</label>
                     <p class="orange">1) for..of (в итерируемых объектах можно исп. любой объект в цикле for of, они имеют метод Symbol.iterator)</p>
                     <p class="green">2) Array.from(arrayLike) (принимает итер. объект/псевдомассив, делает из него Array с методами массивов)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="5_7" id="5_7">
+                    <input type="checkbox" name="5_7" id="5_7" checked>
                     <label for="5_7">5.7 Map и Set</label>
                     <p class="red">1) Map (коллекция ключ/значение, как и object, но Map позволяет использовать ключи любого типа, даже object)</p>
                     <p class="red">2) Set (коллекция «множество» значений (без ключей), где каждое значение может появляться только один раз)</p>
                     <p class="green">3) Синтаксис [...new Set(arr)] используется для получения только уникальных значений arr</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="5_8" id="5_8">
-                    <label for="5_8">5.8 WeakMap и WeakSet</label>
-                    <p class="red">1) WeakMap (это Map, но при этом ключами могут быть только объекты)</p>
-                    <p class="red">2) WeakSet (это Set, но при этом хранит только объекты)</p>
-                </div>
-                <div>
-                    <input type="checkbox" name="5_9" id="5_9">
+                    <input type="checkbox" name="5_9" id="5_9" checked>
                     <label for="5_9">5.9 Object.keys, values, entries</label>
                     <p class="green">1) Object.keys/values/entries(obj) (возвр. массив ключей/значений/пар [ключ, значение])</p>
                     <p class="orange">2) Трансформация объекта (алгоритм используется для исп. методов массива на объекте)</p>
                     <p class="orange">3) Алгоритм трансформации объекта (Object.entries(obj) -> методы массива -> Object.fromEntries(array))</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="5_10" id="5_10">
+                    <input type="checkbox" name="5_10" id="5_10" checked>
                     <label for="5_10">5.10 Деструктурирующее присваивание</label>
                     <p class="green">1) Деструктуризация массива (на примере: let arr = ["Ilya", "Kantor"]; let [firstName, surname] = arr;)</p>
                     <p class="green">2) Остаточные параметры «…» ("добавить к тому что есть всё остальное": let [name1, name2, ...rest] = arr;)</p>
@@ -322,14 +316,14 @@
                     <p class="green">6) Умные параметры функций (можем передать объект в функцию ({...}) и она сразу деструктуризирует его)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="5_11" id="5_11">
+                    <input type="checkbox" name="5_11" id="5_11" checked>
                     <label for="5_11">5.11 Дата и время</label>
                     <p class="green">1) Создание (new Date(); создать объект Date с текущими датой и временем)</p>
                     <p class="orange">2) Получение компонентов даты (getFullYear(), getMonth() (от 0 до 11), getDate(), getDay() (от 0 до 6))</p>
                     <p class="orange">3) Разность дат (даты можно вычитать, в результате получаем разность в миллисекундах)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="5_12" id="5_12">
+                    <input type="checkbox" name="5_12" id="5_12" checked>
                     <label for="5_12">5.12 Формат JSON, метод toJSON</label>
                     <p class="green">1) JSON (поддерж. простые объекты, массивы, строки, числа, логические значения и null, всё пишется через "")</p>
                     <p class="orange">2) JSON.stringify(obj) (берёт объект и преобразует его в JSON-строку)</p>
@@ -355,7 +349,7 @@
                 <b>6) Продвинутая работа с функциями <a href="https://jsfiddle.net/gzhel/fuv846rs/75/" target="_blank">(примеры кода)</a></b>
                 <hr>
                 <div>
-                    <input type="checkbox" name="6_1" id="6_1">
+                    <input type="checkbox" name="6_1" id="6_1" checked>
                     <label for="6_1">6.1 Рекурсия и стек</label>
                     <p class="green">1) Рекурсия (это когда функция в себе вызывает сама себя, какой-то if служит моментом выхода из рекурсии)</p>
                     <p class="orange">2) Контекст выполнения, стек (это данные в некоторый момент исполнения функции, рекурсивный стек выполнения)</p>
@@ -363,14 +357,14 @@
                     <p class="red">3) Связанный список (на примере: let li = {v: 1}; li.next = {v: 2}; li.next.next = {v: 3};)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="6_2" id="6_2">
+                    <input type="checkbox" name="6_2" id="6_2" checked>
                     <label for="6_2">6.2 Остаточные параметры и оператор расширения (...rest, ...spread)</label>
                     <p class="green">1) Остаточные параметры («собери оставшиеся параметры и положи их в массив», function sumAll(...args) {...})</p>
                     <p class="green">2) Оператор расширения («возьми массив и сократи его запись», Math.max(...arr1, ...arr2))</p>
                     <p class="green">3) Оператор расширения для слияния (его можно использовать для слияния массивов в один [...arr1, ...arr2])</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="6_3" id="6_3">
+                    <input type="checkbox" name="6_3" id="6_3" checked>
                     <label for="6_3">6.3 Замыкание</label>
                     <p>Лексическое Окружение (LexicalEnvironment):</p>
                     <p class="green">1) Лексическое Окружение (у каждой функции, блока кода и скрипта есть внутренний (скрытый) объект Лекс. Окр.)</p>
@@ -395,22 +389,16 @@
                     <p class="green">3) LE для for/while (у каждой итерации своё отдельное LE, let i = 0 находится в LE, хоть внешне и не в {})</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="6_4" id="6_4">
+                    <input type="checkbox" name="6_4" id="6_4" checked>
                     <label for="6_4">6.4 Устаревшее ключевое слово "var"</label>
                     <p class="red">1) Область видимости var это функция/скрипт, но не {}, {var a = 1;} доступна за пределами {}</p>
                     <p class="red">2) «var» обрабатываются в начале запуска функции (попадает в LE сразу, значение мб задано до объявления)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="6_5" id="6_5">
+                    <input type="checkbox" name="6_5" id="6_5" checked>
                     <label for="6_5">6.5 Глобальный объект (window)</label>
                     <p class="green">1) window (предоставляет переменные и функции окна браузера, доступные в любом месте программы)</p>
-                </div>
-                <div>
-                    <input type="checkbox" name="6_6" id="6_6">
-                    <label for="6_6">6.6 Объект функции, NFE</label>
-                    <p class="orange">1) Функции можно исп. их как обычные объекты: добавлять/удалять свойства, передавать их по ссылке и т.д.</p>
-                    <p class="green">2) Named Function Expression (это FE, у которой есть имя: let sayHi = function func(who) {...})</p>
-                    <p class="green">3) Зачем нам NFE? (позволяет функции ссылаться на себя же; не доступно за пределами функции)</p>
+                    <p class="blue">2) Можно задать глобальные переменные через window (window.link = "PROJECT_PROD"</p>
                 </div>
                 <div>
                     <input type="checkbox" name="6_8" id="6_8">
@@ -424,6 +412,9 @@
                     <label for="6_10">6.10 Привязка контекста к функции</label>
                     <p class="orange">1) Потеря «this» (возникает при передаче методов объекта в качестве колбэков, например для setTimeout)</p>
                     <p class="green">2) Привязка «this» с помощью bind (например: bind: let boundFunc = func.bind(context); контекст не пропадёт)</p>
+                    <p class="blue">3) setTimeout в браузере имеет особенность: он устанавливает this=window для вызова функции</p>
+                    <p class="blue">4) Частичное применение: f.bind(null, 2); установит null как контекст и 2 как первый параметр функции f</p>
+                    <p class="blue">5) Привязка А к контексту Б: let user = {name: "A"}; function f() {alert(this.name)} let fU = f.bind(user);</p>
                 </div>
             </div>
         </section>
