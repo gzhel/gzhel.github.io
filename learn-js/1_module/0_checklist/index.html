@@ -5,128 +5,177 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../styles.css">
-    <title>Разное</title>
+    <title>Checklist 2.0</title>
 </head>
 <body>
     <div class="learn-page__layout checklist">
-        <h1><a href="../../1_module/">Back to module 1</a></h1>
+        <h1><a href="../../1_module/" style="color: red;">Back to module 1</a></h1>
         <section class="learn-page__layout--study-block">
             <h3>Обозначения (субъективно):</h3>
-            <div>Синий = выведено в процессе исправления ошибок</div>
-            <div>Зеленый = актуально, мастхэв</div>
-            <div>Оранжевый = актуально, но не мастхэв</div>
-            <div>Красный = на мой взгляд не актуально</div>
+            <div style="margin-bottom: 6px;"><span class="blue">Синий</span>: актуально, не очевидно, secret knowledge</div>
+            <div><span class="green">Зеленый</span>: актуально, стоит изучать внимательно</div>
+            <div>
+                <span style="color: red">Красный</span>: допустимо, в 99% случаев не используется 
+                <span><button id="show_reds">Показать "красные" пункты</button></span>
+                <span><button id="hide_reds">Скрыть "красные" пункты</button></span>
+            </div>
         </section>
         <section class="learn-page__layout--study-block">
             <div class="text" style="background-color: white;">
                 <b>2) Основы JavaScript <a href="https://jsfiddle.net/gzhel/o1hn3bg6/127/" target="_blank">(примеры кода)</a></b><hr>
-                <div>
+                <div style="display: none;">
                     <input type="checkbox" name="2_2" id="2_2" checked>
                     <label for="2_2">2.2 Структура кода</label>
-                    <p class="green">1) Точка с запятой в конце выражения</p>
+                    <p class="for-what">Зачем? Для обозначения окончания выражений, описания принятых решений.</p>
+                    <ul>
+                        <li class="green">Точка с запятой в конце выражения</li>
+                        <li class="green">Комментарии</li>
+                    </ul>
+                    <p class="green">1) Точка с запятой в конце выражения </p>
                     <p class="green">2) Комментарии</p>
                 </div>
                 <div>
                     <input type="checkbox" name="2_3" id="2_3" checked>
                     <label for="2_3">2.3 Строгий режим - "use strict"</label>
-                    <p class="green">1) "use strict" (поддержка старого кода)</p>
+                    <p class="for-what">Зачем? Для работы с легаси проектами, но вообще сейчас 99% это модульные проекты, а модули автоматически добавляют "use strict".</p>
+                    <ul>
+                        <li class="green">"use strict": данная строка позволяет работать старыми возможностями языка, убранными с ES6+</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="2_4" id="2_4" checked>
                     <label for="2_4">2.4 Переменные</label>
-                    <p class="green">1) let (переменная, можно переопределять, блочная обл. видимости)</p>
-                    <p class="green">2) const (константа, нельзя переопределять, блочная обл. видимости)</p>
-                    <p class="red">3) var (переменная (олд), можно переопределять, обл. видимости файла/функции, но не блока)</p>
-                    <p class="green">4) Имена переменных (camelCase, должны быть ясны, конкретика, но не более 2-3 слов: userName)</p>
-                    <p class="green">5) Присвоение результата функции (можем присвоить результат функции: let result = sum(2, 3))</p>
+                    <p class="for-what">Зачем? Практически всё в JS построенно на переменных, они служат хранилищем данных для любых структур данных.</p>
+                    <ul>
+                        <li class="green">let: переменная, можно переопределять, имеет блочную {} область видимости</li>
+                        <li class="green">const: константа, нельзя переопределять, имеет блочную {} область видимости</li>
+                        <li class="red">var: переменная (устаревшее), имеет область видимости файла/функции, но не блока</li>
+                        <li class="green">Именование: camelCase, должны быть ясны, конкретика, но не более 2-3 слов, например: userName</li>
+                        <li class="blue">Можно присвоить результат выполнения функции переменной, например: let result = sum(2, 3) // 5</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="2_5" id="2_5" checked>
                     <label for="2_5">2.5 Типы данных</label>
-                    <p class="green">1) 8 типов данных (number, string, object, bool, null, undefined, BigInt (big number), Symbol)</p>
-                    <p class="green">2) Оператор typeof (возвращает тип чего-либо строкой)</p>
+                    <p class="for-what">Зачем? Разные типы данных имеют разные методы. Работа с "примитивами" отличается от работы с "объектами" (и массивами).</p>
+                    <ul>
+                        <li class="green">Есть 8 типов данных: number, string, object, bool, null, undefined, BigInt (big number), Symbol</li>
+                        <li class="blue">Примитивы (все типы кроме object) равны сами себе. Например: 1 === 1 // true</li>
+                        <li class="blue">Объекты (и массивы, т.к. это объект) не равны сами себе. Наример: {id: 1} === {id: 1} // false</li>
+                        <li class="blue">Уникальность объектов может вызвать проблему при поиске "уникального" объекта в массиве. Для этого используют filter + some</li>
+                        <li class="green">Оператор typeof возвращает тип чего-либо строкой. Например: typeof 1; // "number"</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="2_7" id="2_7" checked>
                     <label for="2_7">2.7 Преобразование типов</label>
-                    <p class="green">1) Строковое преобразование (к string, String(value))</p>
-                    <p class="green">2) Численное преобразование (к number, Number(value) или +value)</p>
-                    <p class="green">3) Логическое преобразование (к bool, Boolean(value) или !!value)</p>
-                    <p class="green">4) 0, null, undefined, NaN, "" возвращает false, остальное возвращает true</p>
+                    <p class="for-what">Зачем? Например, часто можем получать результат инпута типом string, бекенд ждёт number, нужно делать преобразование типов.</p>
+                    <ul>
+                        <li class="green">Строковое преобразование к типу string: String(value) или value + ""</li>
+                        <li class="green">Численное преобразование к типу number: Number(value) или +value</li>
+                        <li class="green">Логическое преобразование к типу bool: Boolean(value) или !!value</li>
+                        <li class="blue">0, null, undefined, NaN, "" возвращает false, всё остальное возвращает true. Например: [], {} вернёт true</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="2_8" id="2_8" checked>
                     <label for="2_8">2.8 Базовые операторы, математика</label>
-                    <p class="green">1) «унарный» (+a), «бинарный» (a + b), «операнд» (a, b - это операнды)</p>
-                    <p class="green">2) Постфиксный инкремент (v++)/декремент (v--), увеличить, но получить результат до увеличения</p>
-                    <p class="green">3) Префиксный инкремент (++v)/декремент (--v), увеличить, и сразу получить новый результат</p>
+                    <p class="for-what">Зачем? Самый простой пример это итераторы, к примеру цикл for, который сейчас устаревает, в основном это просто часть истории.</p>
+                    <ul>
+                        <li class="red">«унарный» (+a), «бинарный» (a + b), «операнд» (a, b - это операнды)</li>
+                        <li class="green">Постфиксный инкремент (v++)/декремент (v--), увеличить, но получить результат до увеличения</li>
+                        <li class="green">Префиксный инкремент (++v)/декремент (--v), увеличить, и сразу получить новый результат</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="2_9" id="2_9" checked>
                     <label for="2_9">2.9 Операторы сравнения</label>
-                    <p class="green">1) Результат сравнения имеет логический тип (let a = 3 > 2; // true)</p>
-                    <p class="green">2) Строгое сравнение (===, !==), всегда стоит использовать его</p>
+                    <p class="for-what">Зачем? Сравнение используется очень часто, в тех же тернарных операторах, условиях, везде, это одна из важнейших вещей.</p>
+                    <ul>
+                        <li class="green">Результат сравнения имеет логический тип: let a = 3 > 2; // true</li>
+                        <li class="green">Всегда стоит использовать строгое сравнение (===, !==), оно проверяет не только на значение, но и на тип данных</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="2_10" id="2_10" checked>
                     <label for="2_10">2.10 Условное ветвление: if, '?'</label>
-                    <p class="green">1) if (condition) {...} (опционально: else if (condition) {...} else {...})</p>
-                    <p class="green">2) Тернарный оператор "?" (let result = условие ? значение1 : значение2;)</p>
+                    <p class="for-what">Зачем? Довольно распространено в комбинации с return, если А, то верни А1, если Б, то верни Б1 и так далее.</p>
+                    <ul>
+                        <li class="green">if (condition) {...}, к нему опционально идёт: else if (condition) {...} else {...}</li>
+                        <li class="green">Тернарный оператор "?". Пример: let result = условие ? значение1 : значение2;</li>
+                        <li class="blue">Часто в функциях используют if (condition) {return ...}, это позволяет выйти из функции и вернуть значение по условию</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="2_11" id="2_11" checked>
                     <label for="2_11">2.11 Логические операторы</label>
-                    <p class="green">1) ИЛИ «||» (a || b || c) находит первое истинное значение, либо возвращает последнее значение в цепочке</p>
-                    <p class="green">2) И «&&» (a && b && c) находит первое ложное значение, либо возвращает последнее значение в цепочке</p>
-                    <p class="green">2) ! (НЕ) (!value) приводит аргумент к bool, возвращает противоположное значение</p>
-                </div>
-                <div>
-                    <input type="checkbox" name="2_12" id="2_12" checked>
-                    <label for="2_12">2.12 Оператор объединения с null '??'</label>
-                    <p class="orange">1) ?? возвращает первое определённое значение (в отлчие от || различает false, 0, "" и null/undefined)</p>
+                    <p class="for-what">Зачем? Часто используются для присвоения булевых значений переменным, либо для рендера компонентов если цепочка условий true.</p>
+                    <ul>
+                        <li class="green">ИЛИ «||» находит первое значение равное true, либо возвращает последнее значение в цепочке. Пример: 0 || 1 || 2 // 1</li>
+                        <li class="green">И «&&» находит первое значение равное false, либо возвращает последнее значение в цепочке. Пример: 1 && 0 && 2 // 0</li>
+                        <li class="green">НЕ «!» приводит аргумент к bool, возвращает противоположное значение. Пример: !1 // false</li>
+                        <li class="red">Объединение с null '??': возвращает первое определённое значение (в отлчие от || различает false, 0, "" и null/undefined)</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="2_13" id="2_13" checked>
                     <label for="2_13">2.13 Циклы while и for</label>
-                    <p class="red">1) Цикл «while» (while (condition) {...}, цикл выполняется, пока условие condition истинно)</p>
-                    <p class="red">2) Цикл «do...while» (выполнит тело, а затем проверит условие condition, и пока его значение равно true)</p>
-                    <p class="red">3) Цикл «for» (for (начало; условие; шаг) {тело}, послед.: начало => (условие -> тело -> шаг -> условие)})</p>
-                    <p class="red">4) Прерывание цикла: «break» (позволяет выйти из цикла, if (!value) {break;})</p>
-                    <p class="green">5) Вместо while, for всегда используются перебираемые методы (map, filter, и так далее)</p>
+                    <p class="for-what">Зачем? Уже буквально все циклы можно считать устаревшими, вместо них используют перебирающие методы, просто часть истории.</p>
+                    <ul>
+                        <li class="red">Цикл «while»: while (condition) {...}, цикл выполняется, пока условие condition истинно</li>
+                        <li class="red">Цикл «do...while»: выполнит тело, а затем проверит условие condition, и пока его значение равно true</li>
+                        <li class="red">Цикл «for»: for (начало; условие; шаг) {тело}, послед.: начало => (условие -> тело -> шаг -> условие)}</li>
+                        <li class="red">Прерывание цикла «break»: позволяет выйти из цикла, if (!value) {break;}</li>
+                        <li class="blue">Обычные циклы устарели, используйте перебираемые методы (map, filter, forEach и так далее)</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="2_14" id="2_14" checked>
                     <label for="2_14">2.14 Конструкция "switch"</label>
-                    <p class="green">1) switch(x) {case 'val1': ... break; default: ... break;} (проверка строгая (===), case могут быть слитно)</p>
+                    <p class="for-what">Зачем? Исходя из моего опыта, могу сказать, что всегда используется в redux редьюсерах, вероятно используется где-то ещё.</p>
+                    <ul>
+                        <li class="green">switch(x) {case 'val1': ... break; default: ... break;}, проверка строгая (===), case могут быть слитно (на 2 case 1 действие)</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="2_15" id="2_15" checked>
                     <label for="2_15">2.15 Функции</label>
-                    <p class="green">1) Объявление функции (function showMessage(params) {...}, переменные, объявленные в ней, извне не доступны)</p>
-                    <p class="green">2) Внешние переменные (функция имеет доступ к переменным, объявленным выше тела функции)</p>
-                    <p class="green">3) Возврат значения (return возвращает результат, его может не быть, тогда функция вернёт undefined)</p>
-                    <p class="green">4) Выбор имени функции (глагольный префикс, сделалКого, делает ровно то, что написано в её названии)</p>
-                    <p class="green">5) Одна функция, одно действие (два действия, две функции, и третья, которая вызывает их обоих)</p>
+                    <p class="for-what">Зачем? Исходя из моего опыта, могу сказать, что всегда используется в redux редьюсерах, вероятно используется где-то ещё.</p>
+                    <ul>
+                        <li class="green">Объявление функции: function showMessage(params) {...}, переменные, объявленные в ней, извне не доступны</li>
+                        <li class="green">Внешние переменные: функция имеет доступ к переменным, объявленным выше, вне тела функции</li>
+                        <li class="blue">Возврат значения: return возвращает результат, его может не быть, тогда функция вернёт undefined</li>
+                        <li class="green">Именование: глагольный префикс, сделалКого, делает ровно то, что написано в её названии. Например: getUsers()</li>
+                        <li class="green">Принцип «Одна функция, одно действие»: два действия, две функции, и третья, которая вызывает их обоих</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="2_16" id="2_16" checked>
                     <label for="2_16">2.16 Function Expression/Declaration, Callbacks</label>
-                    <p class="green">1) Function Expression (let sayHi = function() {...}, создаётся, когда выполнение доходит до него)</p>
-                    <p class="green">2) Function Declaration (function sayHi() {...}, создаётся сразу, как только начинает работать скрипт)</p>
-                    <p class="green">3) Функции-«колбэки» (передаём функцию как параметр функции, она ждёт пока её вызовут, когда это будет нужно)</p>
+                    <p class="for-what">Зачем? FE/FD используются сейчас очень редко (их заменили классы). Callbacks используются в очень многих функциях</p>
+                    <ul>
+                        <li class="green">Function Expression: let sayHi = function() {...}, создаётся, когда выполнение доходит до него</li>
+                        <li class="green">Function Declaration: function sayHi() {...}, создаётся сразу, как только начинает работать скрипт</li>
+                        <li class="blue">FD вложенная в FD будет иметь свой контекст и при обращении к this внешней функции получит undefined</li>
+                        <li class="blue">Функции-«колбэки»: передаём функцию как параметр функции, она ждёт пока её вызовут, когда это будет нужно</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="2_17" id="2_17" checked>
                     <label for="2_17">2.17 Функции-стрелки, основы</label>
-                    <p class="green">1) Функции-стрелки (let func = (arg1, ...argN) => expression, однострочным не нужен return, не имеют this)</p>
+                    <p class="for-what">Зачем? Сейчас в большинстве фреймворков используются стрелочные функции. Либо классы, если нужен this, наследование итд.</p>
+                    <ul>
+                        <li class="green">Arrow Functions: let func = (arg1, ...argN) => expression, однострочным не нужен return, не имеют своего this</li>
+                        <li class="blue">У FD/FE есть свой собственный контекс, а AF ищет контекст во внешних окружениях поочередно, от ближнего к дальнему</li>
+                        <li class="blue">В методах объектов всегда запись такая objFunc(){...}, при objFunc: () => {...}, this будет равен window</li>
+                    </ul>
                 </div>
                 <div>
                     <p class="helpful" style="padding: 10px;">
-                        <a href="https://jsfiddle.net/gzhel/besmp70x/13/" target="_blank">Эксперименты с потерей this, bind.</a>
+                        <span>Практика:</span><br>
+                        <a href="https://jsfiddle.net/gzhel/besmp70x/13/" target="_blank">Эксперименты с потерей this, bind.</a><br>
                         <a href="https://jsfiddle.net/gzhel/69bLvyfa/105/" target="_blank">Prototype, This, Классы, Контекст, Наследование.</a>
                     </p>
-                    <p class="blue">1) У Function Declaration/Expression есть свой контекст, Arrow Function ищет контекст во вне</p>
-                    <p class="blue">2) В методах объектов всегда запись такая objFunc(){...}, при objFunc: () => {...}, this будет равен window</p>
                 </div>
             </div>
         </section>
@@ -137,19 +186,23 @@
                 <div>
                     <input type="checkbox" name="3_1" id="3_1" checked>
                     <label for="3_1">3.1 Отладка в браузере Chrome (Chrome DevTools)</label>
-                    <p class="orange">1) Панель "Sources" (слева все файлы страницы, по центру исходный код, справа зона для отладки)</p>
-                    <p class="green">2) Панель "Console" (выводит логи, ошибки, можно писать в ней свои скрипты и выполнять их)</p>
+                    <p class="for-what">Зачем? Консоль используют для понимания состояний кода (вместо точек останова). Network для просмотра обмена данными.</p>
+                    <ul>
+                        <li class="red">Панель "Sources": слева все файлы страницы, по центру исходный код, справа зона для отладки</li>
+                        <li class="green">Панель "Console": выводит логи, ошибки, можно писать в ней свои скрипты и выполнять их</li>
+                        <li class="green">Панель "Network": показывает данные которые уходят и приходят с сервера, к которму стучит frontend</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="3_2" id="3_2" checked>
                     <label for="3_2">3.2 Советы по стилю кода</label>
-                    <p class="green">1) Фигурные скобки (в однострочных инструкциях - не нужны, многострочных - обязательны)</p>
-                    <p class="red">2) Длина строки (лучше разбивать строки на более короткие, 80-120 символов)</p>
-                    <p class="green">3) Точка с запятой (всегда ставим точку с запятой, после каждого выражения)</p>
-                    <p class="green">4) Уровни вложенности (уровней вложенности должно быть немного (как if с return))</p>
-                    <p class="green">5) Линтеры (автоматически проверяют и ругают стиль кода, лучший линтер - ESLint)</p>
+                    <p class="for-what">Зачем? Стоит выработать свой стиль кода, чтобы чётко его понимать и переманивать команду писать именно на нём.</p>
+                    <ul>
+                        <li class="green">Линтеры: автоматически проверяют и ругают стиль кода, не соответствующий правилам. Лучший линтер - ESLint</li>
+                        <li class="blue">В каком стиле писать код? Зависит от команды разработчиков и проекта, на который вы попали</li>
+                    </ul>
                 </div>
-                <div>
+                <div style="display: none;">
                     <input type="checkbox" name="3_3" id="3_3" checked>
                     <label for="3_3">3.3 Комментарии</label>
                     <p class="orange">1) Хорошие комментарии (почему задача была решена так?)</p>
@@ -402,23 +455,23 @@
                 </div>
                 
                 <div>
-                    <p class="helpful" style="padding: 10px;">
-                        <a href="https://jsfiddle.net/gzhel/tve3z5jd/515/" target="_blank">Задачи с собесов (1-13)</a>
-                    </p>
-                    <input type="checkbox" name="6_8" id="6_8">
+                    <input type="checkbox" name="6_8" id="6_8" checked>
                     <label for="6_8">6.8 Планирование: setTimeout и setInterval</label>
                     <p class="green">1) setTimeout(func, [delay]) (вызвать функцию один раз через определённый интервал времени)</p>
                     <p class="orange">2) setInterval(func, [delay]) (вызывать функцию регулярно, повторяя вызов через delay)</p>
                     <p class="green">3) setTimeout(func) с 0 задержкой (вызовет результат функции после выполнения остального скрипта, стек)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="6_10" id="6_10">
+                    <input type="checkbox" name="6_10" id="6_10" checked>
                     <label for="6_10">6.10 Привязка контекста к функции</label>
                     <p class="orange">1) Потеря «this» (возникает при передаче методов объекта в качестве колбэков, например для setTimeout)</p>
                     <p class="green">2) Привязка «this» с помощью bind (например: bind: let boundFunc = func.bind(context); контекст не пропадёт)</p>
                     <p class="blue">3) setTimeout в браузере имеет особенность: он устанавливает this=window для вызова функции</p>
                     <p class="blue">4) Частичное применение: f.bind(null, 2); установит null как контекст и 2 как первый параметр функции f</p>
                     <p class="blue">5) Привязка А к контексту Б: let user = {name: "A"}; function f() {alert(this.name)} let fU = f.bind(user);</p>
+                    <p class="helpful" style="padding: 10px;">
+                        <a href="https://jsfiddle.net/gzhel/phxmLsca/36/" target="_blank">Задачи с собесов (1-13)</a>
+                    </p>
                 </div>
             </div>
         </section>
@@ -439,6 +492,9 @@
                     <p class="green">2) get (let obj = {get propName() {return this.propName;}, срабатывает, когда obj.propName читается})</p>
                     <p class="green">3) set (let obj = {set propName(val) {this.propName = val;}, срабатывает, когда obj.propName присваивается})</p>
                     <p class="green">4) Умные геттеры/сеттеры (пример:если хотим запретить уст. короткое имя user, можем исп. set name для проверки)</p>
+                    <p class="helpful" style="padding: 10px;">
+                        <a href="https://jsfiddle.net/gzhel/fnxym9gz/25/" target="_blank">Добавить динамически getter к пустому объекту</a>
+                    </p>
                 </div>
             </div>
         </section>
@@ -479,6 +535,9 @@
                     <input type="checkbox" name="9_7" id="9_7">
                     <label for="9_7">9.7 Примеси</label>
                     <p class="red">1) В JS можно наследовать только от одного объекта (для таких случаев существуют «примеси»)</p>
+                    <p class="helpful" style="padding: 10px;">
+                        <a href="https://jsfiddle.net/gzhel/nx7e5o0r/83/" target="_blank">Практика: классы</a>
+                    </p>
                 </div>
             </div>
         </section>
@@ -613,6 +672,20 @@
                 <hr>
                 <div>
                     <input type="checkbox" name="14_3" id="14_3">
+                    <label for="14_3">14.1 Proxy и Reflect</label>
+                    <p class="green">1) Proxy это обёртка вокруг объекта/функции/класса, которая ставит "ловушки" на взаимодействие с ним</p>
+                    <p class="green">2) Синтаксис: let proxy = new Proxy(target - исх. объект, handler - объект методов "ловушек")</p>
+                    <p class="blue">3) Методы у прокси объекта как бы копируют базовый функционал работы с объектом, но могут его расширить</p>
+                    <p class="green">4) Методы для объекта: get (obj, key), set (obj, key, value), has (obj, key), deleteProperty (obj, key)</p>
+                    <p class="green">5) Методы для функций: apply (func, _this, args) // сработает когда данная функция будет вызываться</p>
+                    <p class="green">6) Методы для классов: construct (class, args) // сработает при создании экземпляра класса через new</p>
+                    <p class="blue">7) Можно создать "ловушку" на существующие или кастомные методы, подробнее чуть ниже:</p>
+                    <p class="helpful" style="padding: 10px;">
+                        <a href="https://jsfiddle.net/gzhel/31vfomgt/163/" target="_blank">Практика: Proxy</a>
+                    </p>
+                </div>
+                <div>
+                    <input type="checkbox" name="14_3" id="14_3">
                     <label for="14_3">14.3 Каррирование</label>
                     <p class="orange">1) Трансформация функций так, чтобы они принимали аргументы не как f(a, b, c), а как f(a)(b)(c)</p>
                     <p class="green">2) lodash _.curry(f) (возвр. обёртку, даёт запустить функцию как обычным образом, так и частично)</p>
@@ -620,5 +693,12 @@
             </div>
         </section>
     </div>
+    <script>
+        const showReds = document.querySelector("#show_reds");
+        const hideReds = document.querySelector("#hide_reds");
+        const reds = document.querySelectorAll('.red');
+        showReds.addEventListener('click', () => reds.forEach(red => red.style.display = 'block'));
+        hideReds.addEventListener('click', () => reds.forEach(red => red.style.display = 'none'));
+    </script>
 </body>
 </html>

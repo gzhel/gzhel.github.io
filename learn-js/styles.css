@@ -80,13 +80,14 @@ code {
   align-items: center;
   flex-direction: column;
   margin: 25px 0;
-  background: url('https://yt3.ggpht.com/a/AGF-l7-OY3Y94086xfi3-a522vkEbcwryGiLOjxe3A=s900-c-k-c0xffffffff-no-rj-mo');
+  /* background: url('https://yt3.ggpht.com/a/AGF-l7-OY3Y94086xfi3-a522vkEbcwryGiLOjxe3A=s900-c-k-c0xffffffff-no-rj-mo'); */
+  background: url('https://mystickermania.com/cdn/stickers/memes/sticker_2094-512x512.png');
   background-size: 300px;
 }
 
 .learn-page__layout--study-block {
   font-family: 'Courier New', Courier, monospace;
-  background-color: rgb(184, 173, 160);
+  background-color: rgb(216, 193, 165);
   width: 50%;
   border-radius: 10px;
   margin-bottom: 25px;
@@ -125,6 +126,7 @@ code {
 
 .red {
   color: red;
+  display: none;
 }
 
 .blue {
@@ -132,5 +134,19 @@ code {
 }
 
 .checklist .learn-page__layout--study-block {
-  width: 60% !important;
+  width: 70% !important;
+}
+
+#show_reds, #hide_reds {
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+.for-what {
+  border: 4px dashed rgb(84, 45, 92);
+  padding: 10px;
+}
+
+h1 {
+  text-transform: uppercase;
 }
