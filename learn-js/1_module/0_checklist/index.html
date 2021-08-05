@@ -166,7 +166,7 @@
                     <p class="for-what">Зачем? Сейчас в большинстве фреймворков используются стрелочные функции. Либо классы, если нужен this, наследование итд.</p>
                     <ul>
                         <li class="green">Arrow Functions: let func = (arg1, ...argN) => expression, однострочным не нужен return, не имеют своего this</li>
-                        <li class="blue">У FD/FE есть свой собственный контекс, а AF ищет контекст во внешних окружениях поочередно, от ближнего к дальнему</li>
+                        <li class="blue">У FD/FE есть свой собственный контекст, а AF ищет контекст во внешних окружениях поочередно, от ближнего к дальнему</li>
                         <li class="blue">В методах объектов всегда запись такая objFunc(){...}, при objFunc: () => {...}, this будет равен window</li>
                     </ul>
                 </div>
@@ -238,42 +238,41 @@
                 <div>
                     <input type="checkbox" name="4_4" id="4_4" checked>
                     <label for="4_4">4.4 Методы объекта, "this"</label>
-                    <p class="green">1) «this» в методах (объект перед точкой (user. это this для name), для доступа к тому, что внутри объекта)</p>
-                    <p class="green">2) «this» не фиксирован (зависит от контекста, при вызове obj.f() значение this внутри f равно obj)</p>
-                    <p class="green">3) У стрелочных функций нет «this» (его значение берётся из внешней «нормальной» функции, если такая есть)</p>
+                    <p class="for-what">Зачем? Вообще, об этом часто спрашивают на собесах, а также если нам нужно взять и использвать данные из вне.</p>
+                    <ul>
+                        <li class="green">Для сущности после точки "." this это всегда объект перед точкой. Пример: let userName = user.name; user это this для name</li>
+                        <li class="blue">Напоминаю: у FD/FE есть свой контекст, а AF ищет контекст во внешних окружениях поочередно, от ближнего к дальнему</li>
+                        <li class="blue">Проблема потери this: когда у FD/FE внутри есть дочерние FD/FE, у них this будет не внешний, а свой, фикс через AF/bind</li>
+                        <li class="blue">Метод func.bind(this) привязывает функцию к контексту this (то есть к контексту например другой функции, чего угодно)</li>
+                        <li class="green">Метод func.call(this, arg1...) может расширить функционал. Пример: у NodeList нет map, мы его можем добавить с помощью call</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="4_5" id="4_5" checked>
+                    
                     <label for="4_5">4.5 Конструкторы, создание объектов через "new"</label>
-                    <p class="green">1) Функция-конструктор (с большой буквы, вызов через new: function User(a) {this.a = a;} let b = new User(22);)</p>
-                    <p class="green">2) Создание методов в конструкторе (в this можем добавлять методы: this.read = function() {...})</p>
+                    <p class="for-what">Зачем? Создаём через "new" экземпляр класса или функции-конструктора, а они в свою очередь бывают иногда нужны.</p>
+                    <ul>
+                        <li class="green">Функция-конструктор: с большой буквы, вызов через new: function User(a) {this.a = a;} let b = new User(22);</li>
+                        <li class="red">Создание методов в конструкторе: в this можем добавлять методы: this.read = function() {...}</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="4_6" id="4_6" checked>
                     <label for="4_6">4.6 Опциональная цепочка '?.'</label>
-                    <p class="green">1) ?. (возвращает undefined если часть перед "?." undefined или null, ошибки нет (если a в a?.b объявлена))</p>
-                    <p class="orange">2) ?.() (для вызова потенциально несуществующей функции: user1.admin?.())</p>
-                    <p class="orange">3) ?.[] (если значение ключа получаем с помощью [], например если оно берётся из переменной)</p>
+                    <p class="for-what">Зачем? Фича, которая спасла нервы многих разрабов, раньше если поле "ещё не загрузилось", а DOM загрузился, кидало ошибку.</p>
+                    <ul>
+                        <li class="green">?. : возвращает undefined если часть перед "?." undefined или null, ошибки нет (если a в a?.b объявлена, т.е. существует)</li>
+                        <li class="red">?.() : для вызова потенциально несуществующей функции: user1.admin?.()</li>
+                        <li class="red">?.[] : если значение ключа получаем с помощью [], например если оно берётся из переменной</li>
+                    </ul>
                 </div>
-                <div>
+                <div style="display: none;">
                     <input type="checkbox" name="4_7" id="4_7" checked>
                     <label for="4_7">4.7 Тип данных Symbol</label>
-                    <p class="orange">1) Symbol (let id = Symbol("id"); это уникальный идентификатор, уникален даже если "имя" одинаково)</p>
-                </div>
-                <div>
-                    <input type="checkbox" name="4_8" id="4_8" checked>
-                    <label for="4_8">4.8 Преобразование объектов в примитивы</label>
-                    <p class="red">1) На практике используют obj.toString() «универсальный» метод для всех типов преобразований</p>
-                </div>
-                <div>
-                    <p class="helpful" style="padding: 10px;">
-                        <a href="https://jsfiddle.net/gzhel/4jo0ufvx/91/" target="_blank">Эксперименты с IIFE, call, Object.assign()</a>
-                    </p>
-                    <p class="blue">1) IIFE в реальных проектах чаще всего используют с замыканиями</p>
-                    <p class="blue">2) IIFE просто сокращает две переменные (с обычным замыканием) до одной</p>
-                    <p class="blue">3) call служит для расширения функционала (пример: у NodeList нет map, мы его можем добавить с помощью call)</p>
-                    <p class="blue">4) Object.assign "безопасно копирует" только верхний уровень, для остальных он меняет значения по ссылке</p>
-                    <p class="blue">5) Для полного копирования можно использовать lodash _.cloneDeep(obj)</p>
+                    <ul>
+                        <li class="red"> Symbol: let id = Symbol("id"); это уникальный идентификатор, уникален даже если "имя" одинаково</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -446,6 +445,18 @@
                     <p class="green">1) LE существует для любых блоков кода {...} (и содержит локальные переменные для этого блока)</p>
                     <p class="green">2) LE для if (если переменной в if нет, она берёт её из глобального LE)</p>
                     <p class="green">3) LE для for/while (у каждой итерации своё отдельное LE, let i = 0 находится в LE, хоть внешне и не в {})</p>
+                </div>
+                <div>
+                    <input type="checkbox" name="4_8" id="4_8" checked>
+                    <label for="4_8">IIFE (самовызывающаяся функция)</label>
+                    <ul>
+                        <li class="green"> IIFE в реальных проектах чаще всего используют с замыканиями</li>
+                        <li class="green"> IIFE в реальных проектах чаще всего используют с замыканиями</li>
+                        IIFE просто сокращает две переменные (с обычным замыканием) до одной
+                    </ul>
+                    <p class="helpful" style="padding: 10px;">
+                        <a href="https://jsfiddle.net/gzhel/4jo0ufvx/91/" target="_blank">Эксперименты с IIFE, call, Object.assign()</a>
+                    </p>
                 </div>
                 <div>
                     <input type="checkbox" name="6_4" id="6_4" checked>
