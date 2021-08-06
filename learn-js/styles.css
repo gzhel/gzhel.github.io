@@ -50,7 +50,7 @@ html, body {
 }
 
 .helpful {
-  border: 4px dashed rgb(0, 26, 255);
+  border: 3px dashed rgb(0, 26, 255);
 }
 
 .useless {
@@ -143,10 +143,18 @@ code {
 }
 
 .for-what {
-  border: 4px dashed rgb(84, 45, 92);
+  border: 3px dashed rgb(84, 45, 92);
   padding: 10px;
 }
 
 h1 {
   text-transform: uppercase;
+}
+
+input[type="checkbox"] + label {
+  background-color: antiquewhite;
+}
+
+ul > li {
+  margin-bottom: 6px;
 }

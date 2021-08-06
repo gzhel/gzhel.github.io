@@ -22,7 +22,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <div class="text" style="background-color: white;">
-                <b>2) Основы JavaScript <a href="https://jsfiddle.net/gzhel/o1hn3bg6/127/" target="_blank">(примеры кода)</a></b><hr>
+                <b>2) Основы JavaScript</b><hr>
                 <div style="display: none;">
                     <input type="checkbox" name="2_2" id="2_2" checked>
                     <label for="2_2">2.2 Структура кода</label>
@@ -174,7 +174,9 @@
                     <p class="helpful" style="padding: 10px;">
                         <span>Практика:</span><br>
                         <a href="https://jsfiddle.net/gzhel/besmp70x/13/" target="_blank">Эксперименты с потерей this, bind.</a><br>
-                        <a href="https://jsfiddle.net/gzhel/69bLvyfa/105/" target="_blank">Prototype, This, Классы, Контекст, Наследование.</a>
+                        <a href="https://jsfiddle.net/gzhel/69bLvyfa/105/" target="_blank">Prototype, This, Классы, Контекст, Наследование.</a><br><br>
+                        <span>Примеры кода:</span><br>
+                        <a href="https://jsfiddle.net/gzhel/o1hn3bg6/127/" target="_blank">(примеры кода)</a>
                     </p>
                 </div>
             </div>
@@ -211,7 +213,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <div class="text" style="background-color: white;">
-                <b>4) Объекты: основы <a href="https://jsfiddle.net/gzhel/j7tyw89L/84/" target="_blank">(примеры кода)</a></b>
+                <b>4) Объекты: основы</b>
                 <hr>
                 <div>
                     <input type="checkbox" name="4_1" id="4_1" checked>
@@ -274,131 +276,198 @@
                         <li class="red"> Symbol: let id = Symbol("id"); это уникальный идентификатор, уникален даже если "имя" одинаково</li>
                     </ul>
                 </div>
+                <div>
+                    <p class="helpful" style="padding: 10px;">
+                        <span>Примеры кода:</span><br>
+                        <a href="https://jsfiddle.net/gzhel/j7tyw89L/84/" target="_blank">(примеры кода)</a>
+                    </p>
+                </div>
             </div>
         </section>
         <section class="learn-page__layout--study-block">
             <div class="text" style="background-color: white;">
-                <b>5) Типы данных <a href="https://jsfiddle.net/gzhel/3heobtq8/162/" target="_blank">(примеры кода)</a></b>
+                <b>5) Типы данных </b>
                 <hr>
                 <div>
                     <input type="checkbox" name="5_1" id="5_1" checked>
                     <label for="5_1">5.1 Методы у примитивов</label>
-                    <p class="green">1) Примитив как объект (примитивы (кроме null/undefined) имеют объект-обёртку (String, Number, Boolean итд)</p>
-                    <p class="green">2) Методы (объект-обёртка даёт примитиву использовать метод объекта, при этом примитив не становится объектом)</p>
+                    <p class="for-what">Зачем? Стоит в первую очередь понимать, что примитив всегда обёрнут объектом-обёрткой, т.е. 1 === Number(1) // true.</p>
+                    <ul>
+                        <li class="green">Все примитивы кроме null/undefined имеют объект-обёртку (класс-обёртку) (String, Number, Boolean и так далее)</li>
+                        <li class="green">Объект-обёртка даёт примитиву использовать методы класса, при этом примитив не становится объектом-обёрткой</li>
+                        <li class="blue">Стоит понимать что классы-обёртки это классы, у которых есть свои данные. Пример: Number().constructor.MAX_VALUE</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="5_2" id="5_2" checked>
                     <label for="5_2">5.2 Числа (number)</label>
-                    <p class="green">1) Округление (Math.floor в меньш., Math.ceil в больш., Math.round до ближ. цел., Math.trunc уд. дроб. части)</p>
-                    <p class="green">2) toFixed(n) (округляет число до n знаков после запятой и возвращает строку)</p>
-                    <p class="green">3) Неточные вычисления (при работе с дробями округляем их через +number.toFixed(n); иначе могут быть ошибки)</p>
-                    <p class="orange">4) isFinite и isNaN (isNaN(value) это NaN? isFinite(value) это не NaN/Infinity/-Infinity?)</p>
-                    <p class="orange">5) parseInt и parseFloat («читают» число из строки. parseInt('100px') // 100)</p>
-                    <p class="green">6) Math.random() (число от 0 до 1), Math.max/min(a, b...) (больш./меньш. из арг.), Math.pow(n, power) (**)</p>
+                    <p class="for-what">Зачем? Округление часто используется в разработке, а тажке стоит знать про "неточные вычисления", чтобы не попасть в просак.</p>
+                    <ul>
+                        <li class="green">Округление: Math.floor в меньшую, Math.ceil в большую, Math.round до ближайшего целого, Math.trunc удаление дробной части</li>
+                        <li class="green">Метод num.toFixed(n): округляет число до n знаков после запятой и возвращает строку, нужно для фикса неточных вычислений</li>
+                        <li class="blue">Неточные вычисления: это баг JS, когда например 0.1 + 0.2 = 0.30000000000000004. Всегда округляем такое через +num.toFixed(n)</li>
+                        <li class="red">isFinite(val) проверяет что val это не NaN/Infinity/-Infinity, isNaN(val) проверяет что val это NaN</li>
+                        <li class="red">parseInt и parseFloat: «читают» число из строки. parseInt('100px') // 100</li>
+                        <li class="green">Math.random(): возвращает число от 0 до 1, Math.floor(Math.random() * max) вовзвращает число от 0 до max</li>
+                        <li class="green">Math.max/min(a, b, c...): возвращает большее или меньшее из списка указанных элементов</li>
+                        <li class="red">Math.pow(n, power): возвращает n возведенное в степень power, но на мой взгляд гораздо быстрее использовать n ** power</li>
+                    </ul>
                 </div>
                 <div>
                     <p class="helpful" style="padding: 10px;">
-                        <a href="https://jsfiddle.net/gzhel/cqean0o6/4/" target="_blank">Задания: cloneDeep, BigDecimal, isNaN</a><br><br>
-                        <a href="https://jsfiddle.net/gzhel/s7d6x09v/47/" target="_blank">Практика: работа с видами функций</a>
+                        <span>Задания:</span><br>
+                        <a href="https://jsfiddle.net/gzhel/cqean0o6/4/" target="_blank">cloneDeep, BigDecimal, isNaN</a><br><br>
+                        <span>Практика:</span><br>
+                        <a href="https://jsfiddle.net/gzhel/s7d6x09v/47/" target="_blank">Работа с видами функций</a>
                     </p>
                 </div>
                 <div>
                     <input type="checkbox" name="5_3" id="5_3" checked>
                     <label for="5_3">5.3 Строки (string)</label>
-                    <p class="green">1) Длина строки (length содержит длину строки: alert( `My\n`.length ); // 3)</p>
-                    <p class="green">2) Изменение регистра (toLowerCase() и toUpperCase() меняют регистр символов)</p>
-                    <p class="orange">3) str.indexOf(substr, pos) (ищет подстроку substr в строке str, с позиции pos, возвр. подход. позицию или -1)</p>
-                    <p class="orange">4) str.includes(substr, pos), str.startsWith(substr), str.endsWith(substr)</p>
-                    <p class="green">5) str.slice(start [, end]) (возвращает от start до end (не включая end))</p>
+                    <p class="for-what">Зачем? Работа со строками не так часто встречается в разработке, но иногда используют length и slice у строк.</p>
+                    <ul>
+                        <li class="green">Ключ объекта строки называемый "length" содержит длину этой строки, без спецсимволов. Пример: alert( `My\n`.length ); // 3)</li>
+                        <li class="green">Методы для изменения регистра: toLowerCase() и toUpperCase() меняют регистр символов на верхний и нижний соответственно </li>
+                        <li class="red">Метод str.indexOf(substr, pos): ищет подстроку substr в строке str, с позиции pos, возвр. подход. позицию или -1</li>
+                        <li class="red">Метод str.includes(substr, pos) ищет подстроку начиная с выбранной позиции, возвращает true/false</li>
+                        <li class="green">Методы str.startsWith(substr), str.endsWith(substr) возвращают true/false, если строка начинается/не начинается с подстроки</li>
+                        <li class="green">Метод str.slice(start [, end]): возвращает часть строки от start до end (не включая end)</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="5_4" id="5_4" checked>
                     <label for="5_4">5.4 Массивы</label>
-                    <p class="green">1) [] (с 0, получить эл. arr[id], заменить эл. arr[id] = 2, длина arr.length, могут храниться даже функц.)</p>
-                    <p class="green">2) push() (доб. эл. в конец), pop () (удал. эл. в конце, а после веруть этот элемент как результат)</p>
-                    <p class="green">3) unshift() (доб. эл. в начало), shift () (удал. эл. в начале, а после веруть этот элемент как результат)</p>
-                    <p class="red">4) Перебор элементов (через for или for of: for (let fruit of fruits) {...})</p>
+                    <p class="for-what">Зачем? Массивы и объекты это самая "обрабатывая" структура данных в JS, часто нужно забрать массив по API и обработать.</p>
+                    <ul>
+                        <li class="green">Основы: массив начинается с 0, получить эл. arr[id], заменить эл. arr[id] = 2, длина arr.length, можно хранить функции</li>
+                        <li class="green">Метод push() добавить элемент в конец, метод pop () удалить элемент в конце, а после веруть этот элемент как результат</li>
+                        <li class="green">Метод unshift(a, b...) добавить элемент(ы) в начало, метод shift() удалить элемент в начале, а после веруть как результат</li>
+                        <li class="red">Перебор элементов через цикл for of: for (let fruit of fruits) {...}</li>
+                    </ul>
                 </div>
                 <div>
                     <p class="helpful" style="padding: 10px;">
-                        <a href="https://jsfiddle.net/gzhel/bjusyqvk/242/" target="_blank">Задания: работа с массивами</a>
+                        <span>Задания:</span><br>
+                        <a href="https://jsfiddle.net/gzhel/bjusyqvk/242/" target="_blank">Работа с массивами</a>
                     </p>
                 </div>
                 <div>
-                    <input type="checkbox" name="5_5" id="5_5" checked>
-                    <label for="5_5">5.5 Методы массивов</label>
-                    <p>Добавление/удаление элементов:</p>
-                    <p class="green">1) arr.splice(pos, deleteCount, 'item1', ...) (начиная с pos, удал. deleteCount эл., вставляет items)</p>
-                    <p class="green">2) arr.slice(start, end) (создаёт новый массив, копируя в него элементы с start до end (не включая end))</p>
-                    <p class="orange">3) arr.concat(arg1, arg2...) (возвр. новый массив: копир. все члены текущего массива и добавляет к нему items)</p>
-                    <p>Поиск в массиве:</p>
-                    <p class="green">4) arr.includes(item, from) (ищет item, начиная с индекса from, и возвращает true, если поиск успешен)</p>
-                    <p class="green">5) arr.find(func)/arr.filter(func) (фильтрует элементы через функцию и отдаёт первое/все знач. которые true)</p>
-                    <p>Преобразование массива:</p>
-                    <p class="green">6) arr.map(func) (создаёт новый массив из результатов вызова func для каждого элемента)</p>
-                    <p class="green">7) arr.sort(func) (сортирует массив, а потом возвращает его)</p>
-                    <p class="orange">8) arr.reverse() (меняет порядок следования элементов на противоположный и возвращает изменённый массив)</p>
-                    <p class="green">9) arr.split(char)/join(char) (преобразует строку в массив и обратно, по разделителю)</p>
-                    <p class="green">10) reduce(func, initialValue) (func всегда имеет 2 параметра: accumulator, currentValue)</p>
-                    <p>Дополнительно:</p>
-                    <p class="green">11) arr.some(fn)/arr.every(fn) (fn выз. для каждого элемента массива, если один/все true, возвращает true)</p>
+                    <input type="checkbox" name="5_5_1" id="5_5_1" checked>
+                    <label for="5_5_1">5.5.1 Методы массивов: Добавление/удаление элементов</label>
+                    <p class="for-what">Зачем? Часто используется как промежуточное действие в преобразование массива, чаще всего используют slice.</p>
+                    <ul>
+                        <li class="green">Метод arr.splice(pos, deleteCount, 'item1', ...): начиная с pos, удалить deleteCount элементов, и вставить туда items</li>
+                        <li class="green">Метод arr.slice(start, end): создаёт новый массив, копируя в него элементы с start до end (не включая end)</li>
+                        <li class="green">Метод arr.concat(arg1, arg2...): возвращает новый массив, копирует все члены текущего массива и добавляет к нему items</li>
+                        <li class="blue">У метода concat есть современный синтаксис, который выглядит как [...arr1, ...arr2]</li>
+                    </ul>
                 </div>
                 <div>
+                    <input type="checkbox" name="5_5_2" id="5_5_2" checked>
+                    <label for="5_5_2">5.5.2 Методы массивов: Поиск в массиве</label>
+                    <p class="for-what">Зачем? Например поиск по интервалу дат, или поиск на сайте, поиск чего угодно, делается через эти методы.</p>
+                    <ul>
+                        <li class="green">Метод arr.includes(item, from): ищет item, начиная с индекса from, и возвращает true, если поиск успешен</li>
+                        <li class="green">Метод arr.find(func)/arr.filter(func): фильтрует элементы через функцию и отдаёт первое/все значение, которые true</li>
+                        <li class="green">Метод arr.some(fn)/arr.every(fn): fn вызывается для каждого элемента массива, если один/все true, возвращает true)</li>
+                        <li class="blue">Поиск уникальных объектов в массиве: не через includes, а через filter + some, т.к. {id: 1} === {id: 1} // false</li>
+                    </ul>
+                </div>
+                <div>
+                    <input type="checkbox" name="5_5_3" id="5_5_3" checked>
+                    <label for="5_5_3">5.5.3 Методы массивов: Преобразование массива. Стандартные методы</label>
+                    <p class="for-what">Зачем? Часто используется как промежуточное действие в преобразование массива, чаще всего используют slice.</p>
+                    <ul>
+                        <li class="green">Метод arr.map(func): создаёт новый массив из результатов вызова func для каждого элемента, возвращает обработанные данные</li>
+                        <li class="green">Метод arr.sort(arr): сортирует массив, а потом возвращает его, есть несколько форм параметров, основные: arr, compareFn</li>
+                        <li class="blue">Метод arr.sort(compareFn): сортирует массив по признаку указанному в функции. Пример: arr.sort((a, b) => a - b);</li>
+                        <li class="green">Метод arr.reverse(): меняет порядок следования элементов на противоположный и возвращает изменённый массив, юзают после sort</li>
+                        <li class="green">Метод arr.split(char) строка в массив по разделителю char, метод join(char) массив в строку с разделителем char</li>
+                    </ul>
+                </div>
+                <div>
+                    <input type="checkbox" name="5_5_4" id="5_5_4" checked>
+                    <label for="5_5_4">5.5.4 Методы массивов: Преобразование массива. Универсальный метод reduce</label>
+                    <p class="for-what">Зачем? Он позволяет как угодно обрабатывать элементы массива и возвращать результат, если другие методы не справляются.</p>
+                    <ul>
+                        <li class="green">Метод arr.reduce(callbackFn, initialValue): берёт любую итерируемую структуру данных, преобразует её как угодно нам</li>
+                        <li class="blue">callbackFn имеет (на самом деле) 4 параметра: accumulator, currentValue, index (индекс итерации), array (исходный массив)</li>
+                        <li class="blue">Для чего нужен index и array: если нам нужно получить в текущей итерации следующий элемент делаем так array[index + 1]</li>
+                        <li class="blue">Избегаем ошибок: если вы не передадите initialValue, то reduce() будет считать, что им является первый элемент в массиве</li>
+                        <li class="blue">Избегаем ошибок: делайте return accumulator, чтобы reduce() продолжал итерации, можно добавить if и модифицировать итерации</li>
+                    </ul>
+                    <p class="helpful" style="padding: 10px;">
+                        <span>Практика:</span><br>
+                        <a href="https://jsfiddle.net/gzhel/Lw1u3d5m/170/" target="_blank">Эксперименты с reduce, деструктуризация</a>
+                    </p>
+                </div>
+                <div style="display: none;">
                     <input type="checkbox" name="5_6" id="5_6" checked>
                     <label for="5_6">5.6 Перебираемые объекты</label>
-                    <p class="orange">1) for..of (в итерируемых объектах можно исп. любой объект в цикле for of, они имеют метод Symbol.iterator)</p>
-                    <p class="green">2) Array.from(arrayLike) (принимает итер. объект/псевдомассив, делает из него Array с методами массивов)</p>
+                    <ul>
+                        <li class="red">for..of (в итерируемых объектах можно исп. любой объект в цикле for of, они имеют метод Symbol.iterator)</li>
+                        <li class="red">Array.from(arrayLike) (принимает итер. объект/псевдомассив, делает из него Array с методами массивов)</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="5_7" id="5_7" checked>
                     <label for="5_7">5.7 Map и Set</label>
-                    <p class="red">1) Map (коллекция ключ/значение, как и object, но Map позволяет использовать ключи любого типа, даже object)</p>
-                    <p class="red">2) Set (коллекция «множество» значений (без ключей), где каждое значение может появляться только один раз)</p>
-                    <p class="green">3) Синтаксис [...new Set(arr)] используется для получения только уникальных значений arr</p>
+                    <p class="for-what">Зачем? По сути незачем, но в них есть интересная фича, способ получить уникальные значения (но можно получить и по другому).</p>
+                    <ul>
+                        <li class="red">Map: коллекция ключ/значение, как и object, но Map позволяет использовать ключи любого типа, даже object</li>
+                        <li class="red">Set: коллекция «множество» значений (без ключей), где каждое значение может появляться только один раз</li>
+                        <li class="blue">Синтаксис [...new Set(arr)] используется для получения только уникальных значений arr, не работает на объекты</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="5_9" id="5_9" checked>
                     <label for="5_9">5.9 Object.keys, values, entries</label>
-                    <p class="green">1) Object.keys/values/entries(obj) (возвр. массив ключей/значений/пар [ключ, значение])</p>
-                    <p class="orange">2) Трансформация объекта (алгоритм используется для исп. методов массива на объекте)</p>
-                    <p class="orange">3) Алгоритм трансформации объекта (Object.entries(obj) -> методы массива -> Object.fromEntries(array))</p>
+                    <p class="for-what">Зачем? Не так часто, но бывают моменты, когда нужно получить массив ключей объекта, значений гораздо реже.</p>
+                    <ul>
+                        <li class="green">Object.keys/values/entries(obj): возвращает массив ключей/значений/пар [ключ, значение] объекта, соответственно</li>
+                        <li class="red">Трансформация объекта: алгоритм используется для использования методов массива на объекте</li>
+                        <li class="red">Алгоритм трансформации объекта: Object.entries(obj) -> методы массива -> Object.fromEntries(array)</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="5_10" id="5_10" checked>
                     <label for="5_10">5.10 Деструктурирующее присваивание</label>
-                    <p class="green">1) Деструктуризация массива (на примере: let arr = ["Ilya", "Kantor"]; let [firstName, surname] = arr;)</p>
-                    <p class="green">2) Остаточные параметры «…» ("добавить к тому что есть всё остальное": let [name1, name2, ...rest] = arr;)</p>
-                    <p class="green">3) Значения по умолчанию (если парамтер не передан, берётся по умолчанию, let [name = "Guest"] = arr;)</p>
-                    <p class="green">4) Деструктуризация объекта (на примере: let opts = {width: 10, height: 20}; let {width, height} = opts;)</p>
-                    <p class="green">5) Остаток объекта «…» (на примере: let opts = {width: 10, height: 20}; let {width, ...rest} = opts;)</p>
-                    <p class="green">6) Умные параметры функций (можем передать объект в функцию ({...}) и она сразу деструктуризирует его)</p>
+                    <p class="for-what">Зачем? Очень часто используется ...rest parameters, да и деструктуризация тоже используется, чтобы не писать лишний код.</p>
+                    <ul>
+                        <li class="green">Деструктуризация массива. Пример: let arr = ["Ilya", "Kantor"]; let [firstName, surname] = arr;</li>
+                        <li class="blue">...rest parameters: "добавить к тому что есть всё остальное". Пример: let [name1, name2, ...rest] = arr;</li>
+                        <li class="green">Значения по умолчанию: если парамтер не передан, берётся по умолчанию. Пример: let [name = "Guest"] = arr;</li>
+                        <li class="green">Деструктуризация объекта. Пример: let opts = {width: 10, height: 20}; let {width, height} = opts;</li>
+                        <li class="blue">...rest parameters for object. Пример: let opts = {width: 10, height: 20}; let {width, ...rest} = opts;</li>
+                        <li class="green">Умные параметры функций: можем передать объект ключей объекта в функцию ({...}) и она сразу деструктуризирует его</li>
+                        <li class="blue">Для let [field1, ...rest] = arr; и let {objVal1, ...rest} = obj; будут отдельным массиом/объектом соответственно</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="5_11" id="5_11" checked>
                     <label for="5_11">5.11 Дата и время</label>
-                    <p class="green">1) Создание (new Date(); создать объект Date с текущими датой и временем)</p>
-                    <p class="orange">2) Получение компонентов даты (getFullYear(), getMonth() (от 0 до 11), getDate(), getDay() (от 0 до 6))</p>
-                    <p class="orange">3) Разность дат (даты можно вычитать, в результате получаем разность в миллисекундах)</p>
+                    <p class="for-what">Зачем? Работа с датами бывает часто для поиску по дате, стоит понимать new Date(), и знать методы либы moment js.</p>
+                    <ul>
+                        <li class="green">Создание новой даты: new Date("date"); создать объект Date с текущими датой и временем, "date" опционален</li>
+                        <li class="blue">Есть библиотка moment, которая решает подовляющее большинство проблем, которые могут возникнуть при работе с датами</li>
+                        <li class="blue">Можно использовать вместе с sort чтобы получить даты по возрастанию: dates.sort((a, b) => new Date(b.date) - new Date(a.date));</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="5_12" id="5_12" checked>
                     <label for="5_12">5.12 Формат JSON, метод toJSON</label>
-                    <p class="green">1) JSON (поддерж. простые объекты, массивы, строки, числа, логические значения и null, всё пишется через "")</p>
-                    <p class="orange">2) JSON.stringify(obj) (берёт объект и преобразует его в JSON-строку)</p>
-                    <p class="orange">2) JSON.parse(str) (берёт JSON-строку и декодирует её в объект)</p>
+                    <p class="for-what">Зачем? Сейчас методы JSON практически не используют, а так стоит просто понимать что это такое, для общего развития.</p>
+                    <ul>
+                        <li class="green">JSON: поддерживает простые объекты, массивы, строки, числа, логические значения и null, всё пишется через ""/li>
+                        <li class="red">JSON.stringify(obj): берёт объект и преобразует его в JSON-строку</li>
+                        <li class="red">JSON.parse(str): берёт JSON-строку и декодирует её в объект</li>
+                    </ul>
                 </div>
                 <div>
                     <p class="helpful" style="padding: 10px;">
-                        <a href="https://jsfiddle.net/gzhel/Lw1u3d5m/170/" target="_blank">Эксперименты с reduce, деструктуризация</a>
+                        <span>Примеры кода:</span><br>
+                        <a href="https://jsfiddle.net/gzhel/3heobtq8/162/" target="_blank">(примеры кода)</a>
                     </p>
-                    <p class="blue">1) Зачем reduce? Он позволяет абсолютно как угодно обрабатывать элементы массива и возвращать результат</p>
-                    <p class="blue">2) Полный синтаксис: reduce((accumulator, currentValue, index, array) => { ... }, initialValue)</p>
-                    <p>Избегаем ошибок:</p>
-                    <p class="blue">3) Если вы не передадите initialValue, то reduce() будет считать, что им является первый элемент в массиве</p>
-                    <p class="blue">4) Не забывайте делать return total (1ый параметр), чтобы reduce() продолжал работать</p>
-                    <p>Деструктурирующее присваивание:</p>
-                    <p class="blue">5) let [field1, field2, ...rest] = arr; тут ...rest будет отдельным массивом</p>
-                    <p class="blue">6) let {objVal1, ...rest} = obj; тут ...rest будет отдельным объектом ключ-значение</p>
                 </div>
             </div>
         </section>
