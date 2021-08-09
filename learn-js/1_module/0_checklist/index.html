@@ -473,7 +473,7 @@
         </section>
         <section class="learn-page__layout--study-block">
             <div class="text" style="background-color: white;">
-                <b>6) Продвинутая работа с функциями <a href="https://jsfiddle.net/gzhel/fuv846rs/75/" target="_blank">(примеры кода)</a></b>
+                <b>6) Продвинутая работа с функциями </b>
                 <hr>
                 <div>
                     <input type="checkbox" name="6_1" id="6_1" checked>
@@ -571,13 +571,15 @@
                     <ul>
                         <li class="blue">Потеря «this»: возникает когда хотим передать метод объекта как callbackFn для setTimeout</li>
                         <li class="green">Привязка «this» с помощью bind. Пример: bind: let boundFunc = func.bind(context); контекст не пропадёт</li>
-                        <li class="orange">setTimeout в браузере имеет особенность: он устанавливает this=window для вызова функции</li>
-                        <li class="orange">Частичное применение: f.bind(null, 2); установит null как контекст и 2 как первый параметр функции f</li>
+                        <li class="blue">Частный this может жить только в FE/FD (внутри объектов включительно), глобальный this есть везде и он равен window</li>
+                        <li class="red">Частичное применение: let double = f.bind(null, 2); создаст копию функцию f, а 2 будет первым параметр функции double</li>
                         <li class="blue">Привязка А к контексту Б: let user = {name: "A"}; function f() {alert(this.name)} let fU = f.bind(user);</li>
                     </ul>
                     <p class="helpful" style="padding: 10px;">
                         <span>Задачи с собесов </span><br>
-                        <a href="https://jsfiddle.net/gzhel/phxmLsca/36/" target="_blank">(1-13)</a>
+                        <a href="https://jsfiddle.net/gzhel/phxmLsca/36/" target="_blank">(1-13)</a><br><br>
+                        <span>Примеры кода:</span><br>
+                        <a href="https://jsfiddle.net/gzhel/fuv846rs/75/" target="_blank">(примеры кода)</a>
                     </p>
                 </div>
             </div>
@@ -622,7 +624,7 @@
                     <p class="orange">2) [[Prototype]] (если искомый метод не найден в Rabbit.prototype, JS берёт его из Animal.prototype)</p>
                     <p class="green">3) Переопределение конструктора (у наследующего класса можно создать свой конструктор, но с super(value))</p>
                 </div>
-                <div>
+                <div style="display: none;">
                     <input type="checkbox" name="9_3" id="9_3">
                     <label for="9_3">9.3 Статические свойства и методы</label>
                     <p class="red">1) static (можем присвоить метод самой функции-классу, а не её "prototype", static methodName () {...})</p>
@@ -639,12 +641,15 @@
                     <p class="green">1) instanceof (позволяет проверить, к какому классу принадлежит объект, с учётом наследования, true/false)</p>
                 </div>
                 <div>
-                    <input type="checkbox" name="9_7" id="9_7">
-                    <label for="9_7">9.7 Примеси</label>
-                    <p class="red">1) В JS можно наследовать только от одного объекта (для таких случаев существуют «примеси»)</p>
                     <p class="helpful" style="padding: 10px;">
                         <a href="https://jsfiddle.net/gzhel/nx7e5o0r/83/" target="_blank">Практика: классы</a>
                     </p>
+                </div>
+                <div style="display: none;">
+                    <input type="checkbox" name="9_7" id="9_7">
+                    <label for="9_7">9.7 Примеси</label>
+                    <p class="red">1) В JS можно наследовать только от одного объекта (для таких случаев существуют «примеси»)</p>
+                    
                 </div>
             </div>
         </section>
@@ -728,6 +733,12 @@
                     <p>Обработка ошибок:</p>
                     <p class="orange">4) Промис может завершиться с ошибкой не сразу, тогда будет задержка, а затем await выбросит исключение</p>
                     <p class="green">5) try {} catch(err) {} (ошибки можно ловить через try catch, если ошибка появится, то перейдёт в catch)</p>
+                </div>
+                <div>
+                    <p class="helpful" style="padding: 10px;">
+                        <span>Задачи с собесов (промисы)</span><br>
+                        <a href="https://jsfiddle.net/gzhel/w6sn491z/209/" target="_blank">(14-20)</a>
+                    </p>
                 </div>
             </div>
         </section>
