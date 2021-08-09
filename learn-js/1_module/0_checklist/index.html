@@ -23,16 +23,14 @@
         <section class="learn-page__layout--study-block">
             <div class="text" style="background-color: white;">
                 <b>2) Основы JavaScript</b><hr>
-                <div style="display: none;">
+                <div class="hidden">
                     <input type="checkbox" name="2_2" id="2_2" checked>
                     <label for="2_2">2.2 Структура кода</label>
                     <p class="for-what">Зачем? Для обозначения окончания выражений, описания принятых решений.</p>
                     <ul>
-                        <li class="green">Точка с запятой в конце выражения</li>
-                        <li class="green">Комментарии</li>
+                        <li class="red hidden">Ставить точку с запятой в конце каждого выражения (слишком очевидно)</li>
+                        <li class="red hidden">Есть 2 вида комментариев // и /**/</li>
                     </ul>
-                    <p class="green">1) Точка с запятой в конце выражения </p>
-                    <p class="green">2) Комментарии</p>
                 </div>
                 <div>
                     <input type="checkbox" name="2_3" id="2_3" checked>
@@ -49,7 +47,7 @@
                     <ul>
                         <li class="green">let: переменная, можно переопределять, имеет блочную {} область видимости</li>
                         <li class="green">const: константа, нельзя переопределять, имеет блочную {} область видимости</li>
-                        <li class="red">var: переменная (устаревшее), имеет область видимости файла/функции, но не блока</li>
+                        <li class="red hidden">var: переменная (устаревшее), имеет область видимости файла/функции, но не блока</li>
                         <li class="green">Именование: camelCase, должны быть ясны, конкретика, но не более 2-3 слов, например: userName</li>
                         <li class="blue">Можно присвоить результат выполнения функции переменной, например: let result = sum(2, 3) // 5</li>
                     </ul>
@@ -82,7 +80,7 @@
                     <label for="2_8">2.8 Базовые операторы, математика</label>
                     <p class="for-what">Зачем? Самый простой пример это итераторы, к примеру цикл for, который сейчас устаревает, в основном это просто часть истории.</p>
                     <ul>
-                        <li class="red">«унарный» (+a), «бинарный» (a + b), «операнд» (a, b - это операнды)</li>
+                        <li class="red hidden">«унарный» (+a), «бинарный» (a + b), «операнд» (a, b - это операнды)</li>
                         <li class="green">Постфиксный инкремент (v++)/декремент (v--), увеличить, но получить результат до увеличения</li>
                         <li class="green">Префиксный инкремент (++v)/декремент (--v), увеличить, и сразу получить новый результат</li>
                     </ul>
@@ -114,7 +112,7 @@
                         <li class="green">ИЛИ «||» находит первое значение равное true, либо возвращает последнее значение в цепочке. Пример: 0 || 1 || 2 // 1</li>
                         <li class="green">И «&&» находит первое значение равное false, либо возвращает последнее значение в цепочке. Пример: 1 && 0 && 2 // 0</li>
                         <li class="green">НЕ «!» приводит аргумент к bool, возвращает противоположное значение. Пример: !1 // false</li>
-                        <li class="red">Объединение с null '??': возвращает первое определённое значение (в отлчие от || различает false, 0, "" и null/undefined)</li>
+                        <li class="red hidden">Объединение с null '??': возвращает первое определённое значение (в отлчие от || различает false, 0, "" и null/undefined)</li>
                     </ul>
                 </div>
                 <div>
@@ -122,10 +120,10 @@
                     <label for="2_13">2.13 Циклы while и for</label>
                     <p class="for-what">Зачем? Уже буквально все циклы можно считать устаревшими, вместо них используют перебирающие методы, просто часть истории.</p>
                     <ul>
-                        <li class="red">Цикл «while»: while (condition) {...}, цикл выполняется, пока условие condition истинно</li>
-                        <li class="red">Цикл «do...while»: выполнит тело, а затем проверит условие condition, и пока его значение равно true</li>
-                        <li class="red">Цикл «for»: for (начало; условие; шаг) {тело}, послед.: начало => (условие -> тело -> шаг -> условие)}</li>
-                        <li class="red">Прерывание цикла «break»: позволяет выйти из цикла, if (!value) {break;}</li>
+                        <li class="red hidden">Цикл «while»: while (condition) {...}, цикл выполняется, пока условие condition истинно</li>
+                        <li class="red hidden">Цикл «do...while»: выполнит тело, а затем проверит условие condition, и пока его значение равно true</li>
+                        <li class="red hidden">Цикл «for»: for (начало; условие; шаг) {тело}, послед.: начало => (условие -> тело -> шаг -> условие)}</li>
+                        <li class="red hidden">Прерывание цикла «break»: позволяет выйти из цикла, if (!value) {break;}</li>
                         <li class="blue">Обычные циклы устарели, используйте перебираемые методы (map, filter, forEach и так далее)</li>
                     </ul>
                 </div>
@@ -190,7 +188,7 @@
                     <label for="3_1">3.1 Отладка в браузере Chrome (Chrome DevTools)</label>
                     <p class="for-what">Зачем? Консоль используют для понимания состояний кода (вместо точек останова). Network для просмотра обмена данными.</p>
                     <ul>
-                        <li class="red">Панель "Sources": слева все файлы страницы, по центру исходный код, справа зона для отладки</li>
+                        <li class="red hidden">Панель "Sources": слева все файлы страницы, по центру исходный код, справа зона для отладки</li>
                         <li class="green">Панель "Console": выводит логи, ошибки, можно писать в ней свои скрипты и выполнять их</li>
                         <li class="green">Панель "Network": показывает данные которые уходят и приходят с сервера, к которму стучит frontend</li>
                     </ul>
@@ -204,10 +202,13 @@
                         <li class="blue">В каком стиле писать код? Зависит от команды разработчиков и проекта, на который вы попали</li>
                     </ul>
                 </div>
-                <div style="display: none;">
+                <div class="hidden">
                     <input type="checkbox" name="3_3" id="3_3" checked>
                     <label for="3_3">3.3 Комментарии</label>
-                    <p class="orange">1) Хорошие комментарии (почему задача была решена так?)</p>
+                    <p class="for-what">Зачем? Да в целом почти незачем, когда какую-то либу новую добавляем, объясняем что к чему может вот так.</p>
+                    <ul>
+                        <li class="red">Хорошие комментарии (почему задача была решена так?)</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -222,7 +223,7 @@
                     <ul>
                         <li class="green">Литералы (объекты через {...}) и свойства {ключ1:значение}, обращение через obj.key, для удаления delete obj.key</li>
                         <li class="blue">Квадратные скобки: обращение через obj[key] используют когда key это переменная, либо в любом итеративном методе</li>
-                        <li class="red">Свойство из переменной: запись {name: name, age: age} можем записать как {name, age}</li>
+                        <li class="red hidden">Свойство из переменной: запись {name: name, age: age} можем записать как {name, age}</li>
                         <li class="green">Оператор «in»: "key" in object, проверяет есть ли ключ А в объекте Б, возвращает true/false</li>
                     </ul>
                 </div>
@@ -256,7 +257,7 @@
                     <p class="for-what">Зачем? Создаём через "new" экземпляр класса или функции-конструктора, а они в свою очередь бывают иногда нужны.</p>
                     <ul>
                         <li class="green">Функция-конструктор: с большой буквы, вызов через new: function User(a) {this.a = a;} let b = new User(22);</li>
-                        <li class="red">Создание методов в конструкторе: в this можем добавлять методы: this.read = function() {...}</li>
+                        <li class="red hidden">Создание методов в конструкторе: в this можем добавлять методы: this.read = function() {...}</li>
                     </ul>
                 </div>
                 <div>
@@ -265,15 +266,15 @@
                     <p class="for-what">Зачем? Фича, которая спасла нервы многих разрабов, раньше если поле "ещё не загрузилось", а DOM загрузился, кидало ошибку.</p>
                     <ul>
                         <li class="green">?. : возвращает undefined если часть перед "?." undefined или null, ошибки нет (если a в a?.b объявлена, т.е. существует)</li>
-                        <li class="red">?.() : для вызова потенциально несуществующей функции: user1.admin?.()</li>
-                        <li class="red">?.[] : если значение ключа получаем с помощью [], например если оно берётся из переменной</li>
+                        <li class="red hidden">?.() : для вызова потенциально несуществующей функции: user1.admin?.()</li>
+                        <li class="red hidden">?.[] : если значение ключа получаем с помощью [], например если оно берётся из переменной</li>
                     </ul>
                 </div>
-                <div style="display: none;">
+                <div class="hidden">
                     <input type="checkbox" name="4_7" id="4_7" checked>
                     <label for="4_7">4.7 Тип данных Symbol</label>
                     <ul>
-                        <li class="red"> Symbol: let id = Symbol("id"); это уникальный идентификатор, уникален даже если "имя" одинаково</li>
+                        <li class="red hidden"> Symbol: let id = Symbol("id"); это уникальный идентификатор, уникален даже если "имя" одинаково</li>
                     </ul>
                 </div>
                 <div>
@@ -306,11 +307,11 @@
                         <li class="green">Округление: Math.floor в меньшую, Math.ceil в большую, Math.round до ближайшего целого, Math.trunc удаление дробной части</li>
                         <li class="green">Метод num.toFixed(n): округляет число до n знаков после запятой и возвращает строку, нужно для фикса неточных вычислений</li>
                         <li class="blue">Неточные вычисления: это баг JS, когда например 0.1 + 0.2 = 0.30000000000000004. Всегда округляем такое через +num.toFixed(n)</li>
-                        <li class="red">isFinite(val) проверяет что val это не NaN/Infinity/-Infinity, isNaN(val) проверяет что val это NaN</li>
-                        <li class="red">parseInt и parseFloat: «читают» число из строки. parseInt('100px') // 100</li>
+                        <li class="red hidden">isFinite(val) проверяет что val это не NaN/Infinity/-Infinity, isNaN(val) проверяет что val это NaN</li>
+                        <li class="red hidden">parseInt и parseFloat: «читают» число из строки. parseInt('100px') // 100</li>
                         <li class="green">Math.random(): возвращает число от 0 до 1, Math.floor(Math.random() * max) вовзвращает число от 0 до max</li>
                         <li class="green">Math.max/min(a, b, c...): возвращает большее или меньшее из списка указанных элементов</li>
-                        <li class="red">Math.pow(n, power): возвращает n возведенное в степень power, но на мой взгляд гораздо быстрее использовать n ** power</li>
+                        <li class="red hidden">Math.pow(n, power): возвращает n возведенное в степень power, но на мой взгляд гораздо быстрее использовать n ** power</li>
                     </ul>
                 </div>
                 <div>
@@ -328,8 +329,8 @@
                     <ul>
                         <li class="green">Ключ объекта строки называемый "length" содержит длину этой строки, без спецсимволов. Пример: alert( `My\n`.length ); // 3)</li>
                         <li class="green">Методы для изменения регистра: toLowerCase() и toUpperCase() меняют регистр символов на верхний и нижний соответственно </li>
-                        <li class="red">Метод str.indexOf(substr, pos): ищет подстроку substr в строке str, с позиции pos, возвр. подход. позицию или -1</li>
-                        <li class="red">Метод str.includes(substr, pos) ищет подстроку начиная с выбранной позиции, возвращает true/false</li>
+                        <li class="red hidden">Метод str.indexOf(substr, pos): ищет подстроку substr в строке str, с позиции pos, возвр. подход. позицию или -1</li>
+                        <li class="red hidden">Метод str.includes(substr, pos) ищет подстроку начиная с выбранной позиции, возвращает true/false</li>
                         <li class="green">Методы str.startsWith(substr), str.endsWith(substr) возвращают true/false, если строка начинается/не начинается с подстроки</li>
                         <li class="green">Метод str.slice(start [, end]): возвращает часть строки от start до end (не включая end)</li>
                     </ul>
@@ -342,7 +343,7 @@
                         <li class="green">Основы: массив начинается с 0, получить эл. arr[id], заменить эл. arr[id] = 2, длина arr.length, можно хранить функции</li>
                         <li class="green">Метод push() добавить элемент в конец, метод pop () удалить элемент в конце, а после веруть этот элемент как результат</li>
                         <li class="green">Метод unshift(a, b...) добавить элемент(ы) в начало, метод shift() удалить элемент в начале, а после веруть как результат</li>
-                        <li class="red">Перебор элементов через цикл for of: for (let fruit of fruits) {...}</li>
+                        <li class="red hidden">Перебор элементов через цикл for of: for (let fruit of fruits) {...}</li>
                     </ul>
                 </div>
                 <div>
@@ -401,12 +402,13 @@
                         <a href="https://jsfiddle.net/gzhel/Lw1u3d5m/170/" target="_blank">Эксперименты с reduce, деструктуризация</a>
                     </p>
                 </div>
-                <div style="display: none;">
+                <div class="hidden">
                     <input type="checkbox" name="5_6" id="5_6" checked>
                     <label for="5_6">5.6 Перебираемые объекты</label>
+                    <p class="for-what">Зачем? Да в целом особо незачем, как бы filter, sort + some, что ещё надо.</p>
                     <ul>
-                        <li class="red">for..of (в итерируемых объектах можно исп. любой объект в цикле for of, они имеют метод Symbol.iterator)</li>
-                        <li class="red">Array.from(arrayLike) (принимает итер. объект/псевдомассив, делает из него Array с методами массивов)</li>
+                        <li class="red hidden">for..of (в итерируемых объектах можно исп. любой объект в цикле for of, они имеют метод Symbol.iterator)</li>
+                        <li class="red hidden">Array.from(arrayLike) (принимает итер. объект/псевдомассив, делает из него Array с методами массивов)</li>
                     </ul>
                 </div>
                 <div>
@@ -414,8 +416,8 @@
                     <label for="5_7">5.7 Map и Set</label>
                     <p class="for-what">Зачем? По сути незачем, но в них есть интересная фича, способ получить уникальные значения (но можно получить и по другому).</p>
                     <ul>
-                        <li class="red">Map: коллекция ключ/значение, как и object, но Map позволяет использовать ключи любого типа, даже object</li>
-                        <li class="red">Set: коллекция «множество» значений (без ключей), где каждое значение может появляться только один раз</li>
+                        <li class="red hidden">Map: коллекция ключ/значение, как и object, но Map позволяет использовать ключи любого типа, даже object</li>
+                        <li class="red hidden">Set: коллекция «множество» значений (без ключей), где каждое значение может появляться только один раз</li>
                         <li class="blue">Синтаксис [...new Set(arr)] используется для получения только уникальных значений arr, не работает на объекты</li>
                     </ul>
                 </div>
@@ -425,8 +427,8 @@
                     <p class="for-what">Зачем? Не так часто, но бывают моменты, когда нужно получить массив ключей объекта, значений гораздо реже.</p>
                     <ul>
                         <li class="green">Object.keys/values/entries(obj): возвращает массив ключей/значений/пар [ключ, значение] объекта, соответственно</li>
-                        <li class="red">Трансформация объекта: алгоритм используется для использования методов массива на объекте</li>
-                        <li class="red">Алгоритм трансформации объекта: Object.entries(obj) -> методы массива -> Object.fromEntries(array)</li>
+                        <li class="red hidden">Трансформация объекта: алгоритм используется для использования методов массива на объекте</li>
+                        <li class="red hidden">Алгоритм трансформации объекта: Object.entries(obj) -> методы массива -> Object.fromEntries(array)</li>
                     </ul>
                 </div>
                 <div>
@@ -459,8 +461,8 @@
                     <p class="for-what">Зачем? Сейчас методы JSON практически не используют, а так стоит просто понимать что это такое, для общего развития.</p>
                     <ul>
                         <li class="green">JSON: поддерживает простые объекты, массивы, строки, числа, логические значения и null, всё пишется через ""</li>
-                        <li class="red">JSON.stringify(obj): берёт объект и преобразует его в JSON-строку</li>
-                        <li class="red">JSON.parse(str): берёт JSON-строку и декодирует её в объект</li>
+                        <li class="red hidden">JSON.stringify(obj): берёт объект и преобразует его в JSON-строку</li>
+                        <li class="red hidden">JSON.parse(str): берёт JSON-строку и декодирует её в объект</li>
                     </ul>
                 </div>
                 <div>
@@ -481,8 +483,8 @@
                     <p class="for-what">Зачем? Как правило рекурсия может пригодиться в reduce или при "глубокой" обработке объекта или массива массивов.</p>
                     <ul>
                         <li class="green">Рекурсия: это когда функция в себе вызывает сама себя, до тех пор, пока какой-то if не сработает и не выйдет из цикла</li>
-                        <li class="red">Рекурсивные обходы: это использование рекурсии для объектов с большой сложной вложенностью</li>
-                        <li class="red">Связанный список, обычно используется для бекенда. Пример: let li = {v: 1}; li.next = {v: 2}; li.next.next = {v: 3};</li>
+                        <li class="red hidden">Рекурсивные обходы: это использование рекурсии для объектов с большой сложной вложенностью</li>
+                        <li class="red hidden">Связанный список, обычно используется для бекенда. Пример: let li = {v: 1}; li.next = {v: 2}; li.next.next = {v: 3};</li>
                     </ul>
                 </div>
                 <div>
@@ -511,7 +513,7 @@
                             внутрь этих сущностей и задаёт их значения LE. Далее по принципу матрёшки.
                         </li>
                         <li class="blue">Ключевой момент: функция вернёт то значение, которое ближе к return внутри её Лексического окружения</li>
-                        <li class="red">LE для for/while: у каждой итерации своё отдельное LE, let i = 0 находится в LE, хоть внешне и не в {}</li>
+                        <li class="red hidden">LE для for/while: у каждой итерации своё отдельное LE, let i = 0 находится в LE, хоть внешне и не в {}</li>
                     </ul>
                 </div>
                 <div>
@@ -536,11 +538,15 @@
                         <a href="https://jsfiddle.net/gzhel/4jo0ufvx/91/" target="_blank">Эксперименты с IIFE, call, Object.assign()</a>
                     </p>
                 </div>
-                <div style="display: none;">
+                <div class="hidden">
                     <input type="checkbox" name="6_4" id="6_4" checked>
                     <label for="6_4">6.4 Устаревшее ключевое слово "var"</label>
-                    <p class="red">1) Область видимости var это функция/скрипт, но не {}, {var a = 1;} доступна за пределами {}</p>
-                    <p class="red">2) «var» обрабатываются в начале запуска функции (попадает в LE сразу, значение мб задано до объявления)</p>
+                    <p class="for-what">Зачем? Сейчас ну прям вообще не используется, разве что могут спросить на собеседовании как оно работает.</p>
+                    <ul>
+                        <li class="red hidden">Область видимости var это функция/скрипт, но не {}, {var a = 1;} доступна за пределами {}</li>
+                        <li class="red hidden">«var» обрабатываются в начале запуска функци: (попадает в LE сразу, значение мб задано до объявления</li>
+                    </ul>
+                    
                 </div>
                 <div>
                     <input type="checkbox" name="6_5" id="6_5" checked>
@@ -560,7 +566,7 @@
                     <p class="for-what">Зачем? Сейчас используется редко, но setInterval это старый аналог WebSocket, а setTimeout старый аналог async функций.</p>
                     <ul>
                         <li class="green">setTimeout(func, [delay]): вызвать функцию через определённый интервал времени, возвращает id таймаута для clearInterval</li>
-                        <li class="red">setInterval(func, [delay]): вызывать функцию регулярно, повторяя вызов через промежуток времени delay</li>
+                        <li class="red hidden">setInterval(func, [delay]): вызывать функцию регулярно, повторяя вызов через промежуток времени delay</li>
                         <li class="blue">setTimeout(func) с 0 задержкой: вызовет результат выполнения func после выполнения остального скрипта (Event Loop)</li>
                     </ul>
                 </div>
@@ -572,11 +578,11 @@
                         <li class="blue">Потеря «this»: возникает когда хотим передать метод объекта как callbackFn для setTimeout</li>
                         <li class="green">Привязка «this» с помощью bind. Пример: bind: let boundFunc = func.bind(context); контекст не пропадёт</li>
                         <li class="blue">Частный this может жить только в FE/FD (внутри объектов включительно), глобальный this есть везде и он равен window</li>
-                        <li class="red">Частичное применение: let double = f.bind(null, 2); создаст копию функцию f, а 2 будет первым параметр функции double</li>
+                        <li class="red hidden">Частичное применение: let double = f.bind(null, 2); создаст копию функцию f, а 2 будет первым параметр функции double</li>
                         <li class="blue">Привязка А к контексту Б: let user = {name: "A"}; function f() {alert(this.name)} let fU = f.bind(user);</li>
                     </ul>
                     <p class="helpful" style="padding: 10px;">
-                        <span>Задачи с собесов </span><br>
+                        <span>Задачи с собесов:</span><br>
                         <a href="https://jsfiddle.net/gzhel/phxmLsca/36/" target="_blank">(1-13)</a><br><br>
                         <span>Примеры кода:</span><br>
                         <a href="https://jsfiddle.net/gzhel/fuv846rs/75/" target="_blank">(примеры кода)</a>
@@ -588,11 +594,11 @@
             <div class="text" style="background-color: white;">
                 <b>7) Свойства объекта, их конфигурация <a href="https://jsfiddle.net/gzhel/nhdjf2p1/127/" target="_blank">(примеры кода)</a></b>
                 <hr>
-                <div style="display: none;">
+                <div class="hidden">
                     <input type="checkbox" name="7_1" id="7_1">
                     <label for="7_1">7.1 Флаги и дескрипторы свойств</label>
-                    <p class="red">1) Флаги свойств (объект имеет 3 доп. св-ва: writable (запись), enumerable (циклы), configurable (delete))</p>
-                    <p class="red">2) Как получить их текущие значения? (let descriptor = Object.getOwnPropertyDescriptor(obj, "propertyName");)</p>
+                    <p class="red hidden">1) Флаги свойств (объект имеет 3 доп. св-ва: writable (запись), enumerable (циклы), configurable (delete))</p>
+                    <p class="red hidden">2) Как получить их текущие значения? (let descriptor = Object.getOwnPropertyDescriptor(obj, "propertyName");)</p>
                 </div>
                 <div>
                     <input type="checkbox" name="7_2" id="7_2">
@@ -602,6 +608,7 @@
                     <p class="green">3) set (let obj = {set propName(val) {this.propName = val;}, срабатывает, когда obj.propName присваивается})</p>
                     <p class="green">4) Умные геттеры/сеттеры (пример:если хотим запретить уст. короткое имя user, можем исп. set name для проверки)</p>
                     <p class="helpful" style="padding: 10px;">
+                        <span>Практика:</span><br>
                         <a href="https://jsfiddle.net/gzhel/fnxym9gz/25/" target="_blank">Добавить динамически getter к пустому объекту</a>
                     </p>
                 </div>
@@ -624,10 +631,10 @@
                     <p class="orange">2) [[Prototype]] (если искомый метод не найден в Rabbit.prototype, JS берёт его из Animal.prototype)</p>
                     <p class="green">3) Переопределение конструктора (у наследующего класса можно создать свой конструктор, но с super(value))</p>
                 </div>
-                <div style="display: none;">
+                <div class="hidden">
                     <input type="checkbox" name="9_3" id="9_3">
                     <label for="9_3">9.3 Статические свойства и методы</label>
-                    <p class="red">1) static (можем присвоить метод самой функции-классу, а не её "prototype", static methodName () {...})</p>
+                    <p class="red hidden">1) static (можем присвоить метод самой функции-классу, а не её "prototype", static methodName () {...})</p>
                 </div>
                 <div>
                     <input type="checkbox" name="9_4" id="9_4">
@@ -645,10 +652,10 @@
                         <a href="https://jsfiddle.net/gzhel/nx7e5o0r/83/" target="_blank">Практика: классы</a>
                     </p>
                 </div>
-                <div style="display: none;">
+                <div class="hidden">
                     <input type="checkbox" name="9_7" id="9_7">
                     <label for="9_7">9.7 Примеси</label>
-                    <p class="red">1) В JS можно наследовать только от одного объекта (для таких случаев существуют «примеси»)</p>
+                    <p class="red hidden">1) В JS можно наследовать только от одного объекта (для таких случаев существуют «примеси»)</p>
                     
                 </div>
             </div>
@@ -814,8 +821,8 @@
     <script>
         const showReds = document.querySelector("#show_reds");
         const hideReds = document.querySelector("#hide_reds");
-        const reds = document.querySelectorAll('.red');
-        showReds.addEventListener('click', () => reds.forEach(red => red.style.display = 'block'));
+        const reds = document.querySelectorAll('.hidden');
+        showReds.addEventListener('click', () => reds.forEach(red => red.tagName === "LI"? red.style.display = 'list-item' : red.style.display = 'block'));
         hideReds.addEventListener('click', () => reds.forEach(red => red.style.display = 'none'));
     </script>
 </body>

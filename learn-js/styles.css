@@ -126,7 +126,6 @@ code {
 
 .red {
   color: red;
-  display: none;
 }
 
 .blue {
@@ -157,4 +156,8 @@ input[type="checkbox"] + label {
 
 ul > li {
   margin-bottom: 6px;
+}
+
+.hidden {
+  display: none;
 }
