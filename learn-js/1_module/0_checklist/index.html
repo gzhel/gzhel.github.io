@@ -591,31 +591,38 @@
                         <span>Задачи с собесов:</span><br>
                         <a href="https://jsfiddle.net/gzhel/q1kha97g/69/" target="_blank">(25-29)</a><br><br>
                         <span>Задачи с собесов:</span><br>
-                        <a href="https://jsfiddle.net/gzhel/984td7La/182/" target="_blank">(30-40)</a><br><br>
+                        <a href="https://jsfiddle.net/gzhel/984td7La/402/" target="_blank">(30-40)</a><br><br>
                         <span>Задачи с собесов:</span><br>
-                        <a href="https://jsfiddle.net/gzhel/74gah389/86/" target="_blank">(41-48)</a>
+                        <a href="https://jsfiddle.net/gzhel/74gah389/109/" target="_blank">(41-48)</a>
                     </p>
                 </div>
             </div>
         </section>
         <section class="learn-page__layout--study-block">
             <div class="text" style="background-color: white;">
-                <b>7) Свойства объекта, их конфигурация <a href="https://jsfiddle.net/gzhel/nhdjf2p1/127/" target="_blank">(примеры кода)</a></b>
+                <b>7) Свойства объекта, их конфигурация</b>
                 <hr>
                 <div class="hidden">
                     <input type="checkbox" name="7_1" id="7_1">
                     <label for="7_1">7.1 Флаги и дескрипторы свойств</label>
-                    <p class="red hidden">1) Флаги свойств (объект имеет 3 доп. св-ва: writable (запись), enumerable (циклы), configurable (delete))</p>
-                    <p class="red hidden">2) Как получить их текущие значения? (let descriptor = Object.getOwnPropertyDescriptor(obj, "propertyName");)</p>
+                    <ul>
+                        <li class="red hidden">Флаги свойств: объект имеет 3 доп. св-ва: writable (запись), enumerable (циклы), configurable (delete)</li>
+                        <li class="red hidden">Как получить их текущие значения? let descriptor = Object.getOwnPropertyDescriptor(obj, "propertyName");</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="7_2" id="7_2">
                     <label for="7_2">7.2 Свойства - геттеры и сеттеры (get, set)</label>
-                    <p class="green">1) Свойства-аксессоры (исп. для присвоения/получения значения, но во внешнем коде выглядят как св-ва объекта)</p>
-                    <p class="green">2) get (let obj = {get propName() {return this.propName;}, срабатывает, когда obj.propName читается})</p>
-                    <p class="green">3) set (let obj = {set propName(val) {this.propName = val;}, срабатывает, когда obj.propName присваивается})</p>
-                    <p class="green">4) Умные геттеры/сеттеры (пример:если хотим запретить уст. короткое имя user, можем исп. set name для проверки)</p>
+                    <p class="for-what">Зачем? Нужно для ограничений изменения объекта, либо для запрета чтения из объекта. Можем ввести пароль, если...</p>
+                    <ul>
+                        <li class="green">Свойства-аксессоры: используются для присвоения/получения значения, но во внешнем коде выглядят как св-ва объекта</li>
+                        <li class="green">Синтаксис get: let obj = {get propName() {return this.propName;}, срабатывает, когда obj.propName читается}</li>
+                        <li class="green">Синтаксис set: let obj = {set propName(val) {this.propName = val;}, срабатывает, когда obj.propName присваивается}</li>
+                        <li class="blue">Если хотим запретить устанавливать короткое имя для ключа user, можем использовать set name для проверки</li>
+                    </ul>
                     <p class="helpful" style="padding: 10px;">
+                        <span>Примеры кода:</span><br>
+                        <a href="https://jsfiddle.net/gzhel/nhdjf2p1/127/" target="_blank">(примеры кода)</a><br><br>
                         <span>Практика:</span><br>
                         <a href="https://jsfiddle.net/gzhel/fnxym9gz/25/" target="_blank">Добавить динамически getter к пустому объекту</a>
                     </p>
@@ -624,13 +631,16 @@
         </section>
         <section class="learn-page__layout--study-block">
             <div class="text" style="background-color: white;">
-                <b>9) Классы <a href="https://jsfiddle.net/gzhel/nx7e5o0r/2/" target="_blank">(примеры кода)</a></b>
+                <b>9) Классы</b>
                 <hr>
                 <div>
                     <input type="checkbox" name="9_1" id="9_1">
                     <label for="9_1">9.1 Класс: базовый синтаксис</label>
-                    <p class="green">1) Синтаксис «class» (class MyClass {constructor() {...} met1() {...} итд}; let user = new MyClass("Абоба"))</p>
-                    <p class="green">2) Что такое класс? (функция, её код берётся из constructor, а методы сохраняются в Class.prototype)</p>
+                    <p class="for-what">Зачем? Классы это ES6+ замена функций конструкторов, причём намного более удобная. Классы используются много где в ООП JS</p>
+                    <ul>
+                        <li class="green">Синтаксис класса: class MyClass {constructor() {...} met1() {...} итд}; let user = new MyClass("Абоба")</li>
+                        <li class="green">Что такое класс? Это функция, её код (поля) берётся из Class.prototype.constructor, а методы сохраняются в Class.prototype</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="9_2" id="9_2">
