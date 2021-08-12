@@ -645,36 +645,50 @@
                 <div>
                     <input type="checkbox" name="9_2" id="9_2">
                     <label for="9_2">9.2 Наследование классов</label>
-                    <p class="green">1) extends (ключевое слово для наследования от другого класса: class Rabbit extends Animal {...})</p>
-                    <p class="orange">2) [[Prototype]] (если искомый метод не найден в Rabbit.prototype, JS берёт его из Animal.prototype)</p>
-                    <p class="green">3) Переопределение конструктора (у наследующего класса можно создать свой конструктор, но с super(value))</p>
+                    <p class="for-what">Зачем? По сути наследование это использование "родительских" полей и методов в дочернем классе, вот и весь ответ на вопрос</p>
+                    <ul>
+                        <li class="green">extends: ключевое слово для наследования полей и методов от другого класса. Пример: class Rabbit extends Animal {...}</li>
+                        <li class="blue">[[Prototype]]: это поле класса, которое содержит prototype родительского класса, от которого он наследует методы и поля</li>
+                        <li class="green">super(props): чтобы иметь доступ к родительским полям, нужно в дочернем constructor указать super(props)</li>
+                    </ul>
                 </div>
                 <div class="hidden">
                     <input type="checkbox" name="9_3" id="9_3">
                     <label for="9_3">9.3 Статические свойства и методы</label>
-                    <p class="red hidden">1) static (можем присвоить метод самой функции-классу, а не её "prototype", static methodName () {...})</p>
+                    <ul>
+                        <li class="red hidden">static: можем присвоить метод самой функции-классу, а не её "prototype", static methodName () {...}</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="9_4" id="9_4">
                     <label for="9_4">9.4 Приватные и защищённые методы и свойства</label>
-                    <p class="green">1) Защищённые свойства (начинаются с префикса _, становятся защищёнными при помощи set с условием)</p>
-                    <p class="orange">2) Приватное свойство «#something» (начинаются с префикса #, добавляет поддержку приватных свойств и методов)</p>
+                    <p class="for-what">Зачем? Используется редко, но важно, если мы пишем класс или функцию, но при этом не хотим, чтобы к ним был доступ извне</p>
+                    <ul>
+                        <li class="blue">Защищённые свойства: начинаются с префикса _, становятся защищёнными при помощи get, set с условием</li>
+                        <li class="green">Приватное свойство «#something»: начинаются с префикса #, добавляет поддержку приватных свойств и методов</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="9_6" id="9_6">
                     <label for="9_6">9.6 Проверка класса: "instanceof"</label>
-                    <p class="green">1) instanceof (позволяет проверить, к какому классу принадлежит объект, с учётом наследования, true/false)</p>
+                    <p class="for-what">Зачем? Позволяет узнать к какому Классу относится экземпляр класса, полезно использовать с if условиями, недооценённая вещь</p>
+                    <ul>
+                        <li class="green">instanceof: позволяет проверить, к какому классу принадлежит объект, возвращает true/false</li>
+                        <li class="blue">instanceof работает с учётом населования, т.е. и на Raven и на Bird экземпляр класса Raven вернёт true</li>
+                    </ul>
                 </div>
                 <div>
                     <p class="helpful" style="padding: 10px;">
-                        <a href="https://jsfiddle.net/gzhel/nx7e5o0r/83/" target="_blank">Практика: классы</a>
+                        <span>Практика:</span><br>
+                        <a href="https://jsfiddle.net/gzhel/nx7e5o0r/83/" target="_blank">Работа с классами</a>
                     </p>
                 </div>
                 <div class="hidden">
                     <input type="checkbox" name="9_7" id="9_7">
                     <label for="9_7">9.7 Примеси</label>
-                    <p class="red hidden">1) В JS можно наследовать только от одного объекта (для таких случаев существуют «примеси»)</p>
-                    
+                    <ul>
+                        <li class="red hidden">В JS можно наследовать только от одного объекта, для таких случаев существуют «примеси»</li>
+                    </ul>
                 </div>
             </div>
         </section>
