@@ -20,6 +20,7 @@
                 <span><button id="hide_reds">Скрыть "красные" пункты</button></span>
             </div>
             <div style="margin-bottom: 6px;"><span class="violet">Фиолетовый</span>: актуально, расширенный полезный материал</div>
+            <div style="margin-bottom: 6px;"><span class="orange">Оранжевый</span>: пока не понятно, в процессе изучения материала</div>
         </section>
         <section class="learn-page__layout--study-block">
             <div class="text" style="background-color: white;">
@@ -809,12 +810,23 @@
                 <div>
                     <input type="checkbox" name="12_1" id="12_1">
                     <label for="12_1">12.1 Генераторы</label>
-                    <p class="orange">1) Функция-генератор (function* {yield 1; yield 2;return 3}, эта функция не выполняет код, а ждёт команд)</p>
+                    <p class="for-what">Зачем? Мы порционно выдаём результат, yield это что-то вроде точек останова, но на уровне выполнения кода</p>
+                    <ul>
+                        <li class="green">Функция-генератор: это функция, которая могут "последовательно" выдавать результат её работы</li>
+                        <li class="green">Синтаксис: function* {yield 1; yield 2;return 3}, эта функция не выполняет код, а ждёт команд</li>
+                        <li class="blue">FG имеет метод next(): возвр. объект с ключами value и done для первого yield, след. str.next() вернёт рез. для след. yield</li>
+                        <li class="violet">У каждой итерируемой структуры есть Symbol.iterator, который позволяет итерировать эту структуру</li>
+                        <li class="violet">У обычной функции нет Symbol.iterator, но у функций-генераторов, он есть, т.е. такие функции итерируемые</li>
+                        <li class="violet">Чем отличается yield от await? Почти ничем, но FG имеет метод next(), который позволяет смотреть выполнение поэтапно</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="11_2" id="11_2">
                     <label for="11_2">12.2 Асинхронные итераторы и генераторы</label>
-                    <p class="orange">1) Подходит для выполнения сетевых запросов (можем использовать async/await)</p>
+                    <p class="for-what">Зачем? ...</p>
+                    <ul>
+                        <li class="orange">Подходит для выполнения сетевых запросов (можем использовать async/await с try catch внутри)</li>
+                    </ul>
                 </div>
             </div>
         </section>
