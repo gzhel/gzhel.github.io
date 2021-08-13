@@ -8,7 +8,7 @@
     <title>Checklist 2.0</title>
 </head>
 <body>
-    <div class="learn-page__layout checklist">
+    <div class="learn-page__layout checklist" style="padding-bottom: 50px;">
         <h1><a href="../../1_module/" style="color: red;">Back to module 1</a></h1>
         <section class="learn-page__layout--study-block">
             <h3>Обозначения (субъективно):</h3>
@@ -19,6 +19,7 @@
                 <span><button id="show_reds">Показать "красные" пункты</button></span>
                 <span><button id="hide_reds">Скрыть "красные" пункты</button></span>
             </div>
+            <div style="margin-bottom: 6px;"><span class="violet">Фиолетовый</span>: актуально, расширенный полезный материал</div>
         </section>
         <section class="learn-page__layout--study-block">
             <div class="text" style="background-color: white;">
@@ -699,82 +700,102 @@
                 <div>
                     <input type="checkbox" name="10_1" id="10_1">
                     <label for="10_1">10.1 Обработка ошибок, "try..catch"</label>
-                    <p class="green">1) Синтаксис «try…catch» (код в catch -> ошибок нет? пропускаем catch : прерываем try и заходим в catch)</p>
-                    <p class="green">2) Объект ошибки (при ошибке, она летит в catch и содержит: name (имя), message (детали), stack (стек вызова))</p>
-                    <p class="green">3) try…catch…finally (finally вып. всегда: после try, если не было ошибок, после catch, если ошибки были)</p>
+                    <p class="for-what">Зачем? Создано исключительно для обработки ошибок при не выполнении строк кода, запросов на API и так далее</p>
+                    <ul>
+                        <li class="green">Синтаксис «try…catch»: если код в try поймал ошибку, мы переходим в блок catch, который ловит и обрабатывает ошибку</li>
+                        <li class="blue">Ошибка, которая попадает в catch содержит поля: name (имя), message (детали), stack (стек вызова)</li>
+                        <li class="green">try…catch…finally: finally выполняется всегда, после try, если не было ошибок, после catch, если ошибки были</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="10_2" id="10_2">
                     <label for="10_2">10.2 Пользовательские ошибки, расширение Error</label>
-                    <p class="green">1) Расширение Error (создаём класс на основе Error, спрашиваем instanceof и предпринимаем какие-либо действия)</p>
+                    <p class="for-what">Зачем? Мы можем обработать ошибку из catch как угодно: вызвать нотификацию с сообщением ошибки, вывести ошбику в поля ввода</p>
+                    <ul>
+                        <li class="blue">Расширение Error: создаём класс на основе Error, спрашиваем instanceof и предпринимаем какие-либо действия</li>
+                    </ul>
                 </div>
             </div>
         </section>
         <section class="learn-page__layout--study-block">
             <div class="text" style="background-color: white;">
-                <b>11) Промисы, async/await <a href="https://jsfiddle.net/gzhel/fzgupj9w/118/" target="_blank">(примеры кода)</a></b>
+                <b>11) Промисы, async/await</b>
                 <hr>
                 <div>
                     <input type="checkbox" name="11_1" id="11_1">
                     <label for="11_1">11.1 Введение: колбэки</label>
-                    <p class="green">1) callback (передаём callback-функцию как парам. функции, на onload вызываем его когда данные загрузятся)</p>
-                    <p class="orange">2) Данные не загрузились? (передаём в callback-функцию null первым агрументом на onload, и error на onerror)</p>
-                    <p class="green">3) Ад коллбеков (если нужно загрузить N данных один за другим, нужно изолировать действия по разным функциям)</p>
+                    <p class="for-what">Зачем? Грубо говоря, это функция в качестве параметра функции, которую можно вызвать когда нам будет нужно</p>
+                    <ul>
+                        <li class="green">callback: мы передаём callback-функцию как параметр функции, и можем вызвать callback функцию по нужному нам условию</li>
+                        <li class="red hidden">Пример коллбека: загрузка скрипта, на script.onload что-то одно бросаем в коллбек, на script.onerror что-то другое</li>
+                        <li class="red hidden"> Ад коллбеков: если нужно загрузить N данных один за другим, нужно изолировать действия по разным функциям</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="11_2" id="11_2">
                     <label for="11_2">11.2 Промисы</label>
-                    <p>Основы:</p>
-                    <p class="green">1) Синтаксис (let promise = new Promise(function(resolve, reject) {// функция-исполнитель, executor});)</p>
-                    <p class="green">2) resolve(value) (это колбэк, если работа завершилась успешно, вернётся с результатом value)</p>
-                    <p class="green">3) reject(error) (это колбэк, если произошла ошибка, вернётся с error – объектом ошибки)</p>
-                    <p>Потребители: then, catch, finally:</p>
-                    <p class="green">4) .then((result) => {}) (вып. когда промис в resolve, как result получает value)</p>
-                    <p class="green">5) .catch((error) => {}) (вып. когда промис в reject, как error получает error)</p>
-                    <p class="green">6) .finally((func) => {}) (вып. в любом случае, подходит для очистки, сброса состояний итд)</p>
+                    <p class="for-what">Зачем? Промисы гарантируют, что обработка данных произойдёт после успешной их загрузки, например при обращении к API</p>
+                    <ul>
+                        <li class="green">Синтаксис: let promise = new Promise(function(resolve, reject) {// функция-исполнитель, executor});</li>
+                        <li class="green">resolve(value): это параметр колбэк-функции в Promise, если промис успешен, передаст значение value в .then</li>
+                        <li class="green">reject(error): это параметр колбэк-функции в Promise, если промис поймал ошибку, передаст значение error в .catch</li>
+                        <li class="green">Методы Promise (.then): .then((value) => {}), выполнится когда промис передаст значение value в resolve</li>
+                        <li class="green">Методы Promise (.catch): .catch((error) => {}), выполнится когда промис передаст значение error в reject</li>
+                        <li class="blue">Методы Promise (.finally): .finally(() => {}), выполнится в конце, в любом случае, полезен для очистки состояний</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="11_3" id="11_3">
                     <label for="11_3">11.3 Цепочка промисов</label>
-                    <p class="green">1) .then и .catch можно использовать не один раз, а много, т.к. они возвращают промисы: .then.catch.then итд</p>
+                    <p class="for-what">Зачем? Применяется редко, позволяют дополнительно обработать данные полученные после первого .then</p>
+                    <ul>
+                        <li class="blue">.then можно использовать не один раз, а много, т.к. они возвращают промисы: .then.catch.then.then итд</li>
+                    </ul>
                 </div>
-                <div>
+                <div class="hidden">
                     <input type="checkbox" name="11_4" id="11_4">
                     <label for="11_4">11.4 Промисы: обработка ошибок</label>
-                    <p class="orange">1) Стоит размещать .catch там, где мы хотим обработать ошибки и знаем, как это сделать</p>
+                    <ul>
+                        <li class="red hidden">Стоит размещать .catch там, где мы хотим обработать ошибки и знаем, как это сделать</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="11_5" id="11_5">
                     <label for="11_5">11.5 Promise API</label>
-                    <p class="green">1) Promise.all(promises) (ждёт выполнения всех промисов и возвращает массив с результатами)</p>
-                    <p class="green">2) Promise.race(promises) (ждёт первый вып. промис, он становится его результатом, остальные игнорируются)</p>
+                    <p class="for-what">Зачем? Методы позволяют дождаться выполнения всех промисов, либо быстрейшего промиса, а уже после делать какую-то обработку</p>
+                    <ul>
+                        <li class="blue">Promise.all([prom1, prom2, ...]): принимает массив промисов, ждёт выполнения всех, возвращает массив с результатами</li>
+                        <li class="blue">Promise.race([prom1, prom2, ...]): принимает массив промисов, ждёт выполнения быстрейшего, возвращает его как результат</li>
+                    </ul>
                 </div>
-                <div>
+                <div class="hidden">
                     <input type="checkbox" name="11_6" id="11_6">
                     <label for="11_6">11.6 Промисификация</label>
-                    <p class="orange">1) Берём функцию, которая принимает колбэк и меняем её, чтобы она вместо этого возвращала промис</p>
+                    <ul>
+                        <li class="red hidden">Берём функцию, которая принимает колбэк и меняем её, чтобы она вместо этого возвращала промис</li>
+                    </ul>
                 </div>
-                <div>
+                <div class="hidden">
                     <input type="checkbox" name="11_7" id="11_7">
-                    <label for="11_7">11.7 Микрозадачи (microtasks)</label>
-                    <p>Очередь микрозадач (microtask queue):</p>
-                    <p class="green">1) Когда промис выполнен, его обработчики .then/catch/finally попадают в очередь, пока ещё не выполняются</p>
-                    <p class="green">2) JS берёт задачу из очереди и выполняет её, но позже, когда он освободится от выполнения остального кода</p>
-                    <p class="green">3) Если нам важен порядок выполнения (то завернём код после в .then после остальных .then .catch)</p>
+                    <label for="11_7">11.7 Микрозадачи у промисов</label>
+                    <ul>
+                        <li class="red hidden">Кратко: если хотим чтобы в блоке кода выполнился код после .then/catch/finally, то лучше добавить его в ещё один .then</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="11_8" id="11_8">
                     <label for="11_8">11.8 Async/await</label>
-                    <p>Асинхронные функции:</p>
-                    <p class="green">1) async (ставится перед функцией, возвращает промис)</p>
-                    <p class="green">2) await  (let value = await promise; только в async, говорит JS ждать пока промис справа от не выполнится)</p>
-                    <p class="green">3) По сути, это «синтаксический сахар» для получения результата промиса, более наглядный, чем promise.then</p>
-                    <p>Обработка ошибок:</p>
-                    <p class="orange">4) Промис может завершиться с ошибкой не сразу, тогда будет задержка, а затем await выбросит исключение</p>
-                    <p class="green">5) try {} catch(err) {} (ошибки можно ловить через try catch, если ошибка появится, то перейдёт в catch)</p>
+                    <p class="for-what">Зачем? Позволяет писать код, который выглядит как синхронный, но используется для решения асинхронных задач, заменяет .then</p>
+                    <ul>
+                        <li class="green">Ключевое слово async: ставится перед параметрами функции, позволяет использовать функции ключевое слово await</li>
+                        <li class="green">Ключевое слово await: говорит JS ждать пока промис справа от не выполнится. Пример: let value = await promise;</li>
+                        <li class="blue">Принято оборачивать часть с await в try {}, если мы поймаем ошибку, она попадёт в catch(err) {} и будет обработана</li>
+                    </ul>
                 </div>
                 <div>
                     <p class="helpful" style="padding: 10px;">
+                        <span>Примеры кода:</span><br>
+                        <a href="https://jsfiddle.net/gzhel/fzgupj9w/118/" target="_blank">(примеры кода)</a><br><br>
                         <span>Задачи с собесов (промисы)</span><br>
                         <a href="https://jsfiddle.net/gzhel/w6sn491z/209/" target="_blank">(14-20)</a>
                     </p>
@@ -804,22 +825,32 @@
                 <div>
                     <input type="checkbox" name="13_1" id="13_1">
                     <label for="13_1">13.1 Модули, введение</label>
-                    <p class="green">1) Модуль – это просто файл, один скрипт – это один модуль</p>
-                    <p class="green">2) export (делает переменные и функции потенциально доступными вне текущего модуля)</p>
-                    <p class="green">3) import (позволяет брать переменные и функции из других модулей, при наличие экспорта у них)</p>
+                    <p class="for-what">Зачем? Улучшает переиспользование, декомпозирует код, да и вообще это лучшее что было добавлено в JS</p>
+                    <ul>
+                        <li class="blue">Модуль: это просто файл, который по умолчанию в "use strict", в JS один скрипт – это один модуль</li>
+                    </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="13_2" id="13_2">
-                    <label for="13_2">13.2 Экспорт и импорт</label>
-                    <p>Варианты вызова для export:</p>
-                    <p class="green">1) Перед объявлением класса/функции/итд (export [default] class/function/variable/итд)</p>
-                    <p class="green">2) Отдельный от объявления экспорт (export {x [as y], ...})</p>
-                    <p class="orange">3) Реэкспорт (импортировать что-то и тут же экспортировать, export {sayHi} from './say.js';)</p>
-                    <p>Варианты вызова для import:</p>
-                    <p class="green">4) Именованные экспорты из модуля (import {x [as y], ...} from "module";)</p>
-                    <p class="orange">5) Импорт по умолчанию (import x from "module"; (для export default))</p>
-                    <p class="orange">6) Всё сразу (import * as obj from "module";)</p>
-                    <p class="green">7) Только подключить модуль, но не присваивать его переменной (import "./styles.css")</p>
+                    <label for="13_2">13.2.1 Экспорт модуля</label>
+                    <p class="for-what">Зачем? Позволяет использовать код во многих других местах, да и вообще, что за вопросы?!</p>
+                    <ul>
+                        <li class="green">export модуля: делает переменные и функции модуля потенциально доступными для других модулей, при наличии у них импорта</li>
+                        <li class="green">Экспорт перед объявлением класса/функции/итд: export [default]/name class/function/variable/итд</li>
+                        <li class="blue">Реэкспорт: для отдельного файла экспортов, импорт из другого файла и сразу экспорт: export {sayHi} from './say.js';</li>
+                    </ul>
+                </div>
+                <div>
+                    <input type="checkbox" name="13_2" id="13_2">
+                    <label for="13_2">13.2.2 Импорт модуля</label>
+                    <p class="for-what">Зачем? Позволяет использовать код откуда-то оттуда прямо вот куда-то сюда</p>
+                    <ul>
+                        <li class="green">import модуля: позволяет брать переменные и функции из других модулей, при наличии экспорта у тех модулей</li>
+                        <li class="blue">Именованный импорт: самый популярный и предпочитаемый вариант. Пример: import {x [as y], ...} from "module";</li>
+                        <li class="green">Импорт по умолчанию: для export default, можем дать любое имя. Пример: import x from "module";</li>
+                        <li class="green">Импорт всего модуля: даёт использовать все импорты модуля, не желателен. Пример: import * as obj from "module";</li>
+                        <li class="blue">Подключение модуля стилей: позволяет модулю понимать стили классов. Пример: import "./styles.css";</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -830,22 +861,30 @@
                 <div>
                     <input type="checkbox" name="14_3" id="14_3">
                     <label for="14_3">14.1 Proxy и Reflect</label>
-                    <p class="green">1) Proxy это обёртка вокруг объекта/функции/класса, которая ставит "ловушки" на взаимодействие с ним</p>
-                    <p class="green">2) Синтаксис: let proxy = new Proxy(target - исх. объект, handler - объект методов "ловушек")</p>
-                    <p class="blue">3) Методы у прокси объекта как бы копируют базовый функционал работы с объектом, но могут его расширить</p>
-                    <p class="green">4) Методы для объекта: get (obj, key), set (obj, key, value), has (obj, key), deleteProperty (obj, key)</p>
-                    <p class="green">5) Методы для функций: apply (func, _this, args) // сработает когда данная функция будет вызываться</p>
-                    <p class="green">6) Методы для классов: construct (class, args) // сработает при создании экземпляра класса через new</p>
-                    <p class="blue">7) Можно создать "ловушку" на существующие или кастомные методы, подробнее чуть ниже:</p>
+                    <p class="for-what">Зачем? Позволяет ставить на объект/функцию/класс различные ловушки и кастомизировать их ответы на эти ловушки</p>
+                    <ul>
+                        <li class="green">Proxy: это обёртка вокруг объекта/функции/класса, которая ставит "ловушки" на взаимодействие с ним</li>
+                        <li class="green">Синтаксис: let proxy = new Proxy(target - исходный объект, handler - объект методов "ловушек")</li>
+                        <li class="blue">Методы у прокси объекта по сути копируют базовый функционал работы с объектом (чтение итд), но могут его расширить</li>
+                        <li class="green">Методы для объекта: get (obj, key), set (obj, key, value), has (obj, key), deleteProperty (obj, key)</li>
+                        <li class="green">Методы для функций: apply (func, _this, args) // сработает когда данная функция будет вызываться</li>
+                        <li class="green">Методы для классов: construct (class, args) // сработает при создании экземпляра класса через new</li>
+                        <li class="blue">Можно создать "ловушку" на кастомные методы, на любые, расширяя функционал стандартных взаимодействий (см. пример ниже)</li>
+                    </ul>
                     <p class="helpful" style="padding: 10px;">
-                        <a href="https://jsfiddle.net/gzhel/31vfomgt/163/" target="_blank">Практика: Proxy</a>
+                        <span>Практика:</span><br>
+                        <a href="https://jsfiddle.net/gzhel/31vfomgt/163/" target="_blank"> Proxy</a>
                     </p>
                 </div>
                 <div>
                     <input type="checkbox" name="14_3" id="14_3">
                     <label for="14_3">14.3 Каррирование</label>
-                    <p class="orange">1) Трансформация функций так, чтобы они принимали аргументы не как f(a, b, c), а как f(a)(b)(c)</p>
-                    <p class="green">2) lodash _.curry(f) (возвр. обёртку, даёт запустить функцию как обычным образом, так и частично)</p>
+                    <p class="for-what">Зачем? Благодаря этому, можно применять функции частично, например из одной функции сделать несколько со своим выполнением</p>
+                    <ul>
+                        <li class="green">Каррирование: это трансформация функций так, чтобы они принимали аргументы и так f(a, b, c), и так f(a)(b)(c)</li>
+                        <li class="blue">Алгоритм каррирования: f(a, b) { b ? return обычная функция : return функция с карированием}</li>
+                        <li class="green">Велосипед изобретать необязательно: есть функция lodash _.curry(f), которая делает каррирование функции за нас</li>
+                    </ul>
                 </div>
             </div>
         </section>

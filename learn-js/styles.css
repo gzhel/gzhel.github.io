@@ -161,3 +161,11 @@ ul > li {
 .hidden {
   display: none;
 }
+
+.violet {
+  color: darkmagenta;
+}
+
+button {
+  cursor: pointer;
+}
