@@ -291,16 +291,23 @@
                     </ul>
                 </div>
                 <div>
-                    <input type="checkbox" name="4_7" id="4_7">
+                    <input type="checkbox" name="4_7" id="4_7" checked>
                     <label for="4_7">4.7 Тип данных Symbol</label>
+                    <p class="for-what">Зачем? Используется для создания уникальных идентификаторов, защита данных, а также "системные символы".</p>
                     <ul>
-                        <li class="orange"> Symbol: let id = Symbol("id"); это уникальный идентификатор, уникален даже если "имя" одинаково</li>
+                        <li class="green"> Symbol: это уникальный идентификатор, уникален даже если "имя" одинаково. Синтаксис: Symbol: let id = Symbol("id");</li>
+                        <li class="blue">Ключи Symbol игнорируются циклом for...in. Пример: вывод ключей объекта, будут выведены все, кроме созданных с Symbol</li>
+                        <li class="red hidden">Symbol.for("key"): если Symbol с "key" не существует, создаст, в другом случае считает из существующего. id === id2 // true</li>
+                        <li class="red hidden">Symbol.keyFor(symbol): обратный методу Symbol.for, по symbol получаем поле "key", или undefined если символ не глобальный</li>
+                        <li class="blue">Системные символы: позволяет изменять встроенное поведение объектов. Пример: Symbol.iterator, Symbol.toPrimitive</li>
                     </ul>
                 </div>
                 <div>
                     <p class="helpful" style="padding: 10px;">
                         <span>Примеры кода:</span><br>
-                        <a href="https://jsfiddle.net/gzhel/j7tyw89L/84/" target="_blank">(примеры кода)</a>
+                        <a href="https://jsfiddle.net/gzhel/j7tyw89L/84/" target="_blank">(примеры кода)</a><br><br>
+                        <span>Практика</span><br>
+                        <a href="https://jsfiddle.net/gzhel/hp5xr2k6/52/" target="_blank">Тип данных Symbol</a>
                     </p>
                 </div>
             </div>
@@ -423,13 +430,19 @@
                     </p>
                 </div>
                 <div>
-                    <input type="checkbox" name="5_6" id="5_6">
+                    <input type="checkbox" name="5_6" id="5_6" checked>
                     <label for="5_6">5.6 Перебираемые объекты</label>
-                    <p class="for-what">Зачем? Да в целом особо незачем, как бы filter, sort + some, что ещё надо.</p>
+                    <p class="for-what">Зачем? Позволяет использовать любой объект в цикле for..of, без этого в нём могут итерироваться только Array, Map, Set, String.</p>
                     <ul>
-                        <li class="orange">for..of (в итерируемых объектах можно исп. любой объект в цикле for of, они имеют метод Symbol.iterator)</li>
-                        <li class="orange">Array.from(arrayLike) (принимает итер. объект/псевдомассив, делает из него Array с методами массивов)</li>
+                        <li class="blue">Symbol.iterator: это "ключ" объекта, представляющий собой все значения этого объекта, поочередно (см. пример)</li>
+                        <li class="green">Итерируемые объекты: это объекты, которые реализуют метод Symbol.iterator, как было описано выше</li>
+                        <li class="green">Псевдомассивы: это объекты, у которых есть индексы и свойство length, то есть, они выглядят как массивы</li>
+                        <li class="blue">Метод Array.from(arrayLikeObj): принимает итерируемый объект или псевдомассив и делает из него настоящий массив</li>
                     </ul>
+                    <p class="helpful" style="padding: 10px;">
+                        <span>Практика:</span><br>
+                        <a href="https://jsfiddle.net/gzhel/hL035w4k/13/" target="_blank">Перебираемые объекты</a>
+                    </p>
                 </div>
                 <div>
                     <input type="checkbox" name="5_7" id="5_7" checked>
@@ -624,9 +637,15 @@
                 <div>
                     <input type="checkbox" name="7_1" id="7_1">
                     <label for="7_1">7.1 Флаги и дескрипторы свойств</label>
+                    <p class="for-what">Зачем? Применяется в редких случаях, когда нужно запретить расширение, изменение объекта, неизменность данных.</p>
                     <ul>
-                        <li class="orange">Флаги свойств: объект имеет 3 доп. св-ва: writable (запись), enumerable (циклы), configurable (delete)</li>
-                        <li class="orange">Как получить их текущие значения? let descriptor = Object.getOwnPropertyDescriptor(obj, "propertyName");</li>
+                        <li class="green">Флаги свойств: объект имеет 3 доп. св-ва (разрешить/запретить): writable (запись), enumerable (циклы), configurable (delete)</li>
+                        <li class="green">Как получить значения этих свойств у объекта? let descriptor = Object.getOwnPropertyDescriptor(obj, "propertyName");</li>
+                        <li class="green">Как изменить значения этих свойств у объекта? Object.defineProperty(obj, "propertyName", {writable: false});</li>
+                        <li class="blue">Глобальное запечатывание объекта: это методы, имеющие "готовые" комбинации флагов свойств. Пример: Object.freeze(obj)</li>
+                        <li class="blue">Object.freeze(obj): запрещает добавлять/удалять/изменять свойства, устанавливает объекту configurable: false, writable: false</li>
+                        <li class="green">Object.seal(obj): запрещает добавлять/удалять свойства, устанавливает объекту configurable: false</li>
+                        <li class="blue">Object.getOwnPropertyDescriptors(obj): проверить флаги; Object.isFrozen(obj)/isSealed(obj): проверить на freeze/seal</li>
                     </ul>
                 </div>
                 <div>
@@ -643,7 +662,9 @@
                         <span>Примеры кода:</span><br>
                         <a href="https://jsfiddle.net/gzhel/nhdjf2p1/127/" target="_blank">(примеры кода)</a><br><br>
                         <span>Практика:</span><br>
-                        <a href="https://jsfiddle.net/gzhel/fnxym9gz/25/" target="_blank">Добавить динамически getter к пустому объекту</a>
+                        <a href="https://jsfiddle.net/gzhel/fnxym9gz/25/" target="_blank">Добавить динамически getter к пустому объекту</a><br><br>
+                        <span>Практика:</span><br>
+                        <a href="https://jsfiddle.net/gzhel/aLpxju01/61/" target="_blank">Флаги и дескрипторы свойств</a>
                     </p>
                 </div>
             </div>
