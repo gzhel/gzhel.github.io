@@ -676,31 +676,27 @@
                 <div>
                     <input type="checkbox" name="8_1" id="8_1">
                     <label for="8_1">8.1 Прототипное наследование</label>
+                    <p class="for-what">Зачем? Например нужно слегка изменённый класс на основе базового, часто неявно используется в extends у классов</p>
                     <ul>
-                        <li class="orange">???</li>
-                    </ul>
-                </div>
-                <div>
-                    <input type="checkbox" name="8_2" id="8_2">
-                    <label for="8_2">8.2 F.prototype</label>
-                    <ul>
-                        <li class="orange">???</li>
+                        <li class="green">Скрытое свойство [[Prototype]]: равно либо null, либо ссылается на другой, родительский объект (класс)</li>
+                        <li class="blue">Св-во __proto__: это геттер/сеттер для [[Prototype]]. Пример: animal = {eat:1}; cat = {meow:1}; rabbit.__proto__ = animal;</li>
+                        <li class="red hidden">Прототипы и this: прототипы никак не влияют на this, при вызове метода this — всегда объект перед точкой</li>
                     </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="8_3" id="8_3">
                     <label for="8_3">8.3 Встроенные прототипы</label>
+                    <p class="for-what">Зачем? Об этом говорилось в пункте 5.1, некоторые типы данных имеют объект-обёртку (наследуются от своих прототипов)</p>
                     <ul>
-                        <li class="orange">???</li>
+                        <li class="green">Object.prototype: содержит constructor (поля) и методы объекта, а также __proto__ того от чего он наследуется (или null)</li>
+                        <li class="blue">Тип данных Object, откуда Array, Function? Object это прототип для Array, Function, Date. </li>
+                        <li class="blue">Примитивы это не объекты: при попытке доступа к их свойствам, будет создан объект-обёртка, даст нам методы и исчезнет</li>
                     </ul>
                 </div>
-                <div>
-                    <input type="checkbox" name="8_4" id="8_4">
-                    <label for="8_4">8.4 Методы прототипов, объекты без свойства __proto__</label>
-                    <ul>
-                        <li class="orange">???</li>
-                    </ul>
-                </div>
+                <p class="helpful" style="padding: 10px;">
+                    <span>Практика:</span><br>
+                    <a href="https://jsfiddle.net/gzhel/htxndj8L/47/" target="_blank">Прототипы, наследование</a>
+                </p>
             </div>
         </section>
         <section class="learn-page__layout--study-block">
