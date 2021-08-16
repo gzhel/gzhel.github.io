@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="learn-page__layout checklist" style="padding-bottom: 50px;">
-        <h1><a href="../../1_module/" style="color: red;">Back to module 1</a></h1>
+        <h1><a href="../../1_module/">Back to module 1</a></h1>
         <section class="learn-page__layout--study-block">
             <h3>Обозначения (субъективно):</h3>
             <div style="margin-bottom: 6px;"><span class="blue">Синий</span>: актуально, не очевидно, secret knowledge</div>
@@ -21,6 +21,10 @@
             </div>
             <div style="margin-bottom: 6px;"><span class="violet">Фиолетовый</span>: актуально, расширенный полезный материал</div>
             <div style="margin-bottom: 6px;"><span class="orange">Оранжевый</span>: пока не понятно, в процессе изучения материала</div>
+            <div>
+                <span><button id="hide_for_what">Скрыть разделы "Зачем?"</button></span>
+                <span><button id="hide_practise">Скрыть разделы "Практика"</button></span>
+            </div>
         </section>
         <section class="learn-page__layout--study-block">
             <div class="text" style="background-color: white;">
@@ -954,6 +958,14 @@
         const reds = document.querySelectorAll('.hidden');
         showReds.addEventListener('click', () => reds.forEach(red => red.tagName === "LI"? red.style.display = 'list-item' : red.style.display = 'block'));
         hideReds.addEventListener('click', () => reds.forEach(red => red.style.display = 'none'));
+
+        const hideForWhat = document.querySelector("#hide_for_what");
+        const forWhat = document.querySelectorAll(".for-what");
+        hideForWhat.addEventListener('click', () => forWhat.forEach(el => el.style.display = 'none'));
+
+        const hidePractise = document.querySelector("#hide_practise");
+        const practise = document.querySelectorAll(".helpful");
+        hidePractise.addEventListener('click', () => practise.forEach(el => el.style.display = 'none'));
     </script>
 </body>
 </html>
