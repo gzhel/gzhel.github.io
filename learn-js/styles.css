@@ -7,7 +7,9 @@ html, body {
   height: 100%;
   padding: 0;
   margin: 0;
-  background-color: rgb(235 236 238);
+  background: #232526;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .initial-page__layout {
@@ -80,14 +82,14 @@ code {
   align-items: center;
   flex-direction: column;
   margin: 25px 0;
-  /* background: url('https://yt3.ggpht.com/a/AGF-l7-OY3Y94086xfi3-a522vkEbcwryGiLOjxe3A=s900-c-k-c0xffffffff-no-rj-mo'); */
-  background: url('https://mystickermania.com/cdn/stickers/rick-and-morty/sticker_2060-512x512.png');
-  background-size: 300px;
+  background: #232526;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .learn-page__layout--study-block {
   font-family: 'Courier New', Courier, monospace;
-  background-color: rgb(216, 193, 165);
+  background-color: rgb(187, 173, 156);
   width: 50%;
   border-radius: 10px;
   margin-bottom: 25px;
@@ -136,7 +138,7 @@ code {
   width: 70% !important;
 }
 
-#show_reds, #hide_reds {
+#show_reds, #hide_reds, #hide_for_what, #hide_practise {
   padding: 5px 10px;
   border-radius: 20px;
 }
