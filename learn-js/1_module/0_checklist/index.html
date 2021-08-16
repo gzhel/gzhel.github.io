@@ -247,6 +247,7 @@
                         <li class="blue">Квадратные скобки: обращение через obj[key] используют когда key это переменная, либо в любом итеративном методе</li>
                         <li class="red hidden">Свойство из переменной: запись {name: name, age: age} можем записать как {name, age}</li>
                         <li class="green">Оператор «in»: "key" in object, проверяет есть ли ключ А в объекте Б, возвращает true/false</li>
+                        <li class="red hidden">Цикл for..in: работает только с объектами. Пример: for (let n in nums) {...}, а for..of работает с Array, Map, Set, String</li>
                     </ul>
                 </div>
                 <div>
@@ -401,6 +402,7 @@
                     <ul>
                         <li class="green">Метод arr.includes(item, from): ищет item, начиная с индекса from, и возвращает true, если поиск успешен</li>
                         <li class="green">Метод arr.find(func)/arr.filter(func): фильтрует элементы через функцию и отдаёт первое/все значение, которые true</li>
+                        <li class="violet">Метод arr.findIndex(func): фильтрует элементы через функцию и отдаёт id элемента, которые по условию true</li>
                         <li class="green">Метод arr.some(fn)/arr.every(fn): fn вызывается для каждого элемента массива, если один/все true, возвращает true)</li>
                         <li class="blue">Поиск уникальных объектов в массиве: не через includes, а через filter + some, т.к. {id: 1} === {id: 1} // false</li>
                     </ul>
@@ -410,6 +412,7 @@
                     <label for="5_5_3">5.5.3 Методы массивов: Преобразование массива. Стандартные методы</label>
                     <p class="for-what">Зачем? Часто используется как промежуточное действие в преобразование массива, чаще всего используют slice.</p>
                     <ul>
+                        <li class="violet">Метод arr.forEach(func): делает код внутри func для каждого элемента массива, в общем-то это всё</li>
                         <li class="green">Метод arr.map(func): создаёт новый массив из результатов вызова func для каждого элемента, возвращает обработанные данные</li>
                         <li class="green">Метод arr.sort(arr): сортирует массив, а потом возвращает его, есть несколько форм параметров, основные: arr, compareFn</li>
                         <li class="blue">Метод arr.sort(compareFn): сортирует массив по признаку указанному в функции. Пример: arr.sort((a, b) => a - b);</li>
@@ -453,9 +456,24 @@
                     <label for="5_7">5.7 Map и Set</label>
                     <p class="for-what">Зачем? По сути незачем, но в них есть интересная фича, способ получить уникальные значения (но можно получить и по другому).</p>
                     <ul>
-                        <li class="red hidden">Map: коллекция ключ/значение, как и object, но Map позволяет использовать ключи любого типа, даже object</li>
-                        <li class="red hidden">Set: коллекция «множество» значений (без ключей), где каждое значение может появляться только один раз</li>
+                        <li class="green">Map: коллекция ключ/значение, как и object, но Map позволяет использовать ключи любого типа, даже object</li>
+                        <li class="violet">Задавать значения для экземпляра Map можем через метод set(key, value). Пример: map.set(obj, "my value")</li>
+                        <li class="violet">Прочие методы Map: .get(key // вернёт value), .delete(key // удалить val по key), .has(key // есть ли key?)</li>
+                        <li class="violet">Итеративные методы Map: .keys() // ключи, .values() // значения, .entries() // пары ключ-значение</li>
+                        <li class="green">Set: коллекция «множество» значений (без ключей), где каждое значение может появляться только один раз</li>
+                        <li class="violet">Методы Set: .add(val // добавить значение), .has(val // имеет ли val?), .delete(val // удалить значение)</li>
                         <li class="blue">Синтаксис [...new Set(arr)] используется для получения только уникальных значений arr, не работает на объекты</li>
+                        <li class="violet">WeakMap: это Map, но оптимизированный в плане утечек памяти, например когда мы переопределили key в null</li>
+                        <li class="violet">WeakSet: это Set, но значениями могут являться только объекты, и тоже имеет оптимизацию на удаление элемента</li>
+                    </ul>
+                </div>
+                <div>
+                    <input type="checkbox" name="5_8" id="5_8" checked>
+                    <label for="5_8">5.8 WeakMap и WeakSet</label>
+                    <p class="for-what">Зачем? Иногда применяется для оптимизации кэширования данных, когда данные закешированы, но после удалены.</p>
+                    <ul>
+                        <li class="violet">WeakMap: это Map, но оптимизированный в плане утечек памяти, например когда мы переопределили key в null</li>
+                        <li class="violet">WeakSet: это Set, но значениями могут являться только объекты, и тоже имеет оптимизацию на удаление элемента</li>
                     </ul>
                 </div>
                 <div>
@@ -480,6 +498,7 @@
                         <li class="blue">...rest parameters for object. Пример: let opts = {width: 10, height: 20}; let {width, ...rest} = opts;</li>
                         <li class="green">Умные параметры функций: можем передать объект ключей объекта в функцию ({...}) и она сразу деструктуризирует его</li>
                         <li class="blue">Для let [field1, ...rest] = arr; и let {objVal1, ...rest} = obj; будут отдельным массиом/объектом соответственно</li>
+                        <li class="violet">Задание нового имени деструктурированому объекту: log({name: firstName // тут name и firstName это одно и то же, age})</li>
                     </ul>
                 </div>
                 <div>
@@ -532,6 +551,9 @@
                         <li class="green">...rest parameters: «собери оставшиеся параметры и положи их в массив/объект». Пример: function sumAll(...args) {...}</li>
                         <li class="green">...spread operator: «возьми массив и сократи его запись». Пример: Math.max(...arr1, ...arr2)</li>
                         <li class="blue">Остаточные параметры могут использоваться единственным параметром, если мы не знаем, сколько параметров может ждать функция</li>
+                        <li class="violet">...spread может также применяться для объектов: let myObj = {...oldObj1, ...oldObj2}, spread это все элементы сущности</li>
+                        <li class="violet">Умный merge у spread: при мёрдже объектов, spread запишет ключу значение из самого последнего объекта для мерджа</li>
+                        <li class="violet">Расширение функционала NodeList: divs это NodeList, он не имеет метода map(), но [...divs] это Array и метод map() имеет</li>
                     </ul>
                 </div>
                 <div>
@@ -650,6 +672,7 @@
                         <li class="blue">Object.freeze(obj): запрещает добавлять/удалять/изменять свойства, устанавливает объекту configurable: false, writable: false</li>
                         <li class="green">Object.seal(obj): запрещает добавлять/удалять свойства, устанавливает объекту configurable: false</li>
                         <li class="blue">Object.getOwnPropertyDescriptors(obj): проверить флаги; Object.isFrozen(obj)/isSealed(obj): проверить на freeze/seal</li>
+                        <li class="red hidden">Object.create({}, obj): поля в obj записываются через value, туда же можно писать enumerable, writable, configurable</li>
                     </ul>
                 </div>
                 <div>
@@ -661,6 +684,7 @@
                         <li class="green">Синтаксис get: let obj = {get propName() {return this.propName;}, срабатывает, когда obj.propName читается}</li>
                         <li class="green">Синтаксис set: let obj = {set propName(val) {this.propName = val;}, срабатывает, когда obj.propName присваивается}</li>
                         <li class="blue">Если хотим запретить устанавливать короткое имя для ключа user, можем использовать set name для проверки</li>
+                        <li class="violet">Можно применять get(), set() к вложенным объектам: let user = {name: "G", age: {get() {...}, set(val) {...}}}</li>
                     </ul>
                     <p class="helpful" style="padding: 10px;">
                         <span>Примеры кода:</span><br>
@@ -685,9 +709,13 @@
                         <li class="green">Скрытое свойство [[Prototype]]: равно либо null, либо ссылается на другой, родительский объект (класс)</li>
                         <li class="blue">Св-во __proto__: это геттер/сеттер для [[Prototype]]. Пример: animal = {eat:1}; cat = {meow:1}; rabbit.__proto__ = animal;</li>
                         <li class="violet">Св-во prototype: работает с классами, в prototype можно создавать новые поля (методы итд), расширять класс</li>
-                        <li class="violet">Разница между __proto__ и prototype: первый может задать/посмотреть прототип, а второй может расширить прототип класса</li>
                         <li class="violet">Когда мы у экземпляра вызываем метод прототипа, он начинает искать его от "старших" прототипов иерархии к "младшим"</li>
                         <li class="red hidden">Прототипы и this: прототипы никак не влияют на this, при вызове метода this — всегда объект перед точкой</li>
+                        <li class="violet">__proto__ это устаревший синтаксис, современный синтаксис выглядит как Object.getPrototypeOf(obj)</li>
+                        <li class="blue">__proto__ есть у всех объектов (а то есть почти у всего), prototype есть у всех классов или функций (FD, FE, но не AF)</li>
+                        <li class="blue">Что такое __proto__ на самом деле: то, с помощью какого класса был создан экземпляр, users = new Array([]), у users это Array;</li>
+                        <li class="blue">__proto__ любого объекта ссылается на prototype Класса, с помощью которого объект был создан, [].__proto__ === Array.prototype</li>
+                        <li class="violet">Когда мы вызываем встроенный метод: obj.toString() => obj.__proto__ => Object.prototype = { toString() {...} }</li>
                     </ul>
                 </div>
                 <div>
@@ -735,7 +763,7 @@
                     <p class="for-what">Зачем? Небольшая приватность, защищённые поля внутри класса, не доступные извне</p>
                     <ul>
                         <li class="green">static: можем присвоить метод самой функции-классу, а не её "prototype", static methodName () {...}</li>
-                        <li class="blue">static методы и "поля" будут доступны только самому классу, но не его экземплярам.</li>
+                        <li class="violet">static методы и "поля" будут доступны только самому классу, но не его экземплярам. Пример User.server // "3000"</li>
                     </ul>
                 </div>
                 <div>
@@ -840,6 +868,7 @@
                         <li class="green">Ключевое слово async: ставится перед параметрами функции, позволяет использовать функции ключевое слово await</li>
                         <li class="green">Ключевое слово await: говорит JS ждать пока промис справа от не выполнится. Пример: let value = await promise;</li>
                         <li class="blue">Принято оборачивать часть с await в try {}, если мы поймаем ошибку, она попадёт в catch(err) {} и будет обработана</li>
+                        <li class="violet">Оператор await используется перед промисом, результат этого промиса можно записать в const. Пример: const a = await getApi()</li>
                     </ul>
                 </div>
                 <div>
