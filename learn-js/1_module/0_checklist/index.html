@@ -190,11 +190,9 @@
                 </div>
                 <div>
                     <p class="helpful" style="padding: 10px;">
-                        <span>Практика:</span><br>
-                        <a href="https://jsfiddle.net/gzhel/besmp70x/13/" target="_blank">Эксперименты с потерей this, bind.</a><br>
-                        <a href="https://jsfiddle.net/gzhel/69bLvyfa/105/" target="_blank">Prototype, This, Классы, Контекст, Наследование.</a><br><br>
-                        <span>Примеры кода:</span><br>
-                        <a href="https://jsfiddle.net/gzhel/o1hn3bg6/127/" target="_blank">(примеры кода)</a>
+                        <span>Практика: </span><a href="https://jsfiddle.net/gzhel/besmp70x/13/" target="_blank">Эксперименты с потерей this, bind.</a><br><br>
+                        <span>Практика: </span><a href="https://jsfiddle.net/gzhel/69bLvyfa/105/" target="_blank">Prototype, This, Классы, Контекст, Наследование.</a><br><br>
+                        <span>Примеры кода: </span><a href="https://jsfiddle.net/gzhel/o1hn3bg6/127/" target="_blank">(примеры кода)</a>
                     </p>
                 </div>
             </div>
@@ -269,8 +267,9 @@
                         <li class="green">Для сущности после точки "." this это всегда объект перед точкой. Пример: let userName = user.name; user это this для name</li>
                         <li class="blue">Напоминаю: у FD/FE есть свой контекст, а AF ищет контекст во внешних окружениях поочередно, от ближнего к дальнему</li>
                         <li class="blue">Проблема потери this: когда у FD/FE внутри есть дочерние FD/FE, у них this будет не внешний, а свой, фикс через AF/bind</li>
-                        <li class="blue">Метод func.bind(this, arg1...) привязывает функцию к контексту this (то есть к контексту например другой функции, чего угодно)</li>
-                        <li class="green">Метод func.call(this, arg1...) может расширить функционал. Пример: у NodeList нет map, мы его можем добавить с помощью call</li>
+                        <li class="blue">Метод func.bind(this, arg1...): привязывает функцию к контексту чего угодно и передаёт в неё arg1..., не вызывает func</li>
+                        <li class="green">Метод func.call(this, arg1...): привязывает функцию к контексту чего угодно и передаёт в неё arg1..., вызывает func</li>
+                        <li class="green">Метод func.apply(this, [arg1...]): привязывает функцию к контексту чего угодно и передаёт в неё массив arg1..., вызывает func</li>
                         <li class="violet">Главное правило контекста: this указывает на тот объект, что стоит слева от точки, в контексте которого оно было вызвано</li>
                         <li class="violet">Правило с this отлично работает с расширениеем базовых классов. Пример: Array.prototype.multBy(n) = () => this.map(i => i * n)</li>
                     </ul>
@@ -309,10 +308,8 @@
                 </div>
                 <div>
                     <p class="helpful" style="padding: 10px;">
-                        <span>Примеры кода:</span><br>
-                        <a href="https://jsfiddle.net/gzhel/j7tyw89L/84/" target="_blank">(примеры кода)</a><br><br>
-                        <span>Практика</span><br>
-                        <a href="https://jsfiddle.net/gzhel/hp5xr2k6/52/" target="_blank">Тип данных Symbol</a>
+                        <span>Примеры кода: </span><a href="https://jsfiddle.net/gzhel/j7tyw89L/84/" target="_blank">(примеры кода)</a><br><br>
+                        <span>Практика: </span><a href="https://jsfiddle.net/gzhel/hp5xr2k6/52/" target="_blank">Тип данных Symbol</a>
                     </p>
                 </div>
             </div>
@@ -348,10 +345,8 @@
                 </div>
                 <div>
                     <p class="helpful" style="padding: 10px;">
-                        <span>Задания:</span><br>
-                        <a href="https://jsfiddle.net/gzhel/cqean0o6/4/" target="_blank">cloneDeep, BigDecimal, isNaN</a><br><br>
-                        <span>Практика:</span><br>
-                        <a href="https://jsfiddle.net/gzhel/s7d6x09v/47/" target="_blank">Работа с видами функций</a>
+                        <span>Задания: </span><a href="https://jsfiddle.net/gzhel/cqean0o6/4/" target="_blank">cloneDeep, BigDecimal, isNaN</a><br><br>
+                        <span>Практика: </span><a href="https://jsfiddle.net/gzhel/s7d6x09v/47/" target="_blank">Работа с видами функций</a>
                     </p>
                 </div>
                 <div>
@@ -380,8 +375,7 @@
                 </div>
                 <div>
                     <p class="helpful" style="padding: 10px;">
-                        <span>Задания:</span><br>
-                        <a href="https://jsfiddle.net/gzhel/bjusyqvk/242/" target="_blank">Работа с массивами</a>
+                        <span>Задания: </span><a href="https://jsfiddle.net/gzhel/bjusyqvk/242/" target="_blank">Работа с массивами</a>
                     </p>
                 </div>
                 <div>
@@ -432,8 +426,7 @@
                         <li class="blue">Избегаем ошибок: делайте return accumulator, чтобы reduce() продолжал итерации, можно добавить if и модифицировать итерации</li>
                     </ul>
                     <p class="helpful" style="padding: 10px;">
-                        <span>Практика:</span><br>
-                        <a href="https://jsfiddle.net/gzhel/Lw1u3d5m/170/" target="_blank">Эксперименты с reduce, деструктуризация</a>
+                        <span>Практика: </span><a href="https://jsfiddle.net/gzhel/Lw1u3d5m/170/" target="_blank">Эксперименты с reduce, деструктуризация</a>
                     </p>
                 </div>
                 <div>
@@ -447,8 +440,7 @@
                         <li class="blue">Метод Array.from(arrayLikeObj): принимает итерируемый объект или псевдомассив и делает из него настоящий массив</li>
                     </ul>
                     <p class="helpful" style="padding: 10px;">
-                        <span>Практика:</span><br>
-                        <a href="https://jsfiddle.net/gzhel/hL035w4k/13/" target="_blank">Перебираемые объекты</a>
+                        <span>Практика: </span><a href="https://jsfiddle.net/gzhel/hL035w4k/13/" target="_blank">Перебираемые объекты</a>
                     </p>
                 </div>
                 <div>
@@ -523,8 +515,7 @@
                 </div>
                 <div>
                     <p class="helpful" style="padding: 10px;">
-                        <span>Примеры кода:</span><br>
-                        <a href="https://jsfiddle.net/gzhel/3heobtq8/162/" target="_blank">(примеры кода)</a>
+                        <span>Примеры кода: </span><a href="https://jsfiddle.net/gzhel/3heobtq8/162/" target="_blank">(примеры кода)</a>
                     </p>
                 </div>
             </div>
@@ -640,18 +631,12 @@
                         <li class="blue">Привязка А к контексту Б: let user = {name: "A"}; function f() {alert(this.name)} let fU = f.bind(user);</li>
                     </ul>
                     <p class="helpful" style="padding: 10px;">
-                        <span>Задачи с собесов:</span><br>
-                        <a href="https://jsfiddle.net/gzhel/phxmLsca/36/" target="_blank">(1-13)</a><br><br>
-                        <span>Примеры кода:</span><br>
-                        <a href="https://jsfiddle.net/gzhel/fuv846rs/75/" target="_blank">(примеры кода)</a><br><br>
-                        <span>Задачи с собесов:</span><br>
-                        <a href="https://jsfiddle.net/gzhel/jp15agL9/283/" target="_blank">(21-24)</a><br><br>
-                        <span>Задачи с собесов:</span><br>
-                        <a href="https://jsfiddle.net/gzhel/q1kha97g/69/" target="_blank">(25-29)</a><br><br>
-                        <span>Задачи с собесов:</span><br>
-                        <a href="https://jsfiddle.net/gzhel/984td7La/402/" target="_blank">(30-40)</a><br><br>
-                        <span>Задачи с собесов:</span><br>
-                        <a href="https://jsfiddle.net/gzhel/74gah389/109/" target="_blank">(41-48)</a>
+                        <span>Задачи с собесов: </span><a href="https://jsfiddle.net/gzhel/phxmLsca/36/" target="_blank">(1-13)</a><br><br>
+                        <span>Примеры кода: </span><a href="https://jsfiddle.net/gzhel/fuv846rs/75/" target="_blank">(примеры кода)</a><br><br>
+                        <span>Задачи с собесов: </span><a href="https://jsfiddle.net/gzhel/jp15agL9/283/" target="_blank">(21-24)</a><br><br>
+                        <span>Задачи с собесов: </span><a href="https://jsfiddle.net/gzhel/q1kha97g/69/" target="_blank">(25-29)</a><br><br>
+                        <span>Задачи с собесов: </span><a href="https://jsfiddle.net/gzhel/984td7La/402/" target="_blank">(30-40)</a><br><br>
+                        <span>Задачи с собесов: </span><a href="https://jsfiddle.net/gzhel/74gah389/109/" target="_blank">(41-48)</a>
                     </p>
                 </div>
             </div>
@@ -687,12 +672,9 @@
                         <li class="violet">Можно применять get(), set() к вложенным объектам: let user = {name: "G", age: {get() {...}, set(val) {...}}}</li>
                     </ul>
                     <p class="helpful" style="padding: 10px;">
-                        <span>Примеры кода:</span><br>
-                        <a href="https://jsfiddle.net/gzhel/nhdjf2p1/127/" target="_blank">(примеры кода)</a><br><br>
-                        <span>Практика:</span><br>
-                        <a href="https://jsfiddle.net/gzhel/fnxym9gz/25/" target="_blank">Добавить динамически getter к пустому объекту</a><br><br>
-                        <span>Практика:</span><br>
-                        <a href="https://jsfiddle.net/gzhel/aLpxju01/61/" target="_blank">Флаги и дескрипторы свойств</a>
+                        <span>Примеры кода: </span><a href="https://jsfiddle.net/gzhel/nhdjf2p1/127/" target="_blank">(примеры кода)</a><br><br>
+                        <span>Практика: </span><a href="https://jsfiddle.net/gzhel/fnxym9gz/25/" target="_blank">Добавить динамически getter к пустому объекту</a><br><br>
+                        <span>Практика: </span><a href="https://jsfiddle.net/gzhel/aLpxju01/61/" target="_blank">Флаги и дескрипторы свойств</a>
                     </p>
                 </div>
             </div>
@@ -729,8 +711,7 @@
                     </ul>
                 </div>
                 <p class="helpful" style="padding: 10px;">
-                    <span>Практика:</span><br>
-                    <a href="https://jsfiddle.net/gzhel/htxndj8L/47/" target="_blank">Прототипы, наследование</a>
+                    <span>Практика: </span><a href="https://jsfiddle.net/gzhel/htxndj8L/47/" target="_blank">Прототипы, наследование</a>
                 </p>
             </div>
         </section>
@@ -786,8 +767,7 @@
                 </div>
                 <div>
                     <p class="helpful" style="padding: 10px;">
-                        <span>Практика:</span><br>
-                        <a href="https://jsfiddle.net/gzhel/nx7e5o0r/83/" target="_blank">Работа с классами</a>
+                        <span>Практика: </span><a href="https://jsfiddle.net/gzhel/nx7e5o0r/83/" target="_blank">Работа с классами</a>
                     </p>
                 </div>
             </div>
@@ -873,10 +853,8 @@
                 </div>
                 <div>
                     <p class="helpful" style="padding: 10px;">
-                        <span>Примеры кода:</span><br>
-                        <a href="https://jsfiddle.net/gzhel/fzgupj9w/118/" target="_blank">(примеры кода)</a><br><br>
-                        <span>Задачи с собесов (промисы)</span><br>
-                        <a href="https://jsfiddle.net/gzhel/w6sn491z/209/" target="_blank">(14-20)</a>
+                        <span>Примеры кода: </span><a href="https://jsfiddle.net/gzhel/fzgupj9w/118/" target="_blank">(примеры кода)</a><br><br>
+                        <span>Задачи с собесов (промисы): </span><a href="https://jsfiddle.net/gzhel/w6sn491z/209/" target="_blank">(14-20)</a>
                     </p>
                 </div>
             </div>
@@ -896,14 +874,6 @@
                         <li class="violet">У каждой итерируемой структуры есть Symbol.iterator, который позволяет итерировать эту структуру</li>
                         <li class="violet">У обычной функции нет Symbol.iterator, но у функций-генераторов, он есть, т.е. такие функции итерируемые</li>
                         <li class="violet">Чем отличается yield от await? Почти ничем, но FG имеет метод next(), который позволяет смотреть выполнение поэтапно</li>
-                    </ul>
-                </div>
-                <div class="hidden">
-                    <input type="checkbox" name="11_2" id="11_2">
-                    <label for="11_2">12.2 Асинхронные итераторы и генераторы</label>
-                    <p class="for-what">Зачем? ...</p>
-                    <ul>
-                        <li class="red hidden">Подходит для выполнения сетевых запросов (можем использовать async/await с try catch внутри)</li>
                     </ul>
                 </div>
             </div>
@@ -962,8 +932,7 @@
                         <li class="blue">Можно создать "ловушку" на кастомные методы, на любые, расширяя функционал стандартных взаимодействий (см. пример ниже)</li>
                     </ul>
                     <p class="helpful" style="padding: 10px;">
-                        <span>Практика:</span><br>
-                        <a href="https://jsfiddle.net/gzhel/31vfomgt/163/" target="_blank"> Proxy</a>
+                        <span>Практика: </span><a href="https://jsfiddle.net/gzhel/31vfomgt/163/" target="_blank">Proxy</a>
                     </p>
                 </div>
                 <div>
@@ -975,6 +944,17 @@
                         <li class="blue">Алгоритм каррирования: f(a, b) { b ? return обычная функция : return функция с карированием}</li>
                         <li class="green">Велосипед изобретать необязательно: есть функция lodash _.curry(f), которая делает каррирование функции за нас</li>
                     </ul>
+                </div>
+            </div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <div class="text" style="background-color: white;">
+                <b>Итоги</b>
+                <hr>
+                <div>
+                    <p class="helpful" style="padding: 10px;">
+                        <span>Итоги: </span><a href="https://jsfiddle.net/gzhel/31vfomgt/163/" target="_blank">Proxy</a>
+                    </p>
                 </div>
             </div>
         </section>
