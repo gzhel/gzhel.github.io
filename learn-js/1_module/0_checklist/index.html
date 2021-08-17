@@ -271,7 +271,7 @@
                         <li class="green">Метод func.call(this, arg1...): привязывает функцию к контексту чего угодно и передаёт в неё arg1..., вызывает func</li>
                         <li class="green">Метод func.apply(this, [arg1...]): привязывает функцию к контексту чего угодно и передаёт в неё массив arg1..., вызывает func</li>
                         <li class="violet">Главное правило контекста: this указывает на тот объект, что стоит слева от точки, в контексте которого оно было вызвано</li>
-                        <li class="violet">Правило с this отлично работает с расширениеем базовых классов. Пример: Array.prototype.multBy(n) = () => this.map(i => i * n)</li>
+                        <li class="violet">Правило с this работает с расширениеем базовых классов. Array.prototype.multBy = function(n) {return this.map(i => i * n}</li>
                     </ul>
                 </div>
                 <div>
@@ -398,7 +398,7 @@
                         <li class="green">Метод arr.find(func)/arr.filter(func): фильтрует элементы через функцию и отдаёт первое/все значение, которые true</li>
                         <li class="violet">Метод arr.findIndex(func): фильтрует элементы через функцию и отдаёт id элемента, которые по условию true</li>
                         <li class="green">Метод arr.some(fn)/arr.every(fn): fn вызывается для каждого элемента массива, если один/все true, возвращает true)</li>
-                        <li class="blue">Поиск уникальных объектов в массиве: не через includes, а через filter + some, т.к. {id: 1} === {id: 1} // false</li>
+                        <li class="blue">Поиск уникальных объектов в массиве: через filter(el, index) + findIndex(item), т.к. {id: 1} === {id: 1} // false</li>
                     </ul>
                 </div>
                 <div>
@@ -594,7 +594,7 @@
                     <p class="for-what">Зачем? Сейчас ну прям вообще не используется, разве что могут спросить на собеседовании как оно работает.</p>
                     <ul>
                         <li class="red hidden">Область видимости var это функция/скрипт, но не {}, {var a = 1;} доступна за пределами {}</li>
-                        <li class="blue">«var» обрабатываются в начале запуска функци: (попадает в LE сразу, значение мб задано до объявления</li>
+                        <li class="blue">«var» обрабатываются в начале запуска функции: (попадает в LE сразу, значение мб задано до объявления</li>
                     </ul>
                     
                 </div>
@@ -953,7 +953,44 @@
                 <hr>
                 <div>
                     <p class="helpful" style="padding: 10px;">
-                        <span>Итоги: </span><a href="https://jsfiddle.net/gzhel/31vfomgt/163/" target="_blank">Proxy</a>
+                        <span>2) Основы JavaScript: </span><br>
+                        <a href="https://jsfiddle.net/gzhel/v3mjt85z/163/" target="_blank">
+                            - Переменные: let, const, var; <br>
+                            - Типы данных: number, string, boolean, null, undefined, BigInt, Symbol, object; <br>
+                            - Преобразование типов: +v, !!v, v + ""; <br>
+                            - Инкремент, декремент: ++v, v++; <br>
+                            - Операторы сравнения: >=, ===, !==; <br>
+                            - Условное ветвление: a ? true : false; <br>
+                            - Логические операторы: ||, &&, !; <br>
+                            - Функции: FDeclaration, FExpression, ArrowF, FConstructor; <br><br>
+                        </a>
+
+                        <span>4) Объекты: основы: </span><br>
+                        <a href="https://jsfiddle.net/gzhel/7jfy84kd/138/" target="_blank">
+                            - Доступ к значению объекта через переменную, for..in <br>
+                            - Клонирование объектов: {...obj}, Object.assign({}, obj), JSON.parse(JSON.stringify(obj)), _.cloneDeep; <br>
+                            - this: FD/FE, AF; <br>
+                            - Привязка к контексту функции: func.bind(obj)(), func.call(obj), func.apply([obj]); <br>
+                            - Расширение глобальных классов с помощью this; <br>
+                            - Optional chaining (?.); <br>
+                            - Тип данных Symbol; <br><br>
+                        </a>
+
+                        <span>5) Типы данных: </span><br>
+                        <a href="https://jsfiddle.net/gzhel/n1ejwxs2/232/" target="_blank">
+                            - Запись константы в глобальный класс; <br>
+                            - Методы класса Math: floor, ceil, round, trunc; <br>
+                            - Неточные вычисления, num.toFixed(n); <br>
+                            - Методы строк: startsWith, endsWith, slice, toUpperCase/toLowerCase; <br>
+                            - Массивы, добавление элементов: splice, slice; <br>
+                            - Массивы, поиск элементов: includes, find, filter, findIndex, some, every; <br>
+                            - Массивы, преобразование массива: forEach, map, sort, reverse, split, join, reduce; <br>
+                            - Symbol.iterator, for..of, Array.from(obj); <br>
+                            - Map, Set, WeakMap, WeakSet; <br>
+                            - Object.keys, Object.values, Object.entries; <br>
+                            - Деструктурирующее присваиване, ...spread; <br>
+                            - Дата и время: new Date(), new Date(YY, MM, DD); <br><br>
+                        </a>
                     </p>
                 </div>
             </div>
