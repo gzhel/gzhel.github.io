@@ -117,25 +117,103 @@
                 <div>
                     <input type="checkbox" name="1_9" id="1_9">
                     <label for="1_9">1.9 Размеры и прокрутка элементов</label>
-                    <p class="for-what">Зачем? ...</p>
+                    <p class="for-what">Зачем? Не уверен, что это может пригодиться часто, возможно для изменения размеров элементов внутри JavaScript.</p>
                     <ul>
-                        <li class="orange">???</li>
+                        <li class="violet">Внешние метрики: block.offsetLeft/offsetTop (отступы элемента отсносит. родителя), block.offestParent (родительский элемент)</li>
+                        <li class="violet">Общие размеры: block.offsetWidth/offsetHeight (padding + border + width/height)</li>
+                        <li class="violet">Свойства scrollWidth/scrollHeight: возвращает ширину/высоту контента, на который можно делать скролл</li>
                     </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="1_10" id="1_10">
                     <label for="1_10">1.10 Размеры и прокрутка окна</label>
-                    <p class="for-what">Зачем? ...</p>
+                    <p class="for-what">Зачем? Может понадобиться например на landing page, когда при нажатии на кнопку меню надо прокрутить страницу до элемента.</p>
                     <ul>
-                        <li class="orange">???</li>
+                        <li class="violet">Ширина и высота окна браузера: document.documentElement.clientWidth/clientHeight (ширина/высота видимого контента)</li>
+                        <li class="violet">Ширина и высота окна браузера (с полосой прокрутки): window.innerWidth/innerHeight (ширина/высота контента со скроллом)</li>
+                        <li class="violet">Кол-во прокрученных пикселей: window.pageYOffset (высота), window.pageXOffset (ширина)</li>
+                        <li class="blue">Метод window.scrollBy/scrollTo(x, y): прокрутит страницу на/до x или y пикселей, можно запускать по условию</li>
+                        <li class="blue">Метод elem.scrollIntoView(true/false): прокрутит страницу до верха elem (если true) или до низа elem (если false)</li>
                     </ul>
                 </div>
                 <div>
                     <input type="checkbox" name="1_11" id="1_11">
                     <label for="1_11">1.11 Координаты</label>
-                    <p class="for-what">Зачем? ...</p>
+                    <p class="for-what">Зачем? Есть две системы координат: относительно окна браузера (clientX/Y), и относительно документа (pageX/pageY).</p>
                     <ul>
-                        <li class="orange">???</li>
+                        <li class="violet">Метод elem.getBoundingClientRect(): получение координат elem относительно окна браузера</li>
+                        <li class="blue">Как получить высоту относительно документа: elem.getBoundingClientRect().top + window.pageYOffest</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <div class="text" style="background-color: white;">
+                <b>2) Введение в события</b><hr>
+                <div>
+                    <input type="checkbox" name="2_1" id="2_1">
+                    <label for="2_1">2.1 Браузерное окружение, спецификации</label>
+                    <p class="for-what">Зачем? Это основа взаимодействий JavaScript с DOM элементами и динамикой любых сайтов.</p>
+                    <ul>
+                        <li class="blue">События мыши: click/contextmenu (клик ЛКМ/ПКМ), mouseover/out (навод./покид.), mousedown/over (нажать/отпустить), mousemove</li>
+                        <li class="green">События на формах: submit (отправка формы form), focus (фокусировка на элемента управления, напр. input)</li>
+                        <li class="green">События клавиатуры: keydown (нажимает на клавишу), keyup (отпускает клавишу)</li>
+                        <li class="blue">События документа: DOMContentLoaded (когда HTML загружен и обработан, DOM полностью построен и доступен)</li>
+                        <li class="green">События CSS: transitioned (когда CSS анимация завершена)</li>
+                        <li class="blue">Обработчики событий: elem.addEventListener("event", callback) позволяет обработать элемент на нужное событие</li>
+                    </ul>
+                </div>
+                <div>
+                    <input type="checkbox" name="2_2" id="2_2">
+                    <label for="2_2">2.2 Всплытие и погружение</label>
+                    <p class="for-what">Зачем? Это основа вообще всего, сверхзнание, доступное всем, но изученное не всеми.</p>
+                    <ul>
+                        <li class="blue">Всплытие: когда на элементе происходит событие, обработчики срабатывают на нём, а срабатывает вверх по цепочке предков</li>
+                        <li class="green">Целевой элемент: это элемент который вызывает событие, он доступен через event.target</li>
+                        <li class="blue">Как прекратить всплытие? Вызвать метод event.stopPropagation() в том месте, где нужно остановить событие</li>
+                    </ul>
+                </div>
+                <div>
+                    <input type="checkbox" name="2_3" id="2_3">
+                    <label for="2_3">2.3 Делегирование событий</label>
+                    <p class="for-what">Зачем? Не нужно вешать много обработчиков.</p>
+                    <ul>
+                        <li class="green">Делегирование: есть много элементов, вместо обработчика на каждого, ставим общий обработчик на родителя</li>
+                        <li class="blue">Алгоритм: вешаем обработчик на контейнер -> в обработчике проверяем event.target -> обрабатываем событие нужных элементов</li>
+                        <li class="blue">Ограничения: событие должно всплывать, не должно быть event.stopPropagation(), создаёт дополнительную нагрузку на браузер</li>
+                    </ul>
+                </div>
+                <div>
+                    <input type="checkbox" name="2_4" id="2_4">
+                    <label for="2_4">2.4 Действия браузера по умолчанию</label>
+                    <p class="for-what">Зачем? Событие по умолчанию может перекрывать кастомное событие, что нам не нужно.</p>
+                    <ul>
+                        <li class="green">Действия браузера по умолчанию, что это? Такие события, как клик по ссылке и переход на страницу, выделение текста</li>
+                        <li class="blue">Отмена действия по умолчанию: воспользоваться объектом event и вызвать event.preventDefault()</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <div class="text" style="background-color: white;">
+                <b>3) Интерфейсные события</b><hr>
+                <div>
+                    <input type="checkbox" name="3_1" id="3_1">
+                    <label for="3_1">3.1 Основы событий мыши</label>
+                    <p class="for-what">Зачем? Может пригодиться для кастомных меню на ПКМ, или отмены выделения текста при двойном нажатии.</p>
+                    <ul>
+                        <li class="green">Дополнительные события мыши: dbclick (срабатывает на двойной клик по элементу)</li>
+                        <li class="green">Получение информации о кнопке: event.which === 1 (ЛКМ), === 2 (СКМ), === 3 (ПКМ)</li>
+                        <li class="blue">Отключаем выделение: текст при двойном клике выделяется, фикс это сделать onmousedown="return false"</li>
+                    </ul>
+                </div>
+                <div>
+                    <input type="checkbox" name="3_1" id="3_1">
+                    <label for="3_1">3.2 Движение мыши: mouseover/out, mouseenter/leave</label>
+                    <p class="for-what">Зачем? Это основа красивых кастомизаций наведения, в общем полезно для стиля.</p>
+                    <ul>
+                        <li class="green">Событие mouseover: когда курсор над элементом, где event.target (эл. куда перешёл), event.relatedTarget (эл. откуда ушёл)</li>
+                        <li class="green">Событие mouseout: когда курсор уходит с элемента, где event.target (эл. откуда ушёл), event.relatedTarget (эл. куда перешёл)</li>
                     </ul>
                 </div>
             </div>
