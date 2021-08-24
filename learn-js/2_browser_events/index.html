@@ -299,6 +299,40 @@
                 </div>
             </div>
         </section>
+        <section class="learn-page__layout--study-block">
+            <div class="text" style="background-color: white;">
+                <b>5) Загрузка документа и ресурсов</b><hr>
+                <div>
+                    <input type="checkbox" name="5_1" id="5_1">
+                    <label for="5_1">5.1 Страница: DOMContentLoaded, load, beforeunload, unload</label>
+                    <p class="for-what">Зачем? Это похоже на componentDidMount, componentWillUnmount, но только в чисто JavaScript.</p>
+                    <ul>
+                        <li class="green">Жизненный цикл HTML-страницы: DOMContentLoaded (всё но не пикчи/стили), load (всё загружено), unload (выход со страницы)</li>
+                        <li class="blue">DOMContentLoaded: document.addEventListener("DOMContentLoaded", function); скрипты/стили загружаются раньше/позже</li>
+                        <li class="blue">window.onload: сработает когда загрузятся все изображения, стили итд, window.onload = function()</li>
+                        <li class="blue">window.onunload: сработает когда выйдем со страницы, window.addEventListener("unload", function)</li>
+                    </ul>
+                </div>
+                <div>
+                    <input type="checkbox" name="5_2" id="5_2">
+                    <label for="5_2">5.2 Скрипты: async, defer</label>
+                    <p class="for-what">Зачем? Когда браузер обрабатывает HTML и доходит до тега script он останавливается на нём пока не загрузит, это проблема.</p>
+                    <ul>
+                        <li class="green">Параметр тега script "defer": после того, как документ загружен и обработан, но перед DOMContentLoaded, пропускает всех</li>
+                        <li class="green">Параметр тега script "async": не тормозит остальных, когда загрузит тогда загрузит, походит для счётчиков и рекламы</li>
+                    </ul>
+                </div>
+                <div>
+                    <input type="checkbox" name="5_3" id="5_3">
+                    <label for="5_3">5.3 Загрузка ресурсов: onload и onerror</label>
+                    <p class="for-what">Зачем? Обработка загрузки скриптов, изображений и так далее.</p>
+                    <ul>
+                        <li class="green">script.onload: script.onload = function(), сработает после того, как скрипт загружен и выполнен</li>
+                        <li class="green">script.onerror: script.onerror = function(), сработает если при загрузке скрипта произошла ошибка</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
     </div>
     <script>
         const showReds = document.querySelector("#show_reds");
