@@ -208,12 +208,93 @@
                     </ul>
                 </div>
                 <div>
-                    <input type="checkbox" name="3_1" id="3_1">
-                    <label for="3_1">3.2 Движение мыши: mouseover/out, mouseenter/leave</label>
+                    <input type="checkbox" name="3_2" id="3_2">
+                    <label for="3_2">3.2 Движение мыши: mouseover/out, mouseenter/leave</label>
                     <p class="for-what">Зачем? Это основа красивых кастомизаций наведения, в общем полезно для стиля.</p>
                     <ul>
                         <li class="green">Событие mouseover: когда курсор над элементом, где event.target (эл. куда перешёл), event.relatedTarget (эл. откуда ушёл)</li>
                         <li class="green">Событие mouseout: когда курсор уходит с элемента, где event.target (эл. откуда ушёл), event.relatedTarget (эл. куда перешёл)</li>
+                    </ul>
+                </div>
+                <div>
+                    <input type="checkbox" name="3_3" id="3_3">
+                    <label for="3_3">3.3 Drag'n'Drop с событиями мыши</label>
+                    <p class="for-what">Зачем? Есть некоторый список задач, который требует Drag n Drop, например kanban доска.</p>
+                    <ul>
+                        <li class="blue">Важно понимать: есть три основные сущности при перетаскивании элемента (draggableElement, zoneFrom, zoneTo)</li>
+                        <li class="violet">Алгоритм (этап 1): задать элементу пропсу draggable="true", чтобы элемент можно было перетаскивать</li>
+                        <li class="violet">Алгоритм (этап 2): задать zoneTo.ondragover функцию с evt.preventDefault(), чтобы отменить стандартное поведение браузера</li>
+                        <li class="violet">Алгоритм (этап 3): задать draggableElement.ondragstart функцию с evt.dataTransfer.setData("prop", evt.target.prop)</li>
+                        <li class="violet">Алгоритм (этап 4): задать zoneTo.ondrop функцию с evt.dataTransfer.getData("prop") и evt.target.append(идентификатор)</li>
+                        <li class="violet">Алгоритм (этап 5+): добавляем оставшийся функционал (тени, перенос обратно и так далее)</li>
+                    </ul>
+                </div>
+                <div>
+                    <input type="checkbox" name="3_4" id="3_4">
+                    <label for="3_4">3.4 Клавиатура: keydown и keyup</label>
+                    <p class="for-what">Зачем? Применяется не так часто, но самый распространённый пример это нажатие кнопки через нажатие клавиши Enter.</p>
+                    <ul>
+                        <li class="green">События keydown (при нажатии клавиши) и keyup (при отпускании клавиши): document.addEventListener('keydown', callback)</li>
+                        <li class="blue">Надёжнее использовать не event.code, а event.key (это связано с разными клавиатурами в разных странах)</li>
+                        <li class="blue">Действия по умолчанию: например на Ctrl + S, чтобы их предотвратить (и написать свою логику) использует e.preventDefault()</li>
+                    </ul>
+                </div>
+                <div>
+                    <input type="checkbox" name="3_5" id="3_5">
+                    <label for="3_5">3.5 События указателя</label>
+                    <p class="for-what">Зачем? Это как события мыши, но ещё и точпада, пера и прочего, а ещё упрощает Drag n Drop ползунка.</p>
+                    <ul>
+                        <li class="green">Названия почти такие же как у mouse событий: mousedown -> pointerdown итд, вместо mouse можно писать pointer всегда</li>
+                        <li class="green">Drag n Drop (этап 1): el.onpointerdown функция el.setPointerCapture(evt.pointerId);</li>
+                        <li class="green">Drag n Drop (этап 2): el.onpointermove функция el.style.left = (evt.clientX - slider.getBoundingClientRect().left) + "px"</li>
+                    </ul>
+                </div>
+                <div>
+                    <input type="checkbox" name="3_6" id="3_6">
+                    <label for="3_6">3.6 Прокрутка</label>
+                    <p class="for-what">Зачем? Показать что-то на определённом этапе, сделать кнопку для прокрутки в начало, сделать кнопку agree terms активной.</p>
+                    <ul>
+                        <li class="green">Синтаксис: window.addEventListener('scroll', function)</li>
+                        <li class="blue">Подгрузить данные: const loadMore = () => if (doc.docEl.getBoundClRect().bottom &lt; doc.docEl.cliHeight + 100) {loadMore()}</li>
+                        <li class="blue">Пролистать вверх: arrowTop.onclick = () => window.scrollTo(pageXOffset, 0);</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="learn-page__layout--study-block">
+            <div class="text" style="background-color: white;">
+                <b>4) Формы, элементы управления</b><hr>
+                <div>
+                    <input type="checkbox" name="4_1" id="4_1">
+                    <label for="4_1">4.1 Свойства и методы формы</label>
+                    <p class="for-what">Зачем? Кратко: через DOM можно достучаться до элементов формы, но сейчас много фреймворков и либ, поэтому это не так важно.</p>
+                    <ul>
+                        <li class="green">Как достучаться до формы? document.forms.my (my это пропса у формы, name="my") или document.forms[0] (вариант хуже)</li>
+                        <li class="green">Как достучаться до элемента формы? document.forms.my.elements.age (age это пропса у формы, name="age")</li>
+                        <li class="blue">Элементы формы (input и textarea): значение можно получить через input.value/textarea.value/checkbox.checked</li>
+                        <li class="blue">Элементы формы (select и option): select.options (DOM тега option), select.value/selectedIndex (value выбранного option/id)</li>
+                        <li class="green">Создание элемента option: option = new Option(text, value, defaultSelected, selected);</li>
+                    </ul>
+                </div>
+                <div>
+                    <input type="checkbox" name="4_2" id="4_2">
+                    <label for="4_2">4.2 Фокусировка: focus/blur</label>
+                    <p class="for-what">Зачем? На фокусировке можно добавить всплывающую подсказку, а размытие может случаться при отправке данных.</p>
+                    <ul>
+                        <li class="green">События focus/blur: можно обработать событие. Пример: input.onblur = function(), input.onfocus = function()</li>
+                        <li class="green">Выбор порядка фокусировки (tabIndex): задаём элементам пропсу tabIndex="0..n" и на tab будет порядок сортировки</li>
+                        <li class="blue">События focusin/focusout: события focus/blur не всплывают, а если нужно всплытие то используют focusin/focusout</li>
+                    </ul>
+                </div>
+                <div>
+                    <input type="checkbox" name="4_3" id="4_3">
+                    <label for="4_3">4.3 События: change, input, cut, copy, paste</label>
+                    <p class="for-what">Зачем? Реакция на нажатие кнопок, на ввод данных, и так далее, сейчас есть множество библиотек которые это делают за нас.</p>
+                    <ul>
+                        <li class="green">Событие onchange: пропса onchange на input (когда сменим focus), на select (когда выберем option)</li>
+                        <li class="green">Событие oninput: пропса oninput на input (когда меняем значение в input), подходит для regexp</li>
+                        <li class="green">События cut, copy, paste: пропса oncut/oncopy/onpaste на input (когда вырезаем/копируем/вставляем)</li>
+                        <li class="blue">Предотвращение cut/copy/paste: можно предотвратить с помощью event.clipboardData() или event.preventDefault()</li>
                     </ul>
                 </div>
             </div>
