@@ -338,10 +338,16 @@
                 <b>6) Разное</b><hr>
                 <div>
                     <input type="checkbox" name="6_3" id="6_3">
-                    <label for="6_3">6.3 Событийный цикл: микрозадачи и макрозадачи</label>
-                    <p class="for-what">Зачем? ...</p>
+                    <label for="6_3">6.3 Событийный цикл (Event Loop): микрозадачи и макрозадачи</label>
+                    <p class="for-what">Зачем? Это основа событий в браузере, отвечает на вопросы типо "что сработает раньше setTimeout или функция?"</p>
                     <ul>
-                        <li class="green">...</li>
+                        <li class="green">Алгоритм: задачи поступают на выполнение -> браузер выполняет их (сначала старые) -> браузер ждёт новых задач</li>
+                        <li class="blue">Задачи (tasks): просто синхронный код, объявление функции, переменной, объявление new Promise (это ещё не промис)</li>
+                        <li class="blue">Макрозадачи (macrotasks): выполнение скрипта (речь про тег script), setTimeout, mousemove;</li>
+                        <li class="blue">Микрозадачи (microtasks): промисы (.then подобные, и await тоже)</li>
+                        <li class="green">Рендреринг (отрисовка страницы): происходит после всех микрозадач, но до следующей макрозадачи</li>
+                        <li class="red hidden">Функция queueMicrotask(func): помещает func в очередь микрозадач (а так func это может быть чем угодно, например task)</li>
+                        <li class="blue">Алгоритм: task (если есть, вне event loop) -> macrotask (если есть) -> all microtasks (все) -> macrotask и так далее</li>
                     </ul>
                 </div>
             </div>
