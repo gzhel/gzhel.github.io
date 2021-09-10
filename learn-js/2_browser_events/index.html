@@ -32,11 +32,11 @@
                     <label for="1_1">1.1 Браузерное окружение, спецификации</label>
                     <p class="for-what">Зачем? Важное знание для того, чтобы понимать, как в целом происходят взаимодействия на любой странице браузера.</p>
                     <ul>
-                        <li class="green">Окружение: раньше JS был только в браузере, сейчас он много где и это "где" называют "окружением" ("браузерное окружение")</li>
-                        <li class="blue">window: это глобальный объект JS, и одновременно окно браузера и сущность содержащая методы управления окном браузера</li>
-                        <li class="green">widow содержит 3 дочерних сущности: DOM (Document Object Model), BOM (Browset Object Model), JavaScript</li>
-                        <li class="green">DOM (Document Object Model): это объект HTML файла страницы, который имеет методы работы с HTML этой страницы</li>
-                        <li class="green">BOM (Browset Object Model): это объекты для работы со всем кроме документа (location, navigator, history, screen, frames)</li>
+                        <li class="red hidden">Окружение: раньше JS был только в браузере, сейчас он много где и это "где" называют "окружением" ("браузерное окружение")</li>
+                        <li class="green">window: это глобальный объект JS, и одновременно окно браузера и сущность содержащая методы управления окном браузера</li>
+                        <li class="green">widow содержит 3 дочерних сущности: DOM (Document Object Model), BOM (Browser Object Model), JavaScript</li>
+                        <li class="blue">DOM (Document Object Model): это объект HTML файла страницы, который имеет методы работы с HTML этой страницы</li>
+                        <li class="blue">BOM (Browset Object Model): это объекты для работы со всем кроме документа (location, navigator, history, screen, frames)</li>
                         <li class="blue">Объекты BOM: location (о URL), navigator (о браузере), history (история переходов), screen (размеры экрана), frames (iframes)</li>
                     </ul>
                 </div>
@@ -47,7 +47,7 @@
                     <ul>
                         <li class="blue">Каждый HTML-тег это имеет объект обёртку в DOM, меняем обёртку - меняется HTML-тег. Пример: document.body.style.color = "red"</li>
                         <li class="blue">DOM это древо HTML-тегов страницы, элементы называются узлами (nodes), текст называется текстовыми узламми (text nodes)</li>
-                        <li class="green">DOM обладает автоисправлением: если мы напишем теги как-то неправильно, не закроем итд, оно исправит чтобы не было ошибки</li>
+                        <li class="red hidden">DOM обладает автоисправлением: если мы напишем теги как-то неправильно, не закроем итд, оно исправит чтобы не было ошибки</li>
                         <li class="blue">Основные типы DOM-узлов: document, узлы-элементы (HTML-теги), текстовые узлы (текст), узлы-комментарии (комментарии)</li>
                     </ul>
                 </div>
@@ -57,10 +57,10 @@
                     <p class="for-what">Зачем? Большинство пунктов используется редко, но иногда бывает очень полезно, например children в React.</p>
                     <ul>
                         <li class="green">Все операции с DOM из нашего JavaScript начинаются с объекта document. Пример: document.body.parentNode</li>
-                        <li class="blue">Дети: childNodes (список дочерних элементов), firstChild/lastChild (первый/последний дочерний элемент) </li>
+                        <li class="green">Дети: childNodes (список дочерних элементов), firstChild/lastChild (первый/последний дочерний элемент) </li>
                         <li class="green">DOM-коллекции: массивы элементов DOM это коллекции и им доступен for..of. Пример: for (let $el of childNodes) {alert($el)}</li>
-                        <li class="blue">Соседи и родитель: соседи имеют общего родителя (nextSibling, previousSibling), родитель доступен через parentNode</li>
-                        <li class="blue">Ссылки на только узлы-элементы: children (коллекция детей), parentElement (родитель-элемент), first/lastElementChild</li>
+                        <li class="green">Соседи и родитель: соседи имеют общего родителя (nextSibling, previousSibling), родитель доступен через parentNode</li>
+                        <li class="green">Ссылки на только узлы-элементы: children (коллекция детей), parentElement (родитель-элемент), first/lastElementChild</li>
                     </ul>
                 </div>
                 <div>
@@ -79,7 +79,7 @@
                     <p class="for-what">Зачем? Для более подробного понимания того, что происходит в браузере, как реагирует браузер на написанный код.</p>
                     <ul>
                         <li class="green">DOM-узлы принадлежат соответствующим встроенным классам: EventTarget(events)/Node(узлы)/Element(методы)/HTMLElement</li>
-                        <li class="blue">EventTarget: это корневой класс, его объекты никогда не создаются, но он нужен для поддержи событий в браузере</li>
+                        <li class="red hidden">EventTarget: это корневой класс, его объекты никогда не создаются, но он нужен для поддержи событий в браузере</li>
                         <li class="green">elem.innerHTML: возвращает HTML-содержимое элемента, ему можно присваивать значение, строкой. el.innerHTML = "NEW"</li>
                     </ul>
                 </div>
@@ -100,7 +100,7 @@
                     <ul>
                         <li class="green">Создание элемента: document.createElement(tag // с заданным тегом), document.createTextNode(text // с заданым текстом)</li>
                         <li class="green">Вставка элемента: document.el1.append/prepend(el2), вставляющий el2 в el1 в конец/начало родительского узла</li>
-                        <li class="green">el.insertAdjacentHTML(where, html): where принимает строковые значения (гугл), html это html который мы хотим вставить</li>
+                        <li class="blue">el.insertAdjacentHTML(where, html): where принимает строковые значения (гугл), html это html который мы хотим вставить</li>
                         <li class="green">Удаление элемета: el.remove() просто удаляет элемент, всё</li>
                     </ul>
                 </div>
@@ -111,7 +111,7 @@
                     <ul>
                         <li class="green">Задание стилей через style: можно добавить стили через stye. Пример: let left = ...; elem.style.left = left;</li>
                         <li class="blue">className: раньше слово "class" имело ограничение и его поле назвали className. Пример: el.className;</li>
-                        <li class="green">classList: возвращаем массив классов элемента, его длину и класс родителя. Синтаксис: el.classList;</li>
+                        <li class="blue">classList: возвращаем массив классов элемента, его длину и класс родителя. Синтаксис: el.classList;</li>
                     </ul>
                 </div>
                 <div>
@@ -145,6 +145,11 @@
                         <li class="blue">Как получить высоту относительно документа: elem.getBoundingClientRect().top + window.pageYOffest</li>
                     </ul>
                 </div>
+                <div>
+                    <p class="helpful" style="padding: 10px;">
+                        <span>Практика: </span><a href="https://jsfiddle.net/gzhel/zpgkfvLm/143/" target="_blank">DOM, BOM, высота, скроллы</a>
+                    </p>
+                </div>
             </div>
         </section>
         <section class="learn-page__layout--study-block">
@@ -156,10 +161,10 @@
                     <p class="for-what">Зачем? Это основа взаимодействий JavaScript с DOM элементами и динамикой любых сайтов.</p>
                     <ul>
                         <li class="blue">События мыши: click/contextmenu (клик ЛКМ/ПКМ), mouseover/out (навод./покид.), mousedown/over (нажать/отпустить), mousemove</li>
-                        <li class="green">События на формах: submit (отправка формы form), focus (фокусировка на элемента управления, напр. input)</li>
+                        <li class="blue">События на формах: submit (отправка формы form), focus (фокусировка на элемента управления, напр. input)</li>
                         <li class="green">События клавиатуры: keydown (нажимает на клавишу), keyup (отпускает клавишу)</li>
                         <li class="blue">События документа: DOMContentLoaded (когда HTML загружен и обработан, DOM полностью построен и доступен)</li>
-                        <li class="green">События CSS: transitioned (когда CSS анимация завершена)</li>
+                        <li class="red hidden">События CSS: transitioned (когда CSS анимация завершена)</li>
                         <li class="blue">Обработчики событий: elem.addEventListener("event", callback) позволяет обработать элемент на нужное событие</li>
                     </ul>
                 </div>
@@ -173,7 +178,7 @@
                         <li class="blue">Как прекратить всплытие? Вызвать метод event.stopPropagation() в том месте, где нужно остановить событие</li>
                     </ul>
                 </div>
-                <div>
+                <div class="hidden">
                     <input type="checkbox" name="2_3" id="2_3">
                     <label for="2_3">2.3 Делегирование событий</label>
                     <p class="for-what">Зачем? Не нужно вешать много обработчиков.</p>
@@ -186,11 +191,16 @@
                 <div>
                     <input type="checkbox" name="2_4" id="2_4">
                     <label for="2_4">2.4 Действия браузера по умолчанию</label>
-                    <p class="for-what">Зачем? Событие по умолчанию может перекрывать кастомное событие, что нам не нужно.</p>
+                    <p class="for-what">Зачем? Событие по умолчанию это: клик по ссылке, выделение текста, оно может перекрывать кастомное событие, что нам не нужно.</p>
                     <ul>
-                        <li class="green">Действия браузера по умолчанию, что это? Такие события, как клик по ссылке и переход на страницу, выделение текста</li>
+                        <li class="red hidden">Действия браузера по умолчанию, что это? Такие события, как клик по ссылке и переход на страницу, выделение текста</li>
                         <li class="blue">Отмена действия по умолчанию: воспользоваться объектом event и вызвать event.preventDefault()</li>
                     </ul>
+                </div>
+                <div>
+                    <p class="helpful" style="padding: 10px;">
+                        <span>Практика: </span><a href="https://jsfiddle.net/gzhel/fc0j9bgv/52/" target="_blank">Введение в события</a>
+                    </p>
                 </div>
             </div>
         </section>
