@@ -249,7 +249,7 @@
                         <li class="blue">Действия по умолчанию: например на Ctrl + S, чтобы их предотвратить (и написать свою логику) использует e.preventDefault()</li>
                     </ul>
                 </div>
-                <div>
+                <div class="hidden">
                     <input type="checkbox" name="3_5" id="3_5">
                     <label for="3_5">3.5 События указателя</label>
                     <p class="for-what">Зачем? Это как события мыши, но ещё и точпада, пера и прочего, а ещё упрощает Drag n Drop ползунка.</p>
@@ -266,8 +266,14 @@
                     <ul>
                         <li class="green">Синтаксис: window.addEventListener('scroll', function)</li>
                         <li class="blue">Подгрузить данные: const loadMore = () => if (doc.docEl.getBoundClRect().bottom &lt; doc.docEl.cliHeight + 100) {loadMore()}</li>
-                        <li class="blue">Пролистать вверх: arrowTop.onclick = () => window.scrollTo(pageXOffset, 0);</li>
+                        <li class="blue">Пролистать вверх: arrowTop.addEventListener('click', () => window.scrollTo(pageYOffset, 0));</li>
                     </ul>
+                </div>
+                <div>
+                    <p class="helpful" style="padding: 10px;">
+                        <span>Практика: </span><a href="https://jsfiddle.net/gzhel/1qred62g/55/" target="_blank">DnD, keyboard events</a>
+                        <span>Практика: </span><a href="https://jsfiddle.net/gzhel/uwr9kjx0/25/" target="_blank">прокрутка</a>
+                    </p>
                 </div>
             </div>
         </section>
