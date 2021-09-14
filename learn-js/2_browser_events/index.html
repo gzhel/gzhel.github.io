@@ -271,7 +271,7 @@
                 </div>
                 <div>
                     <p class="helpful" style="padding: 10px;">
-                        <span>Практика: </span><a href="https://jsfiddle.net/gzhel/1qred62g/55/" target="_blank">DnD, keyboard events</a>
+                        <span>Практика: </span><a href="https://jsfiddle.net/gzhel/1qred62g/55/" target="_blank">DnD, keyboard events</a><br><br>
                         <span>Практика: </span><a href="https://jsfiddle.net/gzhel/uwr9kjx0/25/" target="_blank">прокрутка</a>
                     </p>
                 </div>
@@ -285,14 +285,14 @@
                     <label for="4_1">4.1 Свойства и методы формы</label>
                     <p class="for-what">Зачем? Кратко: через DOM можно достучаться до элементов формы, но сейчас много фреймворков и либ, поэтому это не так важно.</p>
                     <ul>
-                        <li class="green">Как достучаться до формы? document.forms.my (my это пропса у формы, name="my") или document.forms[0] (вариант хуже)</li>
+                        <li class="green">Как достучаться до формы? document.forms.my (my это пропса у формы, name="my")</li>
                         <li class="green">Как достучаться до элемента формы? document.forms.my.elements.age (age это пропса у формы, name="age")</li>
                         <li class="blue">Элементы формы (input и textarea): значение можно получить через input.value/textarea.value/checkbox.checked</li>
                         <li class="blue">Элементы формы (select и option): select.options (DOM тега option), select.value/selectedIndex (value выбранного option/id)</li>
-                        <li class="green">Создание элемента option: option = new Option(text, value, defaultSelected, selected);</li>
+                        <li class="red hidden">Создание элемента option: option = new Option(text, value, defaultSelected, selected);</li>
                     </ul>
                 </div>
-                <div>
+                <div class="red hidden">
                     <input type="checkbox" name="4_2" id="4_2">
                     <label for="4_2">4.2 Фокусировка: focus/blur</label>
                     <p class="for-what">Зачем? На фокусировке можно добавить всплывающую подсказку, а размытие может случаться при отправке данных.</p>
@@ -312,6 +312,11 @@
                         <li class="green">События cut, copy, paste: пропса oncut/oncopy/onpaste на input (когда вырезаем/копируем/вставляем)</li>
                         <li class="blue">Предотвращение cut/copy/paste: можно предотвратить с помощью event.clipboardData() или event.preventDefault()</li>
                     </ul>
+                </div>
+                <div>
+                    <p class="helpful" style="padding: 10px;">
+                        <span>Практика: </span><a href="https://jsfiddle.net/gzhel/1qred62g/55/" target="_blank">Forms</a>
+                    </p>
                 </div>
             </div>
         </section>
