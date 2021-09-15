@@ -45,6 +45,10 @@
                     <ul>
                         <li class="green">Одинаковый "источник": http://site.com, http://site.com/, http://site.com/my/page.html</li>
                         <li class="green">Разный "источник": http://www.site.com, http://site.org, https://site.com (протокол), http://site.com:8080 (порт)</li>
+                        <li class="blue">iframe: внутри iframe находится отдельное окно со своими document и window, обратиться к ним можно через ссылки для этих объектов</li>
+                        <li class="green">Ссылки на document и window у iframe: iframe.contentWindow для window, iframe.contentWindow.document для document</li>
+                        <li class="blue">Когда iframe создан, в нём сразу есть document, но это не тот документ что нам нужен, его нужно подождать через setInterval 100</li>
+                        <li class="green">iframe sandbox: можем наложить ограничения на обмен данными в iframe (allow-same-origin, allow-forms, allow-scripts)</li>
                     </ul>
                 </div>
                 <div>
