@@ -58,6 +58,33 @@
                 </div>
             </div>
         </section>
+        <section class="learn-page__layout--study-block">
+            <div class="text" style="background-color: white;">
+                <b>2) Бинарные данные и файлы</b><hr>
+                <div>
+                    <input type="checkbox" name="2_1" id="2_1">
+                    <label for="2_1">2.1 Blob</label>
+                    <p class="for-what">Зачем? Blob удобен для выгрузки данных с бекенда и для скачивания данных из фронтенда.</p>
+                    <ul>
+                        <li class="blue">Конструктор new Blob(blobParts, options): blobParts это массив в котором то, что качать, options не обязательный объект с типом</li>
+                        <li class="violet">Записывать в файлы системы мы через JavaScript не можем, но мы можем качать файлы, делается это через либу file-saver</li>
+                    </ul>
+                </div>
+                <div class="red hidden">
+                    <input type="checkbox" name="2_2" id="2_2">
+                    <label for="2_2">2.2 File и FileReader</label>
+                    <p class="for-what">Зачем? Считывание данных из файла, практическое применение хз.</p>
+                    <ul>
+                        <li class="green">Практическое применение не ясно, но FileReader позволяет читать данные из разных форматов файлов, хз зачем</li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="helpful" style="padding: 10px;">
+                        <span>Практика: </span><a href="https://jsfiddle.net/gzhel/yx5nm9fo/33/" target="_blank">FileReader</a>
+                    </p>
+                </div>
+            </div>
+        </section>
     </div>
     <script>
         const showReds = document.querySelector("#show_reds");
