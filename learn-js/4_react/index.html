@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Тематические разделы</title>
+</head>
+<body>
+<div class="learn-page__layout checklist" style="padding-bottom: 50px;">
+    <h1><a href="../index.html" style="color: aliceblue;">Back to main page</a></h1>
+    <section class="learn-page__layout--study-block">
+        <h3>Обозначения (субъективно):</h3>
+        <div><span class="blue">Синий</span>: актуально, не очевидно, secret knowledge</div>
+        <div><span class="green">Зеленый</span>: актуально, стоит изучать внимательно</div>
+        <div><span style="color: red">Красный</span>: допустимо, в 99% случаев не используется</div>
+        <div><span class="violet">Фиолетовый</span>: актуально, расширенный полезный материал</div>
+        <div style="margin-bottom: 6px;"><span class="orange">Оранжевый</span>: пока не понятно, в процессе изучения материала</div>
+        <div>
+            <span><button id="show_reds">Показать "красные" пункты</button></span>
+            <span><button id="hide_reds">Скрыть "красные" пункты</button></span>
+            <span><button id="hide_for_what">Скрыть разделы "Зачем?"</button></span>
+            <span><button id="hide_practise">Скрыть разделы "Практика"</button></span>
+        </div>
+    </section>
+    <section class="learn-page__layout--study-block">
+        <div class="text" style="background-color: white;">
+            <b>1) Основные понятия</b><hr>
+            <div>
+                <input type="checkbox" name="1_1" id="1_1">
+                <label for="1_1">1.1 Знакомство с JSX</label>
+                <p class="for-what">Зачем? Делает работу с разметкой страницы наглядее, если бы не он, то нужно было бы писать React.createElement(...)</p>
+                <ul>
+                    <li class="green">Можно встраивать переменные в JSX, делается это через {fieldName}, в фигурных скобках могут быть любые допустимые JS выражения</li>
+                    <li class="green">JSX-фрагмент можно использовать в циклах, вместе с if и для присваивания переменной</li>
+                    <li class="blue">В JSX атрибуты пишутся через camelCase, строки нужно присваивать через ="", а не ={""}, переменные через ={varName}</li>
+                    <li class="blue">В JSX все данные для отображения преобразуются в строки, что защищает от выполнения левых скриптов</li>
+                </ul>
+            </div>
+            <div>
+                <input type="checkbox" name="1_2" id="1_2">
+                <label for="1_2">1.2 Рендеринг элемента в DOM</label>
+                <p class="for-what">Зачем? Позволяет понять, что происходит во время изменения состояния компонента</p>
+                <ul>
+                    <li class="blue">В React-приложении может быть сколько угодно root-элементов, но обычно один, который создаётся через ReactDOM.render(app, root)</li>
+                    <li class="blue">При смене состояния, React сравнивает компонент и все его поля с их предудущей версией, и ререндерит только измененные элементы</li>
+                </ul>
+            </div>
+            <div>
+                <input type="checkbox" name="1_3" id="1_3">
+                <label for="1_3">1.3 Компоненты и пропсы</label>
+                <p class="for-what">Зачем? Компоненты позволяют разбить приложение на мелкие части, модули, с которыми легко работать по отдельности</p>
+                <ul>
+                    <li class="green">Сейчас в основном код пишут на функциональных компонентах вида const Welcome = (props) => <\div>{props.name}<\/></li>
+                    <li class="blue">React-компоненты могут содержать "пропсы", которые можно использовать внутри компонента: <\Welcome name="Alex" \/></li>
+                    <li class="green">React-компоненты могут переиспользоваться с разными пропсами, а также много раз использоваться в другом компоненте</li>
+                    <li class="green">Можно дробить React-компоненты на более мелкие, можно хоть прям супер мелко раздробить, но только если это нужно</li>
+                    <li class="blue">Правило: React-компоненты должны вести себя как чистые функции в отношении своих пропсов, т.е. не изменять их</li>
+                </ul>
+            </div>
+            <div>
+                <input type="checkbox" name="1_4" id="1_4">
+                <label for="1_4">1.4 Состояние и жизненный цикл</label>
+                <p class="for-what">Зачем? Приложение не статическое, поэтому у него должно быть состояние, жизненный цикл это эффекты, за которые можно цепляться</p>
+                <ul>
+                    <li class="green">В классовом компоненте со стейтом управлялись через this.state в constructor и this.setState(), в FC через useState()</li>
+                    <li class="green">Методы жизненного цикла: componentDidMount/Update (на монтирование/на изм. сост.), componentWillUnmount (на размонтирование)</li>
+                    <li class="blue">Правила состояний: не изменять напрямую (только setState), в setState использовать prevState, один setState - одно поле state</li>
+                    <li class="green">Состояние компонента локально, но можно делать prop drilling, передавая состояние родителя дочерним компонентам</li>
+                    <li class="blue">Правило: React-компоненты должны вести себя как чистые функции в отношении своих пропсов, т.е. не изменять их</li>
+                </ul>
+            </div>
+            <div>
+                <input type="checkbox" name="1_5" id="1_5">
+                <label for="1_5">1.5 Обработка событий</label>
+                <p class="for-what">Зачем? Теперь тут заправляет JSX, и мы передаём функции-обработчики уже JSX компонентам, а не HTML элементам</p>
+                <ul>
+                    <li class="green">В JSX собыитя передаются почти так же как в HTML, он они camelCase и передаются как doIt, а не "doIt()"</li>
+                    <li class="blue">Чтобы в JSX функции-обработчике отменить поведение по умолчанию, нужно добавить e.preventDefault() в сам обработчик</li>
+                    <li class="green">В JSX не нужен addEventListener, можно вешать обработчик прямо на элемент, либо ссылку на обработчик в компоненте</li>
+                </ul>
+            </div>
+            <div>
+                <p class="helpful" style="padding: 10px;">
+                    <span>Практика: </span><a href="https://jsfiddle.net/gzhel/zpgkfvLm/143/" target="_blank">DOM, BOM, высота, скроллы</a>
+                </p>
+            </div>
+        </div>
+    </section>
+</div>
+<script>
+    const showReds = document.querySelector("#show_reds");
+    const hideReds = document.querySelector("#hide_reds");
+    const reds = document.querySelectorAll('.hidden');
+    showReds.addEventListener('click', () => reds.forEach(red => red.tagName === "LI"? red.style.display = 'list-item' : red.style.display = 'block'));
+    hideReds.addEventListener('click', () => reds.forEach(red => red.style.display = 'none'));
+
+    const hideForWhat = document.querySelector("#hide_for_what");
+    const forWhat = document.querySelectorAll(".for-what");
+    hideForWhat.addEventListener('click', () => forWhat.forEach(el => el.style.display = 'none'));
+
+    const hidePractise = document.querySelector("#hide_practise");
+    const practise = document.querySelectorAll(".helpful");
+    hidePractise.addEventListener('click', () => practise.forEach(el => el.style.display = 'none'));
+</script>
+</body>
+</html>
