@@ -182,7 +182,26 @@
                     <li class="violet">Для работы с сервером обычно используют axios, для этого достаточно axios.get(), axios.post(), то что нам нужно находится в response.data</li>
                     <li class="violet">Жизненный цикл компонента состоит из трёх стадий: mount, update, unmount, и всех их можно обработать в useEffect, при этом useEffect можно использовать несколько раз в одном компоненте</li>
                     <li class="violet">Все API стоит выносить в отдельные файлы типа xxx.service, который будет является классом, а запрашиваемые данные будут static async методами</li>
-                    <li class="violet"><a href="https://youtu.be/GNrdg3PzpJQ?t=6854">YouTube</a></li>
+                    <li class="violet">Query параметры указываются полсе знака "?", разделяются знаком "&", например: /posts?_limit=5&_page=2</li>
+                    <li class="violet">Есть следующие виды Query-параметров: _limit=N (кол-во JSON объектов), _page=N (номер страницы), x-total-count в Network запросе это общее кол-во объектов, которое может вернуть сервер</li>
+                    <li class="violet">В axios после URL вторым параметром можно указать params, где как раз можно вписать _limit и _page, там же можно достать из response.headers['x-total-count'] и поделить его на limit, тогда мы узнаем, сколько страниц должно быть в пагинации (не забыть обернуть в Math.ceil)</li>
+                    <li class="violet">Изменение состояния это асинхронный процесс !!! то есть если мы в рамках одного метода changePage(page) {setPage(page); fetchPosts();} сменили page через setPage, а fetchPosts() использует этот page, то он получит старое состояние page</li>
+                    <li class="violet">Как это исправить? Сделать эффект, т.е. добавить useEffect, который делает fetchPosts() если меняется [page] в deps</li>
+                    <li class="violet">Как исправить без useEffect? Сделать changePage(page) {setPage(page); fetchPosts(limit, page);} и внутри fetchPosts в асинхронную функцию fetching передать ...args и в callback передать ...args, т.к. кол-во аргументов неизвестно</li>
+                    <li class="violet">Переиспользуемость это очень важно, поэтому стоит декомпозировать код</li>
+                    <li class="violet">Для навигации по страницам в React исползуют react-router-dom (не путать с react-router), нужно App обернуть в BrowserRouter, для навигации используется Route с path по которому страница должна отрисовываться</li>
+                    <li class="violet">На этом же этапе можно добавить какой-то Layout, или Navbar, которые будут являться обёрткой для роутов</li>
+                    <li class="violet">Для переключения страниц нужно использовать Link вместо тега "a", вместо href будет to, тогда переходы между страницами будут без перезагрузки страницы</li>
+                    <li class="violet">Route компоненты нужно обернуть в Switch, если ни один из маршрутов не сработает, то сработает Redirect на страницу с ошибкой</li>
+                    <li class="violet">Редиректы можно делать не только через Link и Redirect, но и ещё через history.push('/') из useHistory() из 'react-router-dom' НЕ ИЗ 'react'</li>
+                    <li class="violet">Хук useParams из 'react-router-dom' возвращает объект с параметрами из URL (id и так далее), подходит для получения данных с сервера по ID</li>
+                    <li class="violet">Приватные и публичные маршруты: можно создать export const privateRoutes, содержащий объекты типа {path: ..., component: ..., exact: ...}, роуты будут добавляться как router.map(route => Route with route props)</li>
+                    <li class="violet">Для публичных роутов (как правило это страница Логина) нужно создать другой массив, а в компоненте Router достать какой-то флажок типа "isAuth" и отрисовывать privateRoutes только если этот флажок true</li>
+                    <li class="violet">Для доступа к "глобальным переменным" используют либо shared store, либо useContext, глобальные данные передаются в Context, из контекста куда угодно</li>
+                    <li class="violet">Но тут есть проблема: при обновлении страницы все стейты сбрасываются, поэтому их нужно где-то хранить, например в localStorage, если ключ есть в LS, то ставим isAuth true</li>
+                    <li class="violet">В случае когда мы авторизируемся, не нужно показывать Routes, поэтому если так, то просто возвращает какой-то прелоадер</li>
+                    <li class="violet">Чтобы сделать бесконечную ленту нужно помещать данные в конец тех, что уже есть, т.е. setData([...oldData, ...newData]), подобный функционал помогает сделать Observer API</li>
+                    <li class="violet">Для такой загрузки в самом низу страницы можно создать невидимый блок, доходя до которого будет происходить подгрузка данных, для получения этого элемента используют useRef(), далее используем код из Observer API</li>
                 </ul>
             </div>
             <div>
